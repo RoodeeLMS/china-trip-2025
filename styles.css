@@ -146,7 +146,7 @@ h3 {
 }
 
 .day.expanded .day-content {
-    max-height: 3000px;
+    max-height: 5000px;
     padding: 1.5rem;
     transition: max-height 0.5s ease-in;
     background: linear-gradient(to bottom, #f8f9fa, #ffffff);
