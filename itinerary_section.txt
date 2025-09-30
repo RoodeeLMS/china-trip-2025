@@ -1,0 +1,210 @@
+<section id="itinerary">
+            <h2>Detailed Daily Itinerary Breakdown</h2>
+
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Chongqing & Surroundings</h3>
+                    <p>Days 1-4: Mountain City, Wulong Karst, Hot Pot Heaven</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 1 (Tue, Oct 14): Arrival in Chongqing</h3>
+                <p><strong>Plan:</strong> Land at Chongqing Jiangbei Int'l Airport (CKG) at 16:00. Clear immigration & customs. Transfer to your pre-booked hotel. Check in, drop luggage. Depending on energy levels, perhaps a simple dinner near the hotel or a short walk.</p>
+                <p><strong>Focus:</strong> Smooth arrival, airport transfer, hotel check-in, acclimatize.</p>
+                <p><strong>Sightseeing Rec (Evening):</strong> If energy permits and staying centrally (e.g., Jiefangbei), explore the <strong>Jiefangbei Pedestrian Street</strong> or take a brief look at <strong>Hongyadong's lights</strong> from across the street (full exploration Day 3).</p>
+                <p><strong>Tip:</strong> Download Didi (China's Uber) and Alipay/WeChat Pay beforehand if possible. Have hotel address ready in Chinese characters.</p>
+            </div>
+             <div class="day">
+                <h3>Day 2 (Wed, Oct 15): Wulong Karst Day Trip</h3>
+                <p><strong>Plan:</strong> Early start. Travel to Wulong (~3 hrs drive or ~2hr HSR + local transfer). Visit the Wulong Karst National Geology Park. Focus on the main highlights: Three Natural Bridges (Tianlong, Qinglong, Heilong - requires significant walking/stairs, involves an elevator down) and Longshuixia Fissure Gorge (a narrow gorge walk). Lunch likely near the park. Return journey to Chongqing in the late afternoon/early evening.</p>
+                <p><strong>Focus:</strong> Natural landscapes, moderate hiking/walking.</p>
+                <p><strong>Transport:</strong> Pre-booked car/tour strongly recommended for efficiency. If using HSR, carefully check train times and local transfer options at Wulong station.</p>
+            </div>
+            <div class="day">
+                <h3>Day 3 (Thu, Oct 16): Chongqing City Exploration / Prep</h3>
+                <p><strong>Plan:</strong> Explore Chongqing's unique cityscape.</p>
+                <p><strong>Sightseeing Rec:</strong></p>
+                <ul>
+                    <li><em>Morning:</em> <strong>Ciqikou Old Town</strong> (historic streets, shops, snacks, allow 2-3 hours).</li>
+                    <li><em>Afternoon:</em> <strong>Eling Park</strong> for panoramic city views OR experience the <strong>Yangtze Cableway</strong> (expect queues). Explore <strong>Jiefangbei Square</strong> (city center).</li>
+                    <li><em>Evening:</em> See <strong>Hongyadong</strong> (stilted complex) spectacularly lit up (explore inside/nearby). Consider <strong>Chongqing Hot Pot</strong> for dinner (be prepared for spice!). Purchase any needed supplies for trip ahead.</li>
+                </ul>
+                <p><strong>Focus:</strong> Urban exploration, culture, food, trip preparation.</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1583306985974-3021d9ce9430?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Hunan Province: Ancient Towns</h3>
+                    <p>Days 4-7: Fenghuang Ancient Town, Furong Zhen Waterfall</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 4 (Fri, Oct 17): Travel Chongqing -> Fenghuang (FH)</h3>
+                <p><strong>Plan:</strong> Morning check-out from Chongqing hotel. Transfer to Chongqing West or North HSR station. Take High-Speed Rail to Huaihua South station (~3-4 hrs). Upon arrival in Huaihua, transfer via Bus or Taxi to Fenghuang Ancient Town (~1-1.5 hrs). Check into your guesthouse/hotel within or near the ancient town. Start exploring the town's atmosphere in the late afternoon/evening.</p>
+                <p><strong>Focus:</strong> Efficient travel, transition to Hunan, first impressions of Fenghuang.</p>
+            </div>
+            <div class="day">
+                <h3>Day 5 (Sat, Oct 18): Fenghuang Full Day</h3>
+                <p><strong>Plan:</strong> Dedicate the full day to exploring Fenghuang. Walk along the Tuo River (both banks), cross the various bridges (Rainbow Bridge, stepping stones), wander the narrow alleys away from the main crowds, visit former residences (optional, requires entrance ticket). Consider a boat ride on the river. Experience the town's transformation as evening lights turn on.</p>
+                <p><strong>Focus:</strong> Ancient town atmosphere, photography, leisurely exploration.</p>
+            </div>
+            <div class="day">
+                <h3>Day 6 (Sun, Oct 19): Travel FH -> Furong Zhen (FZ) & Overnight</h3>
+                <p><strong>Plan:</strong> Enjoy a final morning in Fenghuang. Check out. Take a bus (or pre-arranged taxi) from Fenghuang Bus Station to Furong Zhen (~1.5-2 hrs). Check into your hotel. Explore Furong Zhen, famous for the large waterfall cascading through its center. You can walk behind the waterfall curtain and explore the Tujia stilted houses.</p>
+                <p><strong>Focus:</strong> Scenic travel, unique waterfall town.</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1589905347897-797c6c2b4f24?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Zhangjiajie: Avatar Mountains</h3>
+                    <p>Days 7-11: Tianmen Mountain, National Forest Park, Pillar Peaks</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 7 (Mon, Oct 20): Furong Zhen -> Zhangjiajie (ZJJ / Wulingyuan)</h3>
+                <p><strong>Plan:</strong> Morning exploration or relaxation in Furong Zhen. Check out. Travel by bus (or private transfer) from Furong Zhen to Wulingyuan Town (~1-1.5 hrs), the main base for Zhangjiajie National Forest Park. Check into your hotel in Wulingyuan. Settle in, perhaps explore Wulingyuan town itself and prepare for park exploration.</p>
+                <p><strong>Focus:</strong> Short travel, settling into Zhangjiajie area.</p>
+            </div>
+            <div class="day">
+                <h3>Day 8 (Tue, Oct 21): Zhangjiajie: Tianmen Mountain</h3>
+                <p><strong>Plan:</strong> Day trip requiring travel from Wulingyuan to Zhangjiajie City (~1 hr each way). Take the Tianmen Mountain Cableway (one of the world's longest) up. Walk the cliff-hanging paths (including optional glass skywalks). Visit Tianmen Cave ("Heaven's Door") via escalators or stairs. Descend via cable car or bus on the winding mountain road. Return to Wulingyuan hotel in the evening.</p>
+                <p><strong>Focus:</strong> Dramatic mountain scenery, cable car experience, managing logistics between Wulingyuan and Zhangjiajie City. Start early.</p>
+            </div>
+            <div class="day">
+                <h3>Day 9 (Wed, Oct 22): Zhangjiajie: Wulingyuan Park (Upper Areas)</h3>
+                <p><strong>Plan:</strong> Enter Zhangjiajie National Forest Park from the Wulingyuan entrance. Use park eco-buses. Take the Bailong Elevator up to Yuanjiajie. Explore the "Avatar Hallelujah Mountains" area (Southern Sky Column, First Bridge Under Heaven). Take eco-bus to Tianzi Mountain area. Explore Tianzi Mountain (Helong Park viewpoints, Imperial Brush Peaks). Descend via Tianzi Mountain Cableway. Use eco-bus back to Wulingyuan entrance.</p>
+                <p><strong>Focus:</strong> Iconic sandstone pillars, viewpoints, using park transport (elevator/cableway/bus). High Concern for crowds.</p>
+            </div>
+            <div class="day">
+                <h3>Day 10 (Thu, Oct 23): Zhangjiajie: Wulingyuan Park (Lower Areas)</h3>
+                <p><strong>Plan:</strong> Re-enter the park. Focus on lower areas. Walk along the Golden Whip Stream (peaceful valley walk, ~2-3 hours one way recommended portion). Explore the Ten-Mile Gallery (either walk or take the sightseeing monorail for views of the peaks from the valley floor). Exit park via Wulingyuan entrance.</p>
+                <p><strong>Focus:</strong> Valley walks, different perspectives of the peaks. Moderate crowds.</p>
+            </div>
+            <div class="day">
+                <h3>Day 11 (Fri, Oct 24): Travel Zhangjiajie -> Chongqing -> Chengdu (Transit - ALL TRAIN)</h3>
+                <p><strong>Plan:</strong> VERY Early Start. Check out from Wulingyuan hotel. Pre-booked Taxi/Car to <strong>Zhangjiajie West Railway Station (张家界西站)</strong> (~1 hr). Take morning HSR from Zhangjiajie West to <strong>Chongqing West Station (重庆西站)</strong> (~4-5 hrs). Transfer within Chongqing West (allow 1.5-2 hrs buffer). Take afternoon HSR from Chongqing West to <strong>Chengdu East Station (成都东站)</strong> (~1.5 hrs). Arrive Chengdu early evening (~18:00-20:00). Transfer (Metro/Taxi) to pre-booked transit hotel near Chengdu East station. Long travel day.</p>
+                <p><strong>Focus:</strong> Endurance travel day via HSR, managing connections, booking tickets precisely, arriving late but saving costs vs flying.</p>
+                <p><strong>Transport:</strong> MUST BOOK BOTH HSR TICKETS (ZJJ-CKG & CKG-CDU) WELL IN ADVANCE. Pre-book car Wulingyuan->ZJJ West.</p>
+                <p><strong>ACCOMMODATION:</strong> 2 nights at Celebrity Ruicheng Hotel (Central). No hotel change tomorrow.</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1537890885377-4f97fa4e6c5c?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Chengdu: Panda Capital & Gateway</h3>
+                    <p>Days 11-12, 15-16, 19-23: Culture, Food, Transit Hub</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 12 (Sat, Oct 25): Chengdu: Free Day / Prep</h3>
+                <p><strong>Plan:</strong> Flexible day to explore Chengdu's central attractions and prepare for the upcoming intense legs. Since you are already in a central hotel, there is no need to transfer hotels today.</p>
+                <p><strong>Sightseeing Rec:</strong></p>
+                <ul>
+                    <li><em>Culture/Atmosphere:</em> <strong>Jinli Ancient Street</strong> (lively, touristy, snacks, crafts), <strong>Kuanzhai Alleys</strong> (Wide & Narrow Alleys - renovated traditional streets, teahouses, shops), <strong>Wenshu Monastery</strong> (active Buddhist temple with lovely grounds & teahouse).</li>
+                    <li><em>Relaxation:</em> <strong>People's Park</strong> (local life, teahouses by the lake, ear cleaning!).</li>
+                    <li><em>Evening:</em> Enjoy Sichuan cuisine. Final check/prep for JZG/HLG trip (confirm driver, pack layers).</li>
+                </ul>
+                <p><strong>Focus:</strong> Experiencing Chengdu, flexibility, final prep for JZG/HLG. Moderate crowds (weekend).</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1598946428180-1d8b6c96b70f?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Jiuzhaigou & Huanglong: UNESCO Wonders</h3>
+                    <p>Days 13-15: Turquoise Lakes, Colorful Pools, High Altitude</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 13 (Sun, Oct 26): Chengdu Exploration (AM) -> Travel to Jiuzhaigou Area (PM) & Overnight</h3>
+                <p><strong>Plan:</strong></p>
+                <ul>
+                    <li><em>Morning:</em> Optional light Chengdu activity (e.g., revisit People's Park, quick shopping).</li>
+                    <li><em>Early Afternoon:</em> Transfer to <strong>Chengdu East Railway Station</strong>.</li>
+                    <li><em>Afternoon HSR:</em> Take HSR from Chengdu East to <strong>Jiuzhaigou Station (九寨沟站)</strong> (~1.5 hrs). Aim for ~14:00-15:00 train.</li>
+                    <li><em>Late Afternoon/Evening Transfer:</em> Meet <strong>pre-booked driver</strong> at station. Transfer to hotel near <strong>Jiuzhaigou Valley entrance (Zhangzha Town)</strong> (~1.5-2 hrs drive).</li>
+                    <li><em>Evening:</em> Arrive JZG hotel late (~18:00-20:00+). Check in (Night 1 of 2). Dinner, rest.</li>
+                </ul>
+                <p><strong>Focus:</strong> Balance brief Chengdu activity with long transfer to JZG area, settling in.</p>
+                <p><strong>Transport:</strong> HSR (Chengdu->JZG Stn - Book ASAP). Pre-booked Driver (Essential for Stn->Hotel - Arrange for Day 15 too).</p>
+            </div>
+            <div class="day">
+                <h3>Day 14 (Mon, Oct 27): Jiuzhaigou (JZG) Full Day Sightseeing</h3>
+                <p><strong>Plan:</strong> Early start. Enter Jiuzhaigou National Park as early as possible. Utilize park eco-buses to explore Shuzheng, Rize, Zechawa valleys. Prioritize Five Flower Lake, Pearl Shoal Waterfall, Long Lake, Nuorilang Waterfall, etc. Full day in the park enjoying PEAK autumn colours. Exit late afternoon. Return to hotel.</p>
+                <p><strong>Focus:</strong> Maximizing JZG park time during peak season. Immerse in scenery. Very High Crowd Concern (Mon).</p>
+                <p><strong>Transport:</strong> Park Eco-Buses.</p>
+                <p><strong>Hotel:</strong> Same JZG hotel (Night 2 of 2).</p>
+            </div>
+            <div class="day">
+                <h3>Day 15 (Tue, Oct 28): JZG Hotel -> Huanglong -> HuanglongJiuzhai HSR -> Chengdu (VERY INTENSE)</h3>
+                <p><strong>Plan:</strong> VERY Early Start. Check out from JZG hotel with luggage. Meet your pre-arranged local driver. Drive JZG -> <strong>Huanglong Park</strong> (~2.5 hrs). Visit Huanglong (3-4 hrs), using the cable car up to save time. Retrieve luggage. Drive HLG -> <strong>HuanglongJiuzhai Station</strong> (~1 hr). Take an evening HSR to <strong>Chengdu East</strong>. Arrive very late.
+                <p><strong>Focus:</strong> Extreme logistics, altitude management, efficient sightseeing. High Crowd Concern.</p>
+                <p><strong>Transport:</strong> Locally arranged car for the day (ESSENTIAL). HSR to Chengdu East.</p>
+                <p><strong>Hotel:</strong> `Celebrity Ruicheng Hotel` (Central). **Note:** This requires a 30-45 min transfer from the station upon late arrival.</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1568849676085-51415703900f?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Western Sichuan: Alpine Valleys & Glaciers</h3>
+                    <p>Days 16-19: Mount Siguniang, Bipenggou, Dagu Glacier, Autumn Colors</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 16 (Wed, Oct 29): Chengdu -> Shuangqiaogou Valley (Travel Day)</h3>
+                <p><strong>PLAN CHANGE:</strong> This day is no longer a rest day in Chengdu. You will travel to the Mount Siguniang area.</p>
+                <p><strong>Plan:</strong> Check out from your Chengdu hotel. Travel by bus or pre-arranged car from Chengdu to Rilong Town (~4-5 hours), the base for Mount Siguniang. Check into your pre-booked hotel in the Shuangqiaogou area.</p>
+                <p><strong>Focus:</strong> Scenic overland travel into the mountains of Western Sichuan.</p>
+                <p><strong>Hotel:</strong> From a beautiful dream Hotel (Shuangqiaogou, 1 night).</p>
+            </div>
+            <div class="day">
+                <h3>Day 17 (Thu, Oct 30): Shuangqiao Valley -> Taoping Qiang Village -> Bipenggou Area</h3>
+                <p><strong>PLAN CHANGE:</strong> You are already in the Mount Siguniang area.</p>
+                <p><strong>Plan:</strong> Morning exploration of <strong>Shuangqiao Valley</strong> (~3-4 hours). In the afternoon, meet your driver and travel towards the Bipenggou area. On the way, stop for a visit at the ancient **Taoping Qiang Village**. Afterwards, continue to your hotel near Bipenggou.</p>
+                <p><strong>Focus:</strong> Scenic driving, Mount Siguniang, unique Qiang culture, positioning for Bipenggou.</p>
+            </div>
+            <div class="day">
+                <h3>Day 18 (Fri, Oct 31): Bipenggou Valley -> Dagu Glacier Area</h3>
+                <p><strong>Plan:</strong> Morning dedicated to exploring <strong>Bipenggou Valley</strong>. In the afternoon, check out and begin the scenic drive towards the **Dagu Glacier National Park** area. Take your time on the drive, stopping for photos in the **"Valley of Colourful Forests" (Naigu Stone Forest)**. Check into your hotel near Dagu Glacier.</p>
+                <p><strong>Focus:</strong> Autumn colours, mountain valley scenery, scenic driving. Moderate to High crowds.</p>
+            </div>
+            <div class="day">
+                <h3>Day 19 (Sat, Nov 1): Dagu Glacier -> Diexi Lake -> Chengdu</h3>
+                <p><strong>Plan:</strong> Start at opening time to visit <strong>Dagu Glacier National Park</strong>, taking the cable car to the high-altitude summit. After your visit, begin the long drive back to Chengdu. On the way, make a scenic stop at the earthquake-formed **Diexi Lake**. Arrive in Chengdu in the evening and check into your hotel.</p>
+                <p><strong>Focus:</strong> High altitude glacier views, managing altitude, long return drive with a scenic break.</p>
+                <p><strong>Hotel:</strong> Central Chengdu hotel (1 night).</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Leshan & Mount Emei: Buddhist Heritage</h3>
+                    <p>Days 20-21: Giant Buddha, Sacred Mountain Summit</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 20 (Sun, Nov 2): Chengdu -> Leshan Giant Buddha Visit -> Emeishan City Base</h3>
+                <p><strong>Plan:</strong> Early Start. Check out Chengdu hotel. HSR Chengdu -> <strong>Leshan Station</strong> (~1 hr). Store luggage (confirm!). Taxi/Bus to <strong>Leshan Giant Buddha</strong>. Visit (3-5 hrs - <strong>Boat tour recommended</strong> for efficiency on Sunday). Return to Leshan Stn, retrieve luggage. Short HSR Leshan -> <strong>Emeishan Station</strong> (~15-20 min). Taxi/Bus to hotel near Baoguo Temple / Park Entrance. Check in.</p>
+                <p><strong>Focus:</strong> Combining travel & major sight, managing luggage, efficient Leshan visit. Very High Crowd Concern (Leshan Sunday).</p>
+                <p><strong>Transport:</strong> HSR (Book Ahead), Local transport, Luggage Storage crucial.</p>
+                <p><strong>Hotel:</strong> Emeishan City Base hotel (1 night).</p>
+            </div>
+            <div class="day">
+                <h3>Day 21 (Mon, Nov 3): Mount Emei Summit & Return to Chengdu</h3>
+                <p><strong>Plan:</strong> Very early start. Go to park tourist center, buy ticket & bus ticket to Leidongping (~2 hrs bus ride). Walk from Leidongping bus stop to the cable car station (~20-30 mins walk, some steps). Take cable car up to <strong>Golden Summit (Jinding)</strong>. Explore summit area (temples, Buddha statue, hopefully clear views). Descend via cable car and bus back to Baoguo Temple area. Retrieve luggage if stored. Transfer to Emeishan HSR station. Take late afternoon/early evening HSR back to Chengdu. Check back into Chengdu hotel.</p>
+                <p><strong>Focus:</strong> Summiting Emei, high altitude (~3077m), logistics of park transport, long day trip. High Crowd Concern (Summit area).</p>
+                <p><strong>Hotel:</strong> Central Chengdu hotel (Night 1 of 2).</p>
+            </div>
+            <div class="day">
+                <h3>Day 22 (Tue, Nov 4): Chengdu: Panda Base (AM) / Buffer Day / Prep</h3>
+                <p><strong>Plan:</strong> Flexible buffer day.</p>
+                <p><strong>Sightseeing Rec:</strong></p>
+                <ul>
+                    <li><em>Morning (Essential):</em> <strong>GO EARLY</strong> (opening time ~7:30-8:00 AM) to the <strong>Chengdu Research Base of Giant Panda Breeding</strong>. See pandas when most active (finish by 10:30-11:00 AM). Spend 3 hours.</li>
+                    <li><em>Afternoon:</em> Use the rest of the day flexibly. Revisit a favorite spot (e.g., relax in a teahouse at Wenshu or People's Park), do last-minute souvenir shopping (<strong>Chunxi Road</strong> for modern, <strong>Kuanzhai/Jinli</strong> for touristy), enjoy final Sichuan cuisine, or simply relax. Final packing and preparation for departure.</li>
+                </ul>
+                <p><strong>Focus:</strong> Pandas! Flexibility, buffer for delays, relaxation, final tasks. High Crowd Concern (Pandas AM), Moderate (Chengdu PM).</p>
+                <p><strong>Hotel:</strong> Same Central Chengdu hotel (Night 2 of 2).</p>
+            </div>
+            <div class="day">
+                <h3>Day 23 (Wed, Nov 5): Chengdu Departure</h3>
+                <p><strong>Plan:</strong> Enjoy a final Chengdu breakfast. Check out from hotel. Transfer to <strong>Chengdu Tianfu International Airport (TFU)</strong>. Allow ample time for travel to TFU (it's further than the old airport - Metro Line 18 takes ~40-60 mins + station transfer) and check-in/security procedures. Depart TFU at 14:20.</p>
+                <p><strong>Focus:</strong> Smooth check-out, timely airport transfer, departure.</p>
+            </div>
+        </section>
