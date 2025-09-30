@@ -684,3 +684,392 @@ footer a:hover {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+/* Weather Section Styles */
+.weather-regions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.weather-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    border-top: 5px solid;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+}
+
+.weather-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.weather-card h3 {
+    color: #333;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.temp-range {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.75rem 0;
+}
+
+.temp-f {
+    font-size: 1rem;
+    color: #666;
+    font-weight: normal;
+}
+
+.weather-desc {
+    color: #666;
+    margin: 0.75rem 0;
+    line-height: 1.6;
+}
+
+.weather-days {
+    background: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.75rem;
+}
+
+.temp-mild {
+    border-top-color: #28a745;
+}
+
+.temp-mild .temp-range {
+    color: #28a745;
+}
+
+.temp-cool {
+    border-top-color: #17a2b8;
+}
+
+.temp-cool .temp-range {
+    color: #17a2b8;
+}
+
+.temp-cold {
+    border-top-color: #007bff;
+}
+
+.temp-cold .temp-range {
+    color: #007bff;
+}
+
+.temp-freezing {
+    border-top-color: #6610f2;
+}
+
+.temp-freezing .temp-range {
+    color: #6610f2;
+}
+
+.temp-extreme {
+    border-top-color: #dc3545;
+    background: linear-gradient(to bottom, #fff5f5, white);
+}
+
+.temp-extreme .temp-range {
+    color: #dc3545;
+}
+
+.weather-alerts {
+    margin: 3rem 0;
+}
+
+.weather-alerts h3 {
+    color: #dc3545;
+    margin-bottom: 1.5rem;
+}
+
+.alert-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    border-left: 4px solid;
+}
+
+.alert-danger {
+    border-left-color: #dc3545;
+    background: #fff5f5;
+}
+
+.alert-warning {
+    border-left-color: #ffc107;
+    background: #fffbf0;
+}
+
+.alert-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.alert-desc {
+    color: #555;
+    line-height: 1.7;
+}
+
+.packing-guide {
+    background: linear-gradient(135deg, #667eea15, #764ba215);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+}
+
+.packing-guide h3 {
+    color: #667eea;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.packing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.pack-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.pack-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.pack-card h4 {
+    color: #667eea;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.pack-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.pack-card li {
+    padding: 0.4rem 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.pack-card li:before {
+    content: "✓";
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* Time Allocation Section */
+.time-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.time-summary-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-top: 4px solid #667eea;
+    transition: transform 0.3s;
+}
+
+.time-summary-card:hover {
+    transform: translateY(-5px);
+}
+
+.time-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.time-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #667eea;
+    margin: 0.5rem 0;
+}
+
+.time-label {
+    font-weight: 600;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.time-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.critical-days {
+    margin: 3rem 0;
+}
+
+.critical-days h3 {
+    color: #dc3545;
+    margin-bottom: 1.5rem;
+}
+
+.critical-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 5px solid;
+    transition: transform 0.3s;
+}
+
+.critical-card:hover {
+    transform: translateX(5px);
+}
+
+.priority-high {
+    border-left-color: #dc3545;
+    background: linear-gradient(to right, #fff5f5, white);
+}
+
+.priority-medium {
+    border-left-color: #ff6b6b;
+    background: linear-gradient(to right, #fffbf5, white);
+}
+
+.priority-badge {
+    display: inline-block;
+    background: #dc3545;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.priority-medium .priority-badge {
+    background: #ff6b6b;
+}
+
+.critical-content {
+    margin-top: 0.75rem;
+}
+
+.critical-title {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+.critical-desc {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+
+.critical-tips {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 5px;
+    margin-top: 0.75rem;
+    color: #0066cc;
+}
+
+.time-tips {
+    background: linear-gradient(135deg, #667eea15, #764ba215);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem 0;
+}
+
+.time-tips h3 {
+    color: #667eea;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.tip-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.tip-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.tip-number {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.tip-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.tip-text {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
