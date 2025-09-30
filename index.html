@@ -218,6 +218,99 @@
             color: #856404;
         }
 
+        .destination-header {
+            position: relative;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .destination-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            color: white;
+        }
+
+        .destination-overlay h3 {
+            margin: 0;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .destination-overlay p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .map-container {
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .route-map {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .route-map h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
         footer {
             text-align: center;
             padding: 1rem;
@@ -348,6 +441,51 @@
             <a href="grok-comment.html" class="review-btn grok" target="_blank">🔍 Grok Re-Analysis</a>
         </div>
     </div>
+
+    <section style="max-width: 900px; margin: 1rem auto; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2 style="color: #667eea; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">🗺️ Your Route Through China</h2>
+        <div class="route-map">
+            <h4>📍 Journey Overview: Chongqing → Hunan → Zhangjiajie → Chengdu → Western Sichuan</h4>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1Xc8T3Q8vKjYqXZxqXZxqXZxqXZxqXZxq&ehbc=2E312F" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                <strong>Route Highlights:</strong> Bangkok → Chongqing (arrival) → Wulong Karst → Fenghuang Ancient Town →
+                Zhangjiajie National Park → Chengdu → Jiuzhaigou → Huanglong → Mount Siguniang → Western Sichuan Loop →
+                Leshan Buddha → Mount Emei → Chengdu (departure)
+            </p>
+        </div>
+    </section>
+
+    <section style="max-width: 900px; margin: 1rem auto; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2 style="color: #667eea; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">📸 Destination Previews</h2>
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800" alt="Chongqing Night View">
+                <div class="gallery-caption">Chongqing - Mountain City Lights</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1589905347897-797c6c2b4f24?w=800" alt="Zhangjiajie">
+                <div class="gallery-caption">Zhangjiajie - Avatar Mountains</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1598946428180-1d8b6c96b70f?w=800" alt="Jiuzhaigou">
+                <div class="gallery-caption">Jiuzhaigou - Autumn Colors</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1537890885377-4f97fa4e6c5c?w=800" alt="Chengdu Panda">
+                <div class="gallery-caption">Chengdu - Giant Pandas</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1583306985974-3021d9ce9430?w=800" alt="Fenghuang Ancient Town">
+                <div class="gallery-caption">Fenghuang Ancient Town</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800" alt="Mount Emei">
+                <div class="gallery-caption">Mount Emei - Golden Summit</div>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
         <aside class="sidebar">
@@ -563,6 +701,14 @@
 
         <section id="itinerary">
             <h2>Detailed Daily Itinerary Breakdown</h2>
+
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Chongqing & Surroundings</h3>
+                    <p>Days 1-4: Mountain City, Wulong Karst, Hot Pot Heaven</p>
+                </div>
+            </div>
+
             <div class="day">
                 <h3>Day 1 (Tue, Oct 14): Arrival in Chongqing</h3>
                 <p><strong>Plan:</strong> Land at Chongqing Jiangbei Int'l Airport (CKG) at 16:00. Clear immigration & customs. Transfer to your pre-booked hotel. Check in, drop luggage. Depending on energy levels, perhaps a simple dinner near the hotel or a short walk.</p>
@@ -587,6 +733,13 @@
                 </ul>
                 <p><strong>Focus:</strong> Urban exploration, culture, food, trip preparation.</p>
             </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1583306985974-3021d9ce9430?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Hunan Province: Ancient Towns</h3>
+                    <p>Days 4-7: Fenghuang Ancient Town, Furong Zhen Waterfall</p>
+                </div>
+            </div>
+
             <div class="day">
                 <h3>Day 4 (Fri, Oct 17): Travel Chongqing -> Fenghuang (FH)</h3>
                 <p><strong>Plan:</strong> Morning check-out from Chongqing hotel. Transfer to Chongqing West or North HSR station. Take High-Speed Rail to Huaihua South station (~3-4 hrs). Upon arrival in Huaihua, transfer via Bus or Taxi to Fenghuang Ancient Town (~1-1.5 hrs). Check into your guesthouse/hotel within or near the ancient town. Start exploring the town's atmosphere in the late afternoon/evening.</p>
@@ -602,6 +755,13 @@
                 <p><strong>Plan:</strong> Enjoy a final morning in Fenghuang. Check out. Take a bus (or pre-arranged taxi) from Fenghuang Bus Station to Furong Zhen (~1.5-2 hrs). Check into your hotel. Explore Furong Zhen, famous for the large waterfall cascading through its center. You can walk behind the waterfall curtain and explore the Tujia stilted houses.</p>
                 <p><strong>Focus:</strong> Scenic travel, unique waterfall town.</p>
             </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1589905347897-797c6c2b4f24?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Zhangjiajie: Avatar Mountains</h3>
+                    <p>Days 7-11: Tianmen Mountain, National Forest Park, Pillar Peaks</p>
+                </div>
+            </div>
+
             <div class="day">
                 <h3>Day 7 (Mon, Oct 20): Furong Zhen -> Zhangjiajie (ZJJ / Wulingyuan)</h3>
                 <p><strong>Plan:</strong> Morning exploration or relaxation in Furong Zhen. Check out. Travel by bus (or private transfer) from Furong Zhen to Wulingyuan Town (~1-1.5 hrs), the main base for Zhangjiajie National Forest Park. Check into your hotel in Wulingyuan. Settle in, perhaps explore Wulingyuan town itself and prepare for park exploration.</p>
@@ -629,6 +789,13 @@
                 <p><strong>Transport:</strong> MUST BOOK BOTH HSR TICKETS (ZJJ-CKG & CKG-CDU) WELL IN ADVANCE. Pre-book car Wulingyuan->ZJJ West.</p>
                 <p><strong>ACCOMMODATION:</strong> 2 nights at Celebrity Ruicheng Hotel (Central). No hotel change tomorrow.</p>
             </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1537890885377-4f97fa4e6c5c?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Chengdu: Panda Capital & Gateway</h3>
+                    <p>Days 11-12, 15-16, 19-23: Culture, Food, Transit Hub</p>
+                </div>
+            </div>
+
             <div class="day">
                 <h3>Day 12 (Sat, Oct 25): Chengdu: Free Day / Prep</h3>
                 <p><strong>Plan:</strong> Flexible day to explore Chengdu's central attractions and prepare for the upcoming intense legs. Since you are already in a central hotel, there is no need to transfer hotels today.</p>
@@ -640,6 +807,13 @@
                 </ul>
                 <p><strong>Focus:</strong> Experiencing Chengdu, flexibility, final prep for JZG/HLG. Moderate crowds (weekend).</p>
             </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1598946428180-1d8b6c96b70f?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Jiuzhaigou & Huanglong: UNESCO Wonders</h3>
+                    <p>Days 13-15: Turquoise Lakes, Colorful Pools, High Altitude</p>
+                </div>
+            </div>
+
             <div class="day">
                 <h3>Day 13 (Sun, Oct 26): Chengdu Exploration (AM) -> Travel to Jiuzhaigou Area (PM) & Overnight</h3>
                 <p><strong>Plan:</strong></p>
@@ -667,6 +841,13 @@
                 <p><strong>Transport:</strong> Locally arranged car for the day (ESSENTIAL). HSR to Chengdu East.</p>
                 <p><strong>Hotel:</strong> `Celebrity Ruicheng Hotel` (Central). **Note:** This requires a 30-45 min transfer from the station upon late arrival.</p>
             </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1568849676085-51415703900f?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Western Sichuan: Alpine Valleys & Glaciers</h3>
+                    <p>Days 16-19: Mount Siguniang, Bipenggou, Dagu Glacier, Autumn Colors</p>
+                </div>
+            </div>
+
             <div class="day">
                 <h3>Day 16 (Wed, Oct 29): Chengdu -> Shuangqiaogou Valley (Travel Day)</h3>
                 <p><strong>PLAN CHANGE:</strong> This day is no longer a rest day in Chengdu. You will travel to the Mount Siguniang area.</p>
@@ -691,6 +872,13 @@
                 <p><strong>Focus:</strong> High altitude glacier views, managing altitude, long return drive with a scenic break.</p>
                 <p><strong>Hotel:</strong> Central Chengdu hotel (1 night).</p>
             </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Leshan & Mount Emei: Buddhist Heritage</h3>
+                    <p>Days 20-21: Giant Buddha, Sacred Mountain Summit</p>
+                </div>
+            </div>
+
             <div class="day">
                 <h3>Day 20 (Sun, Nov 2): Chengdu -> Leshan Giant Buddha Visit -> Emeishan City Base</h3>
                 <p><strong>Plan:</strong> Early Start. Check out Chengdu hotel. HSR Chengdu -> <strong>Leshan Station</strong> (~1 hr). Store luggage (confirm!). Taxi/Bus to <strong>Leshan Giant Buddha</strong>. Visit (3-5 hrs - <strong>Boat tour recommended</strong> for efficiency on Sunday). Return to Leshan Stn, retrieve luggage. Short HSR Leshan -> <strong>Emeishan Station</strong> (~15-20 min). Taxi/Bus to hotel near Baoguo Temple / Park Entrance. Check in.</p>
