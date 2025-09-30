@@ -93,13 +93,87 @@ h3 {
 }
 
 .day {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 1.5rem;
-    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s;
 }
 
-.day:last-child {
-    border-bottom: none;
+.day:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.day-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: background 0.3s;
+}
+
+.day-header:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+}
+
+.day-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.day-toggle {
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.day.expanded .day-toggle {
+    transform: rotate(180deg);
+}
+
+.day-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 1.5rem;
+}
+
+.day.expanded .day-content {
+    max-height: 3000px;
+    padding: 1.5rem;
+    transition: max-height 0.5s ease-in;
+}
+
+.day-controls {
+    background: #f8f9fa;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-control {
+    padding: 0.5rem 1rem;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-control:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
 }
 
 .destination-header {
