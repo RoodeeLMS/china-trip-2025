@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Trip 2025</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            background: #fff;
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 900px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .review-links {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 1.5rem;
+            margin: 1rem auto;
+            max-width: 900px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .review-links h3 {
+            color: white;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .review-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .review-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            color: #f5576c;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .review-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .review-btn.gpt {
+            color: #10a37f;
+        }
+
+        .review-btn.grok {
+            color: #764ba2;
+        }
+
+        main {
+            padding: 1rem;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        section {
+            background: #fff;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        h3 {
+            color: #0056b3;
+        }
+
+        .day {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .day:last-child {
+            border-bottom: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #667eea;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e8eaf6;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        .booking-list li {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+        }
+
+        .status {
+            margin-right: 15px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #fff;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .todo {
+            background-color: #dc3545;
+        }
+
+        .booked {
+            background-color: #28a745;
+        }
+
+        .alert-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .alert-box strong {
+            color: #856404;
+        }
+
+        .destination-header {
+            position: relative;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .destination-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            color: white;
+        }
+
+        .destination-overlay h3 {
+            margin: 0;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .destination-overlay p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .map-container {
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .route-map {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .route-map h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            background: #333;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+            gap: 2rem;
+        }
+
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0;
+        }
+
+        .sidebar-nav {
+            position: sticky;
+            top: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .sidebar-nav h3 {
+            margin-top: 0;
+            color: #667eea;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav ul li {
+            border-bottom: none;
+            padding: 0;
+        }
+
+        .sidebar-nav a {
+            display: block;
+            padding: 0.6rem 0.8rem;
+            color: #333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .sidebar-nav a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .sidebar-nav a.active {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        .content-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .sidebar-nav {
+                position: static;
+            }
+
+            .sidebar-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .sidebar-nav ul li {
+                flex: 0 0 auto;
+            }
+
+            .sidebar-nav a:hover {
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            nav {
+                flex-direction: column;
+            }
+            .review-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🇨🇳 China Trip 2025</h1>
+        <p>Oct 14 - Nov 5, 2025 | 23 Days</p>
+    </header>
+
+    <div class="review-links">
+        <h3>📋 Expert Reviews & Analysis</h3>
+        <div class="review-buttons">
+            <a href="gpt-comment.html" class="review-btn gpt" target="_blank">📊 GPT Viability Review</a>
+            <a href="grok-comment.html" class="review-btn grok" target="_blank">🔍 Grok Re-Analysis</a>
+        </div>
+    </div>
+
+    <section style="max-width: 900px; margin: 1rem auto; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2 style="color: #667eea; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">🗺️ Your Route Through China</h2>
+        <div class="route-map">
+            <h4>📍 Journey Overview: Chongqing → Hunan → Zhangjiajie → Chengdu → Western Sichuan</h4>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1Xc8T3Q8vKjYqXZxqXZxqXZxqXZxqXZxq&ehbc=2E312F" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                <strong>Route Highlights:</strong> Bangkok → Chongqing (arrival) → Wulong Karst → Fenghuang Ancient Town →
+                Zhangjiajie National Park → Chengdu → Jiuzhaigou → Huanglong → Mount Siguniang → Western Sichuan Loop →
+                Leshan Buddha → Mount Emei → Chengdu (departure)
+            </p>
+        </div>
+    </section>
+
+    <section style="max-width: 900px; margin: 1rem auto; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2 style="color: #667eea; border-bottom: 2px solid #eee; padding-bottom: 0.5rem;">📸 Destination Previews</h2>
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800" alt="Chongqing Night View">
+                <div class="gallery-caption">Chongqing - Mountain City Lights</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1589905347897-797c6c2b4f24?w=800" alt="Zhangjiajie">
+                <div class="gallery-caption">Zhangjiajie - Avatar Mountains</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1598946428180-1d8b6c96b70f?w=800" alt="Jiuzhaigou">
+                <div class="gallery-caption">Jiuzhaigou - Autumn Colors</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1537890885377-4f97fa4e6c5c?w=800" alt="Chengdu Panda">
+                <div class="gallery-caption">Chengdu - Giant Pandas</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1583306985974-3021d9ce9430?w=800" alt="Fenghuang Ancient Town">
+                <div class="gallery-caption">Fenghuang Ancient Town</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800" alt="Mount Emei">
+                <div class="gallery-caption">Mount Emei - Golden Summit</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <h3>📑 Quick Navigation</h3>
+                <ul>
+                    <li><a href="#immediate-priorities">🚨 Immediate Priorities</a></li>
+                    <li><a href="#driver-maximization">🚗 Driver Maximization</a></li>
+                    <li><a href="#local-transport-strategy">🚌 Transport Strategy</a></li>
+                    <li><a href="#booking-checklist">✅ Booking Checklist</a></li>
+                    <li><a href="#flight-details">✈️ Flight Details</a></li>
+                    <li><a href="#driver-details">🚗 Driver Details</a></li>
+                    <li><a href="#booking-details">🏨 Hotel Details</a></li>
+                    <li><a href="#strategic-decisions">💡 Strategic Decisions</a></li>
+                    <li><a href="#ticket-recommendations">🎫 Park Tickets</a></li>
+                    <li><a href="#transport-analysis">🚄 Transport Analysis</a></li>
+                    <li><a href="#itinerary">📅 Daily Itinerary</a></li>
+                    <li><a href="#crowd-analysis">👥 Crowd Analysis</a></li>
+                    <li><a href="#weather-analysis">🌤️ Weather Analysis</a></li>
+                    <li><a href="#time-allocation">⏱️ Time Allocation</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+        <section id="immediate-priorities">
+            <h2>Immediate Booking Priorities (As of Sep 24)</h2>
+            <p>The following high-priority items can be booked now. Trains and park tickets must be booked closer to the date of travel (typically within 15 days).</p>
+            
+            <h3>Remaining Hotels</h3>
+            <ul class="booking-list">
+                <li><span class="status todo">To Do</span> Chengdu, Central (1 night, Nov 1-2)</li>
+                <li><span class="status todo">To Do</span> Emeishan City Base (1 night, Nov 2-3)</li>
+                <li><span class="status todo">To Do</span> Chengdu, Central (2 nights, Nov 3-5)</li>
+            </ul>
+
+            <h3>Key Bus Journeys</h3>
+            <ul class="booking-list">
+                <li><span class="status todo">To Do</span> Book in Advance: Chengdu → Rilong Town (for Oct 29)</li>
+            </ul>
+        </section>
+
+        <section id="driver-maximization">
+            <h2>Maximizing Your Private Driver (Oct 30 - Nov 1)</h2>
+            <p>Here are recommended scenic and cultural stops to add to your itinerary on the days you have a private driver.</p>
+            <ul>
+                <li><strong>Day 1 (Oct 30):</strong> On the way from Shuangqiao Valley to the Bipenggou area, plan a 1-2 hour visit to the **Taoping Qiang Village**, a unique and ancient fortified village.</li>
+                <li><strong>Day 2 (Oct 31):</strong> Treat the drive from Bipenggou to the Dagu Glacier area as a scenic tour. Ask your driver to take time and make photo stops through the **"Valley of Colourful Forests" (Naigu Stone Forest)**, which should be in peak autumn color.</li>
+                <li><strong>Day 3 (Nov 1):</strong> After an early start at Dagu Glacier, break up the long drive back to Chengdu with a stop at the beautiful, earthquake-formed **Diexi Lake**.</li>
+            </ul>
+        </section>
+
+        <section id="local-transport-strategy">
+            <h2>Refined Local Transport Strategy</h2>
+            <p>Based on your decision to use local transport instead of pre-booking more private drivers, here is the refined plan for those specific transfers. The "Private Driver" checklist items have been updated to reflect this.</p>
+            <ul>
+                <li><strong>Oct 15: Wulong Karst Day Trip:</strong> Use the High-Speed Rail from Chongqing to Wulong. From Wulong Station, take a local taxi or Didi to the park entrance. This is efficient but requires managing train schedules.</li>
+                <li><strong>Oct 24: Wulingyuan → Zhangjiajie West Station:</strong> The best option is to **pre-book a Didi** the night before for your early morning departure. This provides door-to-door service.</li>
+                <li><strong>Oct 26: Jiuzhaigou Station → Hotel:</strong> No advance booking needed. Use the official taxi queue, Didi, or look for a tourist shuttle bus upon arrival at the station.</li>
+                <li><strong>Oct 28: JZG Hotel → Huanglong → HSR Station Trip:</strong> This complex, full-day trip with luggage requires a dedicated car. The recommended strategy is to **ask your hotel in Jiuzhaigou to arrange a local car and driver for the day.** This is a very common request and is the most reliable way to complete this intense leg of the journey.</li>
+            </ul>
+        </section>
+
+        <section id="booking-checklist" class="checklist-category">
+            <h2>Advance Booking Checklist</h2>
+            
+            <h3>Hotels (15 Bookings)</h3>
+            <ul class="booking-list">
+                <li><span class="status booked">Booked</span> Chongqing (3 nights, Oct 14-17)</li>
+                <li><span class="status booked">Booked</span> Fenghuang (2 nights, Oct 17-19)</li>
+                <li><span class="status booked">Booked</span> Furong Zhen (1 night, Oct 19-20)</li>
+                <li><span class="status booked">Booked</span> Wulingyuan (4 nights, Oct 20-24)</li>
+                <li><span class="status booked">Booked</span> Chengdu, Central (2 nights, Oct 24-26)</li>
+                <li><span class="status booked">Booked</span> Jiuzhaigou Area (2 nights, Oct 26-28)</li>
+                <li><span class="status booked">Booked</span> Chengdu, Central (1 night, Oct 28-29)</li>
+                <li><span class="status booked">Booked</span> Shuangqiaogou Area (1 night, Oct 29-30)</li>
+                <li><span class="status booked">Booked</span> Bipenggou Area (1 night, Oct 30-31)</li>
+                <li><span class="status booked">Booked</span> Dagu Glacier Area (1 night, Oct 31-Nov 1)</li>
+                <li><span class="status todo">To Do</span> Chengdu, Central (1 night, Nov 1-2)</li>
+                <li><span class="status todo">To Do</span> Emeishan City Base (1 night, Nov 2-3)</li>
+                <li><span class="status todo">To Do</span> Chengdu, Central (2 nights, Nov 3-5)</li>
+            </ul>
+
+            <h3>High-Speed Rail (8 Legs)</h3>
+            <p><strong>Note:</strong> Book these as soon as possible, especially the legs marked "High" difficulty.</p>
+            <ul class="booking-list">
+                <li><span class="status todo">To Do</span> Oct 17: Chongqing → Huaihua South</li>
+                <li><span class="status todo">To Do</span> Oct 24: Zhangjiajie West → Chongqing West</li>
+                <li><span class="status todo">To Do</span> Oct 24: Chongqing West → Chengdu East</li>
+                <li><span class="status todo">To Do</span> Oct 26: Chengdu East → Jiuzhaigou Station</li>
+                <li><span class="status todo">To Do</span> Oct 28: HuanglongJiuzhai Station → Chengdu East</li>
+                <li><span class="status todo">To Do</span> Nov 2: Chengdu → Leshan</li>
+                <li><span class="status todo">To Do</span> Nov 2: Leshan → Emeishan</li>
+                <li><span class="status todo">To Do</span> Nov 3: Emeishan → Chengdu</li>
+            </ul>
+
+            <h3>Private Drivers & Key Transfers (7 Hires)</h3>
+            <p><strong>Note:</strong> These are essential for the more remote and logistically complex parts of the trip.</p>
+            <ul class="booking-list">
+                <li><span class="status todo">To Do</span> Oct 15: Wulong Karst Day Trip (Round trip from Chongqing)</li>
+                <li><span class="status todo">To Do</span> Oct 24: Wulingyuan → Zhangjiajie West Station (Very early start)</li>
+                <li><span class="status todo">To Do</span> Oct 26: Jiuzhaigou Station → Hotel in Zhangzha</li>
+                <li><span class="status todo">To Do</span> Oct 28: Full Day hire: JZG hotel → Huanglong → HLJ Station (with luggage)</li>
+                <li><span class="status booked">Booked</span> Oct 30: Full Day hire: Shuangqiaogou Valley → Bipenggou Area</li>
+                <li><span class="status booked">Booked</span> Oct 31: Bipenggou Area → Dagu Glacier area</li>
+                <li><span class="status booked">Booked</span> Nov 1: Dagu Glacier area → Chengdu</li>
+            </ul>
+
+            <h3>Key Attraction Tickets (9 Attractions)</h3>
+            <p><strong>Note:</strong> Booking these tickets online in advance (e.g., via official WeChat accounts or travel apps) is highly recommended to avoid queues and ensure entry during peak season.</p>
+            <ul class="booking-list">
+                <li><span class="status todo">To Do</span> Wulong Karst Geology Park (for Day 2, Oct 15)</li>
+                <li><span class="status todo">To Do</span> Tianmen Mountain, Zhangjiajie (for Day 8, Oct 21)</li>
+                <li><span class="status todo">To Do</span> Zhangjiajie National Forest Park (for Day 9-10, Oct 22-23)</li>
+                <li><span class="status todo">To Do</span> Jiuzhaigou National Park (for Day 14, Oct 27)</li>
+                <li><span class="status todo">To Do</span> Huanglong Park (for Day 15, Oct 28)</li>
+                <li><span class="status todo">To Do</span> Dagu Glacier National Park (for Day 19, Nov 1)</li>
+                <li><span class="status todo">To Do</span> Leshan Giant Buddha (for Day 20, Nov 2)</li>
+                <li><span class="status todo">To Do</span> Mount Emei (for Day 21, Nov 3)</li>
+                <li><span class="status todo">To Do</span> Chengdu Panda Base (for Day 22, Nov 4)</li>
+            </ul>
+
+            <h3>Key Bus Journeys (2 Items)</h3>
+            <p><strong>Note:</strong> While many bus tickets can be bought on-site, these key routes are worth planning ahead.</p>
+            <ul class="booking-list">
+                <li><span class="status todo">To Do</span> Book in Advance: Chengdu → Rilong Town (for Shuangqiaogou, Day 16)</li>
+                <li><span class="status todo">To Do</span> Plan/Book Locally: Hunan Bus Legs (Huaihua→Fenghuang; Fenghuang→Furong; Furong→Wulingyuan). <strong>Alternative:</strong> Use Didi/private car for higher convenience at a higher cost.</li>
+            </ul>
+        </section>
+
+        <section id="flight-details">
+            <h2>Flight Details</h2>
+            <ul>
+                <li><strong>Arrival (Oct 14):</strong> Hainan Airlines (HU 424) from BKK to CKG. Lands at 16:05.</li>
+                <li><strong>Departure (Nov 5):</strong> Air China (CA471) from TFU to BKK. Departs at 14:20.</li>
+            </ul>
+        </section>
+
+        <section id="driver-details">
+            <h2>Private Driver Details</h2>
+            <ul>
+                <li><strong>Western Sichuan Loop (Oct 30 - Nov 1):</strong> Booked with DeeTrip. Covers all transfers between Shuangqiaogou, Bipenggou, Dagu Glacier, and back to Chengdu.</li>
+            </ul>
+        </section>
+
+        <section id="booking-details">
+            <h2>Hotel Booking Details</h2>
+            <ul>
+                <li><strong>Chongqing (Oct 14-17):</strong> Chongqing Jiang Dao Holiday High-view Hotel (Conf# ...69917) - <em>Manhattan Night View Double Bed Room</em></li>
+                <li><strong>Fenghuang (Oct 17-19):</strong> Floral Hotel Fengyu Chenxi (Conf# ...90337) - <em>Feng Honeymoon Round Bed Room</em></li>
+                <li><strong>Furong Zhen (Oct 19-20):</strong> Wangcun Caotang Inn (Conf# ...74182) - <em>8202 Fei Pu Yu Zhu Panoramic Double Bed Room</em></li>
+                <li><strong>Wulingyuan (Oct 20-24):</strong> Manyuan Resort Hotel (Conf# ...57720) - <em>Sunny-Manju River-View Double Bed Room With Balcony...</em></li>
+                <li><strong>Chengdu (Oct 24-26):</strong> Celebrity Ruicheng Hotel (Conf# ...48771) - <em>Executive Queen Room (Covers 2 nights)</em></li>
+                <li><strong>Jiuzhaigou Area (Oct 26-28):</strong> Yushe Yunshan Designer Hot Spring Hotel (Conf# ...981247) - <em>Smart Room (Double bed) (Soaking tub)</em></li>
+                <li><strong>Chengdu (Oct 28-29):</strong> Celebrity Ruicheng Hotel (Conf# C200107670) - <em>Superior Room</em></li>
+                <li><strong>Shuangqiaogou Area (Oct 29-30):</strong> From a beautiful dream Hotel (Conf# ...1911460) - <em>Guestroom (Double Bed) (Fireplace, Heating)</em> - <strong>Note: Location mismatch with itinerary.</strong></li>
+                <li><strong>Bipenggou Area (Oct 30-31):</strong> Lixian Bipeng-Shiguang Hot Spring Hotel (Conf# ...0878004) - <em>Guestroom - With View (Double Bed)</em></li>
+                <li><strong>Dagu Glacier Area (Oct 31-Nov 1):</strong> Heishui Banshandu-Yueyin Hotel (Conf# ...13202167) - <em>Guestroom (Double Bed)</em></li>
+            </ul>
+        </section>
+
+        <section id="strategic-decisions">
+            <h2>Strategic Decisions & Alternatives</h2>
+            <ul>
+                <li><strong>Post-Dagu Glacier Logistics (Nov 1):</strong> The current plan to return to Chengdu after visiting Dagu Glacier is the most efficient choice. Chengdu is the essential transport hub for the next day's journey to Leshan, and any other route would be significantly slower and more complex.</li>
+                <li><strong>Mitigating Weather Risk at Mount Emei (Nov 2-3):</strong> Your current itinerary is a high-risk "one-shot" attempt at the summit. To increase your chances of clear views, consider these two alternative strategies:
+                    <ol>
+                        <li><strong>The "Add a Day" Strategy:</strong> Stay two nights at Emeishan base instead of one. This gives you two mornings to attempt the summit based on the weather. **Trade-off:** This would require sacrificing your Chengdu buffer day and your visit to the Panda Base on Nov 4.</li>
+                        <li><strong>The "Stay High" Strategy:</strong> Stay overnight at a hotel high on the mountain (at Leidongping). This provides multiple viewing windows (arrival afternoon, sunrise, next morning) without adding a day. **Trade-off:** Hotels are more basic/expensive, and you must take your luggage on the 2-hour park bus up the mountain.</li>
+                    </ol>
+                </li>
+                <li><strong>Hotel Choice for Oct 28th:</strong> You are currently booked at the central `Celebrity Ruicheng Hotel`. On this night, you will arrive very late at Chengdu East Station. **Consider changing to a hotel directly at the station** to minimize travel time after an exhausting day. The trade-off is managing luggage between two different hotels in Chengdu.</li>
+            </ul>
+        </section>
+
+        <section id="ticket-recommendations">
+            <h2>Park Ticket Recommendations & Strategy</h2>
+            <p><strong>General Rule:</strong> For all major parks during this peak season trip, aim to book tickets online approximately **7-10 days in advance**. Many parks have daily visitor caps and will sell out. Foreign tourists can typically book via official WeChat accounts or through reputable third-party travel websites/apps.</p>
+            <ul>
+                <li><strong>Wulong Karst (Day 2):</strong> Purchase the standard entry ticket.</li>
+                <li><strong>Tianmen Mountain (Day 8):</strong> Book the all-inclusive ticket for a **specific time slot**. Be sure to check the change/cancellation policy, as this is the key to swapping days with Zhangjiajie Park if the weather is bad.</li>
+                <li><strong>Zhangjiajie National Park (Day 9-10):</strong> The **4-Day Park Entrance Ticket** is the best choice. It provides flexibility and covers the essential park eco-buses. Buy separate, one-way tickets for the **Bailong Elevator** (ascent) and **Tianzi Mountain Cableway** (descent) on the day you use them. This strategy does not change even if you swap days.</li>
+                <li><strong>Jiuzhaigou Park (Day 14):</strong> Standard entry ticket (includes park bus). This is a high-demand park during peak autumn season; booking in advance is mandatory to guarantee entry.</li>
+                <li><strong>Huanglong Park (Day 15):</strong> Book the entry ticket plus a **one-way UP cable car ticket**. The recommended route is to take the cable car up and walk down to save time and manage the high altitude.</li>
+                <li><strong>Shuangqiao Valley (Day 17):</strong> Standard entry ticket (includes park bus).</li>
+                <li><strong>Bipenggou Valley (Day 18):</strong> Standard entry ticket.</li>
+                <li><strong>Dagu Glacier (Day 19):</strong> You will need the entry ticket plus the **mandatory round-trip cable car ticket** to reach the glacier.</li>
+                <li><strong>Leshan Giant Buddha (Day 20):</strong> For your tight schedule on a weekend, the **boat tour ticket** is strongly recommended over the on-foot ticket to avoid potentially hours-long queues.</li>
+                <li><strong>Mount Emei (Day 21):</strong> You will need to book three separate items: the park entry ticket, the park bus ticket (to Leidongping), and the round-trip Golden Summit cable car ticket. Booking all three in advance is essential for this logistically intense day.</li>
+                <li><strong>Chengdu Panda Base (Day 22):</strong> Standard entry ticket. It is crucial to book this for the **earliest morning time slot (e.g., 7:30 AM)** to see the pandas during their most active feeding time.</li>
+            </ul>
+        </section>
+
+        <section id="transport-analysis">
+            <h2>Transportation Viability Analysis</h2>
+            
+            <h3>High-Speed Rail Legs</h3>
+            <ul>
+                <li><strong>Oct 17: Chongqing → Huaihua South:</strong> <strong>Excellent choice.</strong> This is the standard, most efficient route. No changes recommended.</li>
+                <li><strong>Oct 24: Zhangjiajie → Chongqing → Chengdu:</strong> <strong>Viable, but high-risk.</strong> This is a very long travel day (~7+ hours on trains). Your 1.5-2 hour connection time in Chongqing is adequate if the first train is on time, but any significant delay could risk your connection. 
+                    <br><strong>Alternative:</strong> Consider flying from Zhangjiajie (DYG) to Chengdu (TFU). This would be much faster and less stressful, but also more expensive.</li>
+                <li><strong>Oct 26 & 28: Chengdu ↔ Jiuzhaigou Area:</strong> <strong>Excellent choice.</strong> This new HSR line is the best possible way to travel this route. Do not change.</li>
+                <li><strong>Nov 2 & 3: Chengdu ↔ Leshan ↔ Emeishan:</strong> <strong>Excellent choice.</strong> This is a high-frequency intercity line and is the perfect way to visit these sights. No changes recommended.</li>
+            </ul>
+
+            <h3>Private Driver Legs</h3>
+            <ul>
+                <li><strong>Oct 15: Wulong Day Trip:</strong> Recommended. A private car or tour is far more efficient than trying to use public transport for this day trip.</li>
+                <li><strong>Oct 24, 26, 28: Key Station/Hotel Transfers:</strong> Essential. These transfers (e.g., Wulingyuan to ZJJ West, JZG Station to Hotel) are critical for the logistics to work. Booking them is a high priority.</li>
+                <li><strong>Oct 30 - Nov 1: Western Sichuan Loop:</strong> Essential. This part of the trip is impossible without a private driver, and your booking with DeeTrip seems to cover the plan perfectly.</li>
+            </ul>
+        </section>
+
+        <section id="itinerary">
+            <h2>Detailed Daily Itinerary Breakdown</h2>
+
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Chongqing & Surroundings</h3>
+                    <p>Days 1-4: Mountain City, Wulong Karst, Hot Pot Heaven</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 1 (Tue, Oct 14): Arrival in Chongqing</h3>
+                <p><strong>Plan:</strong> Land at Chongqing Jiangbei Int'l Airport (CKG) at 16:00. Clear immigration & customs. Transfer to your pre-booked hotel. Check in, drop luggage. Depending on energy levels, perhaps a simple dinner near the hotel or a short walk.</p>
+                <p><strong>Focus:</strong> Smooth arrival, airport transfer, hotel check-in, acclimatize.</p>
+                <p><strong>Sightseeing Rec (Evening):</strong> If energy permits and staying centrally (e.g., Jiefangbei), explore the <strong>Jiefangbei Pedestrian Street</strong> or take a brief look at <strong>Hongyadong's lights</strong> from across the street (full exploration Day 3).</p>
+                <p><strong>Tip:</strong> Download Didi (China's Uber) and Alipay/WeChat Pay beforehand if possible. Have hotel address ready in Chinese characters.</p>
+            </div>
+             <div class="day">
+                <h3>Day 2 (Wed, Oct 15): Wulong Karst Day Trip</h3>
+                <p><strong>Plan:</strong> Early start. Travel to Wulong (~3 hrs drive or ~2hr HSR + local transfer). Visit the Wulong Karst National Geology Park. Focus on the main highlights: Three Natural Bridges (Tianlong, Qinglong, Heilong - requires significant walking/stairs, involves an elevator down) and Longshuixia Fissure Gorge (a narrow gorge walk). Lunch likely near the park. Return journey to Chongqing in the late afternoon/early evening.</p>
+                <p><strong>Focus:</strong> Natural landscapes, moderate hiking/walking.</p>
+                <p><strong>Transport:</strong> Pre-booked car/tour strongly recommended for efficiency. If using HSR, carefully check train times and local transfer options at Wulong station.</p>
+            </div>
+            <div class="day">
+                <h3>Day 3 (Thu, Oct 16): Chongqing City Exploration / Prep</h3>
+                <p><strong>Plan:</strong> Explore Chongqing's unique cityscape.</p>
+                <p><strong>Sightseeing Rec:</strong></p>
+                <ul>
+                    <li><em>Morning:</em> <strong>Ciqikou Old Town</strong> (historic streets, shops, snacks, allow 2-3 hours).</li>
+                    <li><em>Afternoon:</em> <strong>Eling Park</strong> for panoramic city views OR experience the <strong>Yangtze Cableway</strong> (expect queues). Explore <strong>Jiefangbei Square</strong> (city center).</li>
+                    <li><em>Evening:</em> See <strong>Hongyadong</strong> (stilted complex) spectacularly lit up (explore inside/nearby). Consider <strong>Chongqing Hot Pot</strong> for dinner (be prepared for spice!). Purchase any needed supplies for trip ahead.</li>
+                </ul>
+                <p><strong>Focus:</strong> Urban exploration, culture, food, trip preparation.</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1583306985974-3021d9ce9430?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Hunan Province: Ancient Towns</h3>
+                    <p>Days 4-7: Fenghuang Ancient Town, Furong Zhen Waterfall</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 4 (Fri, Oct 17): Travel Chongqing -> Fenghuang (FH)</h3>
+                <p><strong>Plan:</strong> Morning check-out from Chongqing hotel. Transfer to Chongqing West or North HSR station. Take High-Speed Rail to Huaihua South station (~3-4 hrs). Upon arrival in Huaihua, transfer via Bus or Taxi to Fenghuang Ancient Town (~1-1.5 hrs). Check into your guesthouse/hotel within or near the ancient town. Start exploring the town's atmosphere in the late afternoon/evening.</p>
+                <p><strong>Focus:</strong> Efficient travel, transition to Hunan, first impressions of Fenghuang.</p>
+            </div>
+            <div class="day">
+                <h3>Day 5 (Sat, Oct 18): Fenghuang Full Day</h3>
+                <p><strong>Plan:</strong> Dedicate the full day to exploring Fenghuang. Walk along the Tuo River (both banks), cross the various bridges (Rainbow Bridge, stepping stones), wander the narrow alleys away from the main crowds, visit former residences (optional, requires entrance ticket). Consider a boat ride on the river. Experience the town's transformation as evening lights turn on.</p>
+                <p><strong>Focus:</strong> Ancient town atmosphere, photography, leisurely exploration.</p>
+            </div>
+            <div class="day">
+                <h3>Day 6 (Sun, Oct 19): Travel FH -> Furong Zhen (FZ) & Overnight</h3>
+                <p><strong>Plan:</strong> Enjoy a final morning in Fenghuang. Check out. Take a bus (or pre-arranged taxi) from Fenghuang Bus Station to Furong Zhen (~1.5-2 hrs). Check into your hotel. Explore Furong Zhen, famous for the large waterfall cascading through its center. You can walk behind the waterfall curtain and explore the Tujia stilted houses.</p>
+                <p><strong>Focus:</strong> Scenic travel, unique waterfall town.</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1589905347897-797c6c2b4f24?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Zhangjiajie: Avatar Mountains</h3>
+                    <p>Days 7-11: Tianmen Mountain, National Forest Park, Pillar Peaks</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 7 (Mon, Oct 20): Furong Zhen -> Zhangjiajie (ZJJ / Wulingyuan)</h3>
+                <p><strong>Plan:</strong> Morning exploration or relaxation in Furong Zhen. Check out. Travel by bus (or private transfer) from Furong Zhen to Wulingyuan Town (~1-1.5 hrs), the main base for Zhangjiajie National Forest Park. Check into your hotel in Wulingyuan. Settle in, perhaps explore Wulingyuan town itself and prepare for park exploration.</p>
+                <p><strong>Focus:</strong> Short travel, settling into Zhangjiajie area.</p>
+            </div>
+            <div class="day">
+                <h3>Day 8 (Tue, Oct 21): Zhangjiajie: Tianmen Mountain</h3>
+                <p><strong>Plan:</strong> Day trip requiring travel from Wulingyuan to Zhangjiajie City (~1 hr each way). Take the Tianmen Mountain Cableway (one of the world's longest) up. Walk the cliff-hanging paths (including optional glass skywalks). Visit Tianmen Cave ("Heaven's Door") via escalators or stairs. Descend via cable car or bus on the winding mountain road. Return to Wulingyuan hotel in the evening.</p>
+                <p><strong>Focus:</strong> Dramatic mountain scenery, cable car experience, managing logistics between Wulingyuan and Zhangjiajie City. Start early.</p>
+            </div>
+            <div class="day">
+                <h3>Day 9 (Wed, Oct 22): Zhangjiajie: Wulingyuan Park (Upper Areas)</h3>
+                <p><strong>Plan:</strong> Enter Zhangjiajie National Forest Park from the Wulingyuan entrance. Use park eco-buses. Take the Bailong Elevator up to Yuanjiajie. Explore the "Avatar Hallelujah Mountains" area (Southern Sky Column, First Bridge Under Heaven). Take eco-bus to Tianzi Mountain area. Explore Tianzi Mountain (Helong Park viewpoints, Imperial Brush Peaks). Descend via Tianzi Mountain Cableway. Use eco-bus back to Wulingyuan entrance.</p>
+                <p><strong>Focus:</strong> Iconic sandstone pillars, viewpoints, using park transport (elevator/cableway/bus). High Concern for crowds.</p>
+            </div>
+            <div class="day">
+                <h3>Day 10 (Thu, Oct 23): Zhangjiajie: Wulingyuan Park (Lower Areas)</h3>
+                <p><strong>Plan:</strong> Re-enter the park. Focus on lower areas. Walk along the Golden Whip Stream (peaceful valley walk, ~2-3 hours one way recommended portion). Explore the Ten-Mile Gallery (either walk or take the sightseeing monorail for views of the peaks from the valley floor). Exit park via Wulingyuan entrance.</p>
+                <p><strong>Focus:</strong> Valley walks, different perspectives of the peaks. Moderate crowds.</p>
+            </div>
+            <div class="day">
+                <h3>Day 11 (Fri, Oct 24): Travel Zhangjiajie -> Chongqing -> Chengdu (Transit - ALL TRAIN)</h3>
+                <p><strong>Plan:</strong> VERY Early Start. Check out from Wulingyuan hotel. Pre-booked Taxi/Car to <strong>Zhangjiajie West Railway Station (张家界西站)</strong> (~1 hr). Take morning HSR from Zhangjiajie West to <strong>Chongqing West Station (重庆西站)</strong> (~4-5 hrs). Transfer within Chongqing West (allow 1.5-2 hrs buffer). Take afternoon HSR from Chongqing West to <strong>Chengdu East Station (成都东站)</strong> (~1.5 hrs). Arrive Chengdu early evening (~18:00-20:00). Transfer (Metro/Taxi) to pre-booked transit hotel near Chengdu East station. Long travel day.</p>
+                <p><strong>Focus:</strong> Endurance travel day via HSR, managing connections, booking tickets precisely, arriving late but saving costs vs flying.</p>
+                <p><strong>Transport:</strong> MUST BOOK BOTH HSR TICKETS (ZJJ-CKG & CKG-CDU) WELL IN ADVANCE. Pre-book car Wulingyuan->ZJJ West.</p>
+                <p><strong>ACCOMMODATION:</strong> 2 nights at Celebrity Ruicheng Hotel (Central). No hotel change tomorrow.</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1537890885377-4f97fa4e6c5c?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Chengdu: Panda Capital & Gateway</h3>
+                    <p>Days 11-12, 15-16, 19-23: Culture, Food, Transit Hub</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 12 (Sat, Oct 25): Chengdu: Free Day / Prep</h3>
+                <p><strong>Plan:</strong> Flexible day to explore Chengdu's central attractions and prepare for the upcoming intense legs. Since you are already in a central hotel, there is no need to transfer hotels today.</p>
+                <p><strong>Sightseeing Rec:</strong></p>
+                <ul>
+                    <li><em>Culture/Atmosphere:</em> <strong>Jinli Ancient Street</strong> (lively, touristy, snacks, crafts), <strong>Kuanzhai Alleys</strong> (Wide & Narrow Alleys - renovated traditional streets, teahouses, shops), <strong>Wenshu Monastery</strong> (active Buddhist temple with lovely grounds & teahouse).</li>
+                    <li><em>Relaxation:</em> <strong>People's Park</strong> (local life, teahouses by the lake, ear cleaning!).</li>
+                    <li><em>Evening:</em> Enjoy Sichuan cuisine. Final check/prep for JZG/HLG trip (confirm driver, pack layers).</li>
+                </ul>
+                <p><strong>Focus:</strong> Experiencing Chengdu, flexibility, final prep for JZG/HLG. Moderate crowds (weekend).</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1598946428180-1d8b6c96b70f?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Jiuzhaigou & Huanglong: UNESCO Wonders</h3>
+                    <p>Days 13-15: Turquoise Lakes, Colorful Pools, High Altitude</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 13 (Sun, Oct 26): Chengdu Exploration (AM) -> Travel to Jiuzhaigou Area (PM) & Overnight</h3>
+                <p><strong>Plan:</strong></p>
+                <ul>
+                    <li><em>Morning:</em> Optional light Chengdu activity (e.g., revisit People's Park, quick shopping).</li>
+                    <li><em>Early Afternoon:</em> Transfer to <strong>Chengdu East Railway Station</strong>.</li>
+                    <li><em>Afternoon HSR:</em> Take HSR from Chengdu East to <strong>Jiuzhaigou Station (九寨沟站)</strong> (~1.5 hrs). Aim for ~14:00-15:00 train.</li>
+                    <li><em>Late Afternoon/Evening Transfer:</em> Meet <strong>pre-booked driver</strong> at station. Transfer to hotel near <strong>Jiuzhaigou Valley entrance (Zhangzha Town)</strong> (~1.5-2 hrs drive).</li>
+                    <li><em>Evening:</em> Arrive JZG hotel late (~18:00-20:00+). Check in (Night 1 of 2). Dinner, rest.</li>
+                </ul>
+                <p><strong>Focus:</strong> Balance brief Chengdu activity with long transfer to JZG area, settling in.</p>
+                <p><strong>Transport:</strong> HSR (Chengdu->JZG Stn - Book ASAP). Pre-booked Driver (Essential for Stn->Hotel - Arrange for Day 15 too).</p>
+            </div>
+            <div class="day">
+                <h3>Day 14 (Mon, Oct 27): Jiuzhaigou (JZG) Full Day Sightseeing</h3>
+                <p><strong>Plan:</strong> Early start. Enter Jiuzhaigou National Park as early as possible. Utilize park eco-buses to explore Shuzheng, Rize, Zechawa valleys. Prioritize Five Flower Lake, Pearl Shoal Waterfall, Long Lake, Nuorilang Waterfall, etc. Full day in the park enjoying PEAK autumn colours. Exit late afternoon. Return to hotel.</p>
+                <p><strong>Focus:</strong> Maximizing JZG park time during peak season. Immerse in scenery. Very High Crowd Concern (Mon).</p>
+                <p><strong>Transport:</strong> Park Eco-Buses.</p>
+                <p><strong>Hotel:</strong> Same JZG hotel (Night 2 of 2).</p>
+            </div>
+            <div class="day">
+                <h3>Day 15 (Tue, Oct 28): JZG Hotel -> Huanglong -> HuanglongJiuzhai HSR -> Chengdu (VERY INTENSE)</h3>
+                <p><strong>Plan:</strong> VERY Early Start. Check out from JZG hotel with luggage. Meet your pre-arranged local driver. Drive JZG -> <strong>Huanglong Park</strong> (~2.5 hrs). Visit Huanglong (3-4 hrs), using the cable car up to save time. Retrieve luggage. Drive HLG -> <strong>HuanglongJiuzhai Station</strong> (~1 hr). Take an evening HSR to <strong>Chengdu East</strong>. Arrive very late.
+                <p><strong>Focus:</strong> Extreme logistics, altitude management, efficient sightseeing. High Crowd Concern.</p>
+                <p><strong>Transport:</strong> Locally arranged car for the day (ESSENTIAL). HSR to Chengdu East.</p>
+                <p><strong>Hotel:</strong> `Celebrity Ruicheng Hotel` (Central). **Note:** This requires a 30-45 min transfer from the station upon late arrival.</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1568849676085-51415703900f?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Western Sichuan: Alpine Valleys & Glaciers</h3>
+                    <p>Days 16-19: Mount Siguniang, Bipenggou, Dagu Glacier, Autumn Colors</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 16 (Wed, Oct 29): Chengdu -> Shuangqiaogou Valley (Travel Day)</h3>
+                <p><strong>PLAN CHANGE:</strong> This day is no longer a rest day in Chengdu. You will travel to the Mount Siguniang area.</p>
+                <p><strong>Plan:</strong> Check out from your Chengdu hotel. Travel by bus or pre-arranged car from Chengdu to Rilong Town (~4-5 hours), the base for Mount Siguniang. Check into your pre-booked hotel in the Shuangqiaogou area.</p>
+                <p><strong>Focus:</strong> Scenic overland travel into the mountains of Western Sichuan.</p>
+                <p><strong>Hotel:</strong> From a beautiful dream Hotel (Shuangqiaogou, 1 night).</p>
+            </div>
+            <div class="day">
+                <h3>Day 17 (Thu, Oct 30): Shuangqiao Valley -> Taoping Qiang Village -> Bipenggou Area</h3>
+                <p><strong>PLAN CHANGE:</strong> You are already in the Mount Siguniang area.</p>
+                <p><strong>Plan:</strong> Morning exploration of <strong>Shuangqiao Valley</strong> (~3-4 hours). In the afternoon, meet your driver and travel towards the Bipenggou area. On the way, stop for a visit at the ancient **Taoping Qiang Village**. Afterwards, continue to your hotel near Bipenggou.</p>
+                <p><strong>Focus:</strong> Scenic driving, Mount Siguniang, unique Qiang culture, positioning for Bipenggou.</p>
+            </div>
+            <div class="day">
+                <h3>Day 18 (Fri, Oct 31): Bipenggou Valley -> Dagu Glacier Area</h3>
+                <p><strong>Plan:</strong> Morning dedicated to exploring <strong>Bipenggou Valley</strong>. In the afternoon, check out and begin the scenic drive towards the **Dagu Glacier National Park** area. Take your time on the drive, stopping for photos in the **"Valley of Colourful Forests" (Naigu Stone Forest)**. Check into your hotel near Dagu Glacier.</p>
+                <p><strong>Focus:</strong> Autumn colours, mountain valley scenery, scenic driving. Moderate to High crowds.</p>
+            </div>
+            <div class="day">
+                <h3>Day 19 (Sat, Nov 1): Dagu Glacier -> Diexi Lake -> Chengdu</h3>
+                <p><strong>Plan:</strong> Start at opening time to visit <strong>Dagu Glacier National Park</strong>, taking the cable car to the high-altitude summit. After your visit, begin the long drive back to Chengdu. On the way, make a scenic stop at the earthquake-formed **Diexi Lake**. Arrive in Chengdu in the evening and check into your hotel.</p>
+                <p><strong>Focus:</strong> High altitude glacier views, managing altitude, long return drive with a scenic break.</p>
+                <p><strong>Hotel:</strong> Central Chengdu hotel (1 night).</p>
+            </div>
+            <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1200');">
+                <div class="destination-overlay">
+                    <h3>Leshan & Mount Emei: Buddhist Heritage</h3>
+                    <p>Days 20-21: Giant Buddha, Sacred Mountain Summit</p>
+                </div>
+            </div>
+
+            <div class="day">
+                <h3>Day 20 (Sun, Nov 2): Chengdu -> Leshan Giant Buddha Visit -> Emeishan City Base</h3>
+                <p><strong>Plan:</strong> Early Start. Check out Chengdu hotel. HSR Chengdu -> <strong>Leshan Station</strong> (~1 hr). Store luggage (confirm!). Taxi/Bus to <strong>Leshan Giant Buddha</strong>. Visit (3-5 hrs - <strong>Boat tour recommended</strong> for efficiency on Sunday). Return to Leshan Stn, retrieve luggage. Short HSR Leshan -> <strong>Emeishan Station</strong> (~15-20 min). Taxi/Bus to hotel near Baoguo Temple / Park Entrance. Check in.</p>
+                <p><strong>Focus:</strong> Combining travel & major sight, managing luggage, efficient Leshan visit. Very High Crowd Concern (Leshan Sunday).</p>
+                <p><strong>Transport:</strong> HSR (Book Ahead), Local transport, Luggage Storage crucial.</p>
+                <p><strong>Hotel:</strong> Emeishan City Base hotel (1 night).</p>
+            </div>
+            <div class="day">
+                <h3>Day 21 (Mon, Nov 3): Mount Emei Summit & Return to Chengdu</h3>
+                <p><strong>Plan:</strong> Very early start. Go to park tourist center, buy ticket & bus ticket to Leidongping (~2 hrs bus ride). Walk from Leidongping bus stop to the cable car station (~20-30 mins walk, some steps). Take cable car up to <strong>Golden Summit (Jinding)</strong>. Explore summit area (temples, Buddha statue, hopefully clear views). Descend via cable car and bus back to Baoguo Temple area. Retrieve luggage if stored. Transfer to Emeishan HSR station. Take late afternoon/early evening HSR back to Chengdu. Check back into Chengdu hotel.</p>
+                <p><strong>Focus:</strong> Summiting Emei, high altitude (~3077m), logistics of park transport, long day trip. High Crowd Concern (Summit area).</p>
+                <p><strong>Hotel:</strong> Central Chengdu hotel (Night 1 of 2).</p>
+            </div>
+            <div class="day">
+                <h3>Day 22 (Tue, Nov 4): Chengdu: Panda Base (AM) / Buffer Day / Prep</h3>
+                <p><strong>Plan:</strong> Flexible buffer day.</p>
+                <p><strong>Sightseeing Rec:</strong></p>
+                <ul>
+                    <li><em>Morning (Essential):</em> <strong>GO EARLY</strong> (opening time ~7:30-8:00 AM) to the <strong>Chengdu Research Base of Giant Panda Breeding</strong>. See pandas when most active (finish by 10:30-11:00 AM). Spend 3 hours.</li>
+                    <li><em>Afternoon:</em> Use the rest of the day flexibly. Revisit a favorite spot (e.g., relax in a teahouse at Wenshu or People's Park), do last-minute souvenir shopping (<strong>Chunxi Road</strong> for modern, <strong>Kuanzhai/Jinli</strong> for touristy), enjoy final Sichuan cuisine, or simply relax. Final packing and preparation for departure.</li>
+                </ul>
+                <p><strong>Focus:</strong> Pandas! Flexibility, buffer for delays, relaxation, final tasks. High Crowd Concern (Pandas AM), Moderate (Chengdu PM).</p>
+                <p><strong>Hotel:</strong> Same Central Chengdu hotel (Night 2 of 2).</p>
+            </div>
+            <div class="day">
+                <h3>Day 23 (Wed, Nov 5): Chengdu Departure</h3>
+                <p><strong>Plan:</strong> Enjoy a final Chengdu breakfast. Check out from hotel. Transfer to <strong>Chengdu Tianfu International Airport (TFU)</strong>. Allow ample time for travel to TFU (it's further than the old airport - Metro Line 18 takes ~40-60 mins + station transfer) and check-in/security procedures. Depart TFU at 14:20.</p>
+                <p><strong>Focus:</strong> Smooth check-out, timely airport transfer, departure.</p>
+            </div>
+        </section>
+        
+        <section id="crowd-analysis">
+            <h2>Crowd Analysis</h2>
+            <p>(Scale: Low, Moderate, High, Very High)</p>
+            <ul>
+                <li>Day 1 (Tue, Oct 14): Arrival Chongqing: Low (Airport/Hotel).</li>
+                <li>Day 2 (Wed, Oct 15): Wulong Karst: (Weekday) Moderate to High.</li>
+                <li>Day 3 (Thu, Oct 16): Chongqing City: (Weekday) Moderate (Popular spots busy).</li>
+                <li>Day 4 (Fri, Oct 17): Travel -&gt; Fenghuang: Low during travel, Moderate upon arrival.</li>
+                <li>Day 5 (Sat, Oct 18): Fenghuang Full Day: (Weekend) <strong>Very High Concern</strong>.</li>
+                <li>Day 6 (Sun, Oct 19): Travel FH -&gt; Furong Zhen: (Weekend) Moderate (FZ less busy than FH).</li>
+                <li>Day 7 (Mon, Oct 20): Furong Zhen -&gt; Wulingyuan: (Weekday) Low.</li>
+                <li>Day 8 (Tue, Oct 21): Zhangjiajie: Tianmen Mountain: (Weekday) <strong>High Concern</strong> (Popularity, reliance on cable cars).</li>
+                <li>Day 9 (Wed, Oct 22): Zhangjiajie: Wulingyuan Park (Upper Areas): (Weekday) <strong>High Concern</strong> (Iconic views, transport bottlenecks).</li>
+                <li>Day 10 (Thu, Oct 23): Zhangjiajie: Wulingyuan Park (Lower Areas): (Weekday) Moderate.</li>
+                <li>Day 11 (Fri, Oct 24): Travel ZJJ -&gt; CKG -&gt; Chengdu (Train): Low (Travel Day).</li>
+                <li>Day 12 (Sat, Oct 25): Chengdu Free Day: (Weekend) Moderate (Central spots busy).</li>
+                <li>Day 13 (Sun, Oct 26): Travel Chengdu -&gt; JZG Area: Low (Travel Day).</li>
+                <li>Day 14 (Mon, Oct 27): Jiuzhaigou Full Day: (Weekday) <strong>Very High Concern</strong> (PEAK Autumn Season).</li>
+                <li>Day 15 (Tue, Oct 28): Huanglong &amp; Travel to Chengdu: (Weekday) <strong>High Concern</strong> (HLG Peak Season + Altitude effects).</li>
+                <li>Day 16 (Wed, Oct 29): Rest in Chengdu: Low.</li>
+                <li>Day 17 (Thu, Oct 30): Chengdu -&gt; Siguniang -&gt; Bipenggou Area: (Weekday) Low to Moderate.</li>
+                <li>Day 18 (Fri, Oct 31): Bipenggou -&gt; Dagu Area: (Friday) Moderate to High (Autumn colours + approaching weekend).</li>
+                <li>Day 19 (Sat, Nov 1): Dagu Glacier -&gt; Chengdu: (Weekend) Moderate to High (Cable car, weekend domestic travel).</li>
+                <li>Day 20 (Sun, Nov 2): Leshan Visit &amp; Travel to Emei Base: (Weekend) <strong>Leshan = Very High Concern</strong>. Travel segments = Moderate. Emei Base = Low.</li>
+                <li>Day 21 (Mon, Nov 3): Mount Emei Summit &amp; Return: (Weekday) <strong>High Concern</strong> (Major site, bus/cable car queues).</li>
+                <li>Day 22 (Tue, Nov 4): Pandas (AM) / Buffer Day: (Weekday) <strong>Pandas AM = High Concern</strong> (Extremely popular). Chengdu PM = Moderate.</li>
+                <li>Day 23 (Wed, Nov 5): Chengdu Departure: Low (Airport).</li>
+            </ul>
+            <h3>Summary of Days with Highest Crowd Concern:</h3>
+            <p>Be most prepared for significant crowds and potential queues on:</p>
+            <ol>
+                <li>Sat, Oct 18 (Fenghuang): Weekend in confined ancient town.</li>
+                <li>Tue, Oct 21 (Tianmen Mountain): Popularity + cable car reliance.</li>
+                <li>Wed, Oct 22 (Zhangjiajie Upper Areas): Iconic views + elevator/cable car reliance.</li>
+                <li><strong>Sun, Oct 26 (Leshan - if choosing stairs):</strong> Major attraction on weekend. Boat tour less affected by queues.</li>
+                <li><strong>Mon, Oct 27 (Jiuzhaigou):</strong> World-famous park during absolute PEAK autumn season.</li>
+                <li><strong>Tue, Oct 28 (Huanglong):</strong> Major site during peak season, bottlenecks at boardwalks/cable car.</li>
+                <li>Mon, Nov 3 (Mount Emei Summit): Major attraction + transport reliance.</li>
+                <li><strong>Tue, Nov 4 (Panda Base AM):</strong> Extremely popular attraction, especially during feeding time.</li>
+                <li>Sat, Nov 1 (Dagu Glacier): Unique attraction on a weekend.</li>
+            </ol>
+            <p><strong>Tips for Managing Crowds:</strong> Start Early, Pre-book Everything, Manage Expectations, Weekdays are <em>Generally</em> Better (but peak season negates some advantage), Stay Hydrated &amp; Patient, Consider Counter-Peak Flow where possible (limited by bus routes/itinerary).</p>
+        </section>
+
+        <section id="weather-analysis">
+            <h2>Weather Analysis</h2>
+            <p>(Typical Late October / Early November - Always check local forecasts closer to date)</p>
+            <ul>
+                <li><strong>Day 1-3 (Chongqing):</strong> Mild to Cool (15-22°C / 59-72°F). Often Overcast/Foggy. Humid. Drizzle possible. Evenings cool.</li>
+                <li><strong>Day 4-5 (Fenghuang):</strong> Mild Days, Cool Mornings/Evenings (12-20°C / 54-68°F). Damp near river, morning mist possible.</li>
+                <li><strong>Day 6 (Furong Zhen):</strong> Similar to Fenghuang, maybe slightly warmer (13-21°C / 55-70°F). Damp near waterfall.</li>
+                <li><strong>Day 7-10 (Wulingyuan/Zhangjiajie):</strong> Cool to Mild base (10-19°C / 50-66°F). Upper areas/Tianmen Summit much colder (5-15°C / 41-59°F, possibility of lower). High chance of Fog/Cloud obscuring views. Wind on exposed areas. Rain possible. Need layers.</li>
+                <li><strong>Day 11-12 (Travel/Chengdu):</strong> Variable during travel. Chengdu: Mild/Cool (13-20°C / 55-68°F), often Overcast/Hazy.</li>
+                <li><strong>Day 13 (Travel to JZG):</strong> HSR climate controlled. JZG Evening Arrival: Cold (0-12°C / 32-54°F).</li>
+                <li><strong>Day 14 (Jiuzhaigou):</strong> Cold Mornings (near freezing, 0-5°C / 32-41°F), Cool/Mild Sunny Afternoons possible (10-18°C / 50-64°F), Cold Evenings. Large diurnal range. Frost likely mornings. Mostly dry but rain/sleet/light snow not impossible. Altitude 2000-3100m.</li>
+                <li><strong>Day 15 (Huanglong):</strong> <strong>COLD!</strong> Altitude 3200-4200m. Likely 0-10°C (32-50°F), potentially below freezing, significant wind chill. Strong UV if sunny. Risk of cloud/fog/light snow. Evening Chengdu arrival Mild/Cool. <strong>Significant cold &amp; altitude exposure.</strong></li>
+                <li><strong>Day 16 (Chengdu):</strong> Mild/Cool &amp; Likely Overcast (13-20°C / 55-68°F).</li>
+                <li><strong>Day 17 (Siguniang/Bipenggou Area):</strong> Cold &amp; Variable. Rilong (3200m): 0-15°C (32-59°F). Bipenggou evening arrival (lower altitude ~2500m): Cold, likely below 10°C (50°F). Strong sun possible, but clouds/wind common.</li>
+                <li><strong>Day 18 (Bipenggou/Dagu Area):</strong> Cold Mornings (0-15°C / 32-59°F valley). Peak autumn colours. Dagu area evening arrival: Cold.</li>
+                <li><strong>Day 19 (Dagu Glacier):</strong> <strong>Very Cold &amp; Extreme Altitude.</strong> Base area (~2500m) Cold (0-10°C). Summit (4860m!) <strong>Very Cold</strong>, likely well below freezing (-10 to 5°C / 14-41°F) even if sunny. High wind, Strong UV. Snow/ice guaranteed on glacier. Weather changes rapidly. Return to Chengdu: Mild/Cool.</li>
+                <li><strong>Day 20 (Leshan/Emei Base):</strong> Mild/Cool (12-20°C / 54-68°F). Overcast likely. Leshan prone to river mist. Emei base similar, maybe damper/foggy.</li>
+                <li><strong>Day 21 (Mt Emei):</strong> Highly Variable. Base: Cool (10-18°C). Mid-mountain (Leidongping ~2400m): Cold (5-12°C). Summit (~3077m): Cold (0-10°C / 32-50°F), feels colder with wind. Very high chance fog/cloud. Rain at base can be snow/sleet higher up. Ice possible on paths.</li>
+                <li><strong>Day 22-23 (Chengdu):</strong> Mild/Cool &amp; Likely Overcast (12-19°C / 54-66°F).</li>
+            </ul>
+            <h3>Key Weather &amp; Time Takeaways:</h3>
+            <ol>
+                <li><strong>Layering is Essential:</strong> Encountering mild to freezing conditions requires thermal base layers, fleece mid-layers, and a waterproof/windproof outer shell. Hat, gloves, scarf crucial for high altitudes/cold mornings.</li>
+                <li><strong>Altitude &amp; Cold:</strong> Biggest challenges are cold at high altitudes (JZG, HLG, Siguniang, Bipenggou, Dagu, Emei Summit). Be prepared for freezing temperatures.</li>
+                <li><strong>Fog/Cloud Risk:</strong> Famous viewpoints (Tianmen, ZJJ, HLG, Emei, Dagu) frequently affected by fog/low cloud in autumn. Mentally prepare for obscured views.</li>
+                <li><strong>Sun Protection:</strong> Strong sun at high altitudes (even when cold). Bring sunglasses &amp; sunscreen.</li>
+                <li><strong>Daylight Hours:</strong> Days getting shorter. Sunset ~18:00-18:30. Plan accordingly, especially for hikes/late afternoon activities.</li>
+                <li><strong>Check Daily Forecasts:</strong> Use reliable weather apps (local ones often better) daily, especially before mountain excursions.</li>
+            </ol>
+        </section>
+
+        <section id="time-allocation">
+            <h2>Time Allocation Analysis</h2>
+            <p>(Focus points and potential skips on key sightseeing days)</p>
+            <ul>
+                <li><strong>Day 2: Wulong Karst (Approx. 4-6 hours on site):</strong> Tight but sufficient if efficient. <em>Focus:</em> Three Natural Bridges main path, Longshuixia Gorge loop. <em>Skip:</em> Lengthy breaks, optional side paths if queues long.</li>
+                <li><strong>Day 3: Chongqing City (Full Day):</strong> Sufficient for 3-4 key sites. <em>Focus:</em> Prioritize based on interest (Ciqikou, Hongyadong (evening!), Eling Park/Cableway). <em>Skip:</em> Trying to fit too much; minor museums unless specific interest.</li>
+                <li><strong>Day 5: Fenghuang Ancient Town (Full Day):</strong> Ample. <em>Focus:</em> River walks (both banks), alleys, bridges, evening lights. Boat ride optional. <em>Skip:</em> Inside every residence museum unless interested.</li>
+                <li><strong>Day 6: Furong Zhen (Afternoon + potential morning):</strong> Sufficient. <em>Focus:</em> Waterfall views (various points, behind curtain), stilted houses. <em>Skip:</em> Extensive exploration far from waterfall if leaving early next day.</li>
+                <li><strong>Day 8: Tianmen Mountain (Approx. 6-8 hours on site):</strong> Generally sufficient, but <strong>highly queue-dependent</strong>. <em>Focus:</em> Long Cable Car, significant Cliff Walk section (inc. 1 glass skywalk), Tianmen Cave (escalators). <em>Skip:</em> All glass skywalks if queues extreme, lengthy temple visit if pressured, less popular side trails. Choose descent (bus/cable car) based on efficiency.</li>
+                <li><strong>Day 9: Zhangjiajie Park - Upper Areas (Full Day):</strong> Sufficient for highlights. <em>Focus:</em> Yuanjiajie (Bailong Elevator up, key viewpoints), Tianzi Mountain (Eco-bus transfer, key viewpoints, Cableway down). <em>Skip:</em> Hiking long distances between viewpoints (use buses), minor viewpoints if transfers slow.</li>
+                <li><strong>Day 10: Zhangjiajie Park - Lower Areas (Full Day):</strong> Sufficient. <em>Focus:</em> Golden Whip Stream (significant portion walk), Ten-Mile Gallery (monorail or walk). <em>Skip:</em> Huangshizhai (requires separate cable car), hiking entire Golden Whip Stream (7.5km one way).</li>
+                <li><strong>Day 12: Chengdu Free Day (Full Day):</strong> Ample time for 2-3 main city sites or relaxed exploration.</li>
+                <li><strong>Day 14: Jiuzhaigou (Full Day - Approx. 8-9 hours in park):</strong> Decent allocation, but park is vast &amp; <strong>crowded</strong>. Requires efficiency. <em>Focus (Essential Stops):</em> Rize Valley (Five Flower Lake, Pearl Shoal W'fall, Panda/Arrow Bamboo Lakes, Mirror Lake), Zechawa Valley (Long Lake, Five-Colour Pond), Shuzheng Valley (Nuorilang W'fall, Shuzheng Lakes/Village). <em>Skip:</em> Hiking long sections between sites (use bus!), stopping at every named spot (prioritize bolded), Zharu Valley.</li>
+                <li><strong>Day 15: Huanglong (Approx. 3-4 hours on site):</strong> <strong>VERY TIGHT</strong>, especially with altitude &amp; travel. <em>Focus:</em> Cable Car UP, walk elevated boardwalk loop down past main ponds towards <strong>Five-Coloured Pond</strong> (highest, most scenic). <em>Skip:</em> Long walk up from entrance, full walk down (~4km path) might be too slow (return via cable car if needed), brief look at Huanglong Temple near top. Assess time/energy/altitude constantly.</li>
+                <li><strong>Day 17: Mount Siguniang - Shuangqiao Valley (Approx. 2-3 hours in valley):</strong> <strong>VERY TIGHT</strong> (scenic drive-through). <em>Focus:</em> Ride eco-bus, hop off briefly at 2-3 major viewpoints (ask driver/guide). Get photos/impressions. <em>Skip:</em> Any hiking, expecting immersive experience. Changping/Haizi valleys skipped entirely.</li>
+                <li><strong>Day 18: Bipenggou Valley (Approx. 4-6 hours):</strong> Sufficient for main highlights. <em>Focus:</em> Park bus/battery cars to key autumn colour lakes/areas (e.g., Panyang Lake, Zhuoma Lake, Moon Lake). Enjoy valley views. <em>Skip:</em> Long hiking side trails, spending too much time at entry/exit points if middle section is peak scenery.</li>
+                <li><strong>Day 19: Dagu Glacier (Approx. 3-4 hours on site):</strong> Sufficient for summit goal. <em>Focus:</em> Bus ride, <strong>Cable Car to Summit (4860m)</strong>, time on summit platform (views, photos, cafe), Cable car down. <em>Skip:</em> Extensive lower valley exploration unless summit fogged in.</li>
+                <li><strong>Day 20: Leshan Giant Buddha (Approx. 3-5 hours on site):</strong> <strong>TIGHT</strong>, especially on Sunday travel day. <em>Focus:</em> Choose ONE main viewing method: Boat Tour (panoramic, efficient) OR Stairs (close-up, potentially HOURS queueing). <em>Skip:</em> The other viewing method, adjacent Wuyou Temple/Mahao Tombs if time very limited.</li>
+                <li><strong>Day 21: Mount Emei Summit (Approx. 2-3 hours AT summit):</strong> <strong>TIGHT</strong> for summit experience + travel time. <em>Focus:</em> Efficient bus to Leidongping, walk to cable car, cable car UP, Golden Summit (statue, temples exterior, viewing platforms), cable car DOWN, bus DOWN. <em>Skip:</em> Everything else on mountain (mid-level temples, monkeys, hiking). Pure summit strike.</li>
+                <li><strong>Day 22: Panda Base (Approx. 3 hours AM):</strong> Sufficient if going EARLY. <em>Focus:</em> Giant Panda enclosures (adult, sub-adult, cub), Nursery/Kindergarten (check activity). <em>Skip:</em> Red Pandas if short on time, museum/cinema unless interested.</li>
+            </ul>
+            <h3>Summary of Tightest Spots &amp; Key Decisions:</h3>
+            <ul>
+                <li><strong>Huanglong (Day 15):</strong> Be ruthlessly efficient. Use cable car both ways if needed. Prioritize Five-Coloured Pond area. Altitude is a major factor.</li>
+                <li><strong>Jiuzhaigou (Day 14):</strong> Stick to buses, prioritize MUST-SEE spots. Accept you won't see every corner. Start extremely early.</li>
+                <li><strong>Mount Siguniang (Day 17):</strong> Accept it's a scenic drive-through, not in-depth exploration.</li>
+                <li><strong>Leshan (Day 20):</strong> Decide beforehand: Stairs or Boat? (Boat strongly recommended for this itinerary/day). Don't try both.</li>
+                <li><strong>Mount Emei (Day 21):</strong> Focus 100% on summit logistics. Don't get sidetracked by mid-mountain attractions.</li>
+                <li><strong>Tianmen Mountain (Day 8):</strong> Monitor queue times for cable cars/buses/escalators and adjust plans (e.g., skip a skywalk if queues are excessive).</li>
+            </ul>
+        </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>This itinerary was generated from markdown files.</p>
+    </footer>
+
+    <script>
+        // Highlight active section in sidebar navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
