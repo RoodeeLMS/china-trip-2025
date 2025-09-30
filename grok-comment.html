@@ -53,6 +53,39 @@
             border-radius: 4px;
             margin: 1rem 0;
         }
+        nav {
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            color: #764ba2;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        nav a:hover, nav a.active {
+            background: #764ba2;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+        }
         footer {
             text-align: center;
             padding: 1rem;
@@ -67,6 +100,19 @@
         <h1>Grok's Re-Analysis: China Trip 2025 Plan</h1>
         <p>As of Sep 29, 2025</p>
     </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html">🏠 Home</a>
+            <a href="itinerary.html">📅 Itinerary</a>
+            <a href="planning.html">✅ Planning</a>
+            <a href="logistics.html">🚄 Logistics</a>
+            <a href="analysis.html">📊 Analysis</a>
+            <a href="gpt-comment.html">💬 GPT Review</a>
+            <a href="grok-comment.html" class="active">💬 Grok Review</a>
+        </div>
+    </nav>
+
     <main>
         <section>
             <p>Re-analyzed all project files: 14 .md bookings (flights, hotels, driver; consistent and accurate), supporting PNGs, `convert_hotel_pdfs_to_png.py` (utility), `desktop.ini` (system), and empty Plan/Personal Travel Docs folders. Incorporated insights from new `gpt-comment.md` (user draft with ops notes). Cross-verified against `index.html` itinerary—no major discrepancies, but flagged minor fixes below.</p>
