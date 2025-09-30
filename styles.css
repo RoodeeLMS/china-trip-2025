@@ -503,6 +503,161 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Analysis Page Specific Styles */
+.analysis-intro {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-box {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 1rem;
+}
+
+.stat-low {
+    border-top: 4px solid #28a745;
+}
+
+.stat-moderate {
+    border-top: 4px solid #ffc107;
+}
+
+.stat-high {
+    border-top: 4px solid #ff6b6b;
+}
+
+.stat-very-high {
+    border-top: 4px solid #dc3545;
+}
+
+.crowd-timeline {
+    margin: 2rem 0;
+}
+
+.crowd-timeline h3 {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+}
+
+.crowd-day-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+    border-left: 4px solid #ddd;
+}
+
+.crowd-day-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateX(5px);
+}
+
+.crowd-low {
+    border-left-color: #28a745;
+}
+
+.crowd-moderate {
+    border-left-color: #ffc107;
+}
+
+.crowd-high {
+    border-left-color: #ff6b6b;
+}
+
+.crowd-very-high {
+    border-left-color: #dc3545;
+    background: #fff5f5;
+}
+
+.crowd-day-header {
+    min-width: 100px;
+}
+
+.crowd-day-num {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.crowd-day-date {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.crowd-day-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.crowd-location {
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+    min-width: 150px;
+}
+
+.crowd-level {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.crowd-icon {
+    font-size: 1.5rem;
+}
+
+.crowd-note {
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+    flex: 1;
+    min-width: 150px;
+}
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.8rem;
@@ -514,5 +669,18 @@ footer a:hover {
 
     main {
         padding: 1rem;
+    }
+
+    .crowd-day-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .crowd-day-body {
+        width: 100%;
+    }
+
+    .stats-overview {
+        grid-template-columns: 1fr 1fr;
     }
 }
