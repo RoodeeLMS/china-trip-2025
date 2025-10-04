@@ -90,24 +90,28 @@
     </header>
 
     <nav><button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
-            <a href="index.html">🏠 Home</a>
-            <a href="itinerary.html">📅 Itinerary</a>
-            <a href="planning.html">✅ Planning</a>
-            <a href="logistics.html">🚄 Logistics</a>
-            <a href="analysis.html">📊 Analysis</a>
-            <a href="gpt-comment.html" class="active">💬 GPT Review</a>
-            <a href="grok-comment.html">💬 Grok Review</a>
+            <a href="index.html">🏠 <span data-lang-en="Home" data-lang-th="หน้าแรก">Home</span></a>
+            <a href="itinerary.html">📅 <span data-lang-en="Itinerary" data-lang-th="กำหนดการ">Itinerary</span></a>
+            <a href="planning.html">✅ <span data-lang-en="Planning" data-lang-th="การวางแผน">Planning</span></a>
+            <a href="logistics.html">🚄 <span data-lang-en="Logistics" data-lang-th="ข้อมูลการเดินทาง">Logistics</span></a>
+            <a href="analysis.html">📊 <span data-lang-en="Analysis" data-lang-th="การวิเคราะห์">Analysis</span></a>
+            <a href="gpt-comment.html" class="active">💬 <span data-lang-en="GPT Review" data-lang-th="รีวิว GPT">GPT Review</span></a>
+            <a href="grok-comment.html">💬 <span data-lang-en="Grok Review" data-lang-th="รีวิว Grok">Grok Review</span></a>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇹🇭 TH</span>
+                <span class="lang-th">🇺🇸 EN</span>
+            </button>
         </div>
     </nav>
 
     <main>
         <section>
-            <h2>Overall verdict</h2>
+            <h2><span data-lang-en="Overall verdict" data-lang-th="สรุปภาพรวม">Overall verdict</span></h2>
             <p><strong>Viable itinerary</strong> with excellent autumn timing and logical routing. Main sensitivities are: a very long rail day on Oct 24, multiple <strong>high-altitude</strong> days (Huanglong, Dagu Glacier, Mt. Emei summit), and several <strong>unbooked items</strong> (late trip hotels, trains, some transfers/tickets).</p>
         </section>
 
         <section>
-            <h2>Key gaps to resolve</h2>
+            <h2><span data-lang-en="Key gaps to resolve" data-lang-th="ช่องว่างที่ต้องแก้ไข">Key gaps to resolve</span></h2>
             <ul>
                 <li><strong>Hotels (late trip):</strong> Chengdu nights now booked (Nov 1–2, Nov 3–5). <strong>Remaining:</strong> <em>Mount Emei Golden Summit (Nov 2–3)</em> — Jin Ding Hotel pending/awaiting availability.</li>
                 <li><strong>Inbound flight passengers:</strong> HU424 doc lists only <strong>CHAMNONG/NICK MR</strong>. If two travelers inbound, add/verify second passenger.</li>
@@ -118,7 +122,7 @@
         </section>
 
         <section>
-            <h2>Plan risks and mitigations</h2>
+            <h2><span data-lang-en="Plan risks and mitigations" data-lang-th="ความเสี่ยงและการแก้ไข">Plan risks and mitigations</span></h2>
             <ul>
                 <li><strong>Oct 24: Zhangjiajie → Chongqing → Chengdu (HSR x2)</strong>
                     <ul>
@@ -320,6 +324,95 @@
         </section>
 
         <section>
+            <h2>Weather implications for the current plan</h2>
+            <p>This synthesizes the QWeather-linked notes in your <code>itinerary.html</code> into concrete plan adjustments.</p>
+
+            <h3>Chongqing (Oct 14–16)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> Overcast/light rain, 20–28°C.</li>
+                <li><strong>Adjustments:</strong> Carry compact umbrella and quick-dry layers. Wet pavement near Hongyadong; keep camera rain cover handy.</li>
+            </ul>
+
+            <h3>Wulong Karst day (Oct 15)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> Cloudy/light rain.</li>
+                <li><strong>Adjustments:</strong> Steps and boardwalks get slick. Prioritize primary bridges and Longshuixia; avoid rushing on wet stairs; bring light gloves for railings.</li>
+            </ul>
+
+            <h3>Fenghuang → Furong Zhen (Oct 17–20)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> Sunny window followed by light/showery rain, 16–25°C.</li>
+                <li><strong>Adjustments:</strong> Do key riverfront photography in the sunny window; during rain, focus on alleys/interiors. At Furong, spray makes walkways slick—wear grippy shoes.</li>
+            </ul>
+
+            <h3>Zhangjiajie (Oct 21–23)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> Mixed clouds/showers, 11–20°C. Fog risk on upper areas.</li>
+                <li><strong>Adjustments:</strong>
+                    <ul>
+                        <li><strong>Swap-ready:</strong> If Day 8 (Tianmen) is foggy, swap with park day. Use the clearer window for the cableway vistas.</li>
+                        <li><strong>Queue strategy:</strong> Wet days lengthen queues; buy Bailong/Tianzi tickets early and line up preemptively.</li>
+                        <li><strong>Warm layers:</strong> Upper decks are windy/chilly even if base is mild.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Oct 24 long HSR day</h3>
+            <ul>
+                <li><strong>Outlook:</strong> Weather less critical; trains run in rain.</li>
+                <li><strong>Adjustments:</strong> Wet platforms—use wheeled luggage covers; pad connection buffer if heavy rain in ZJJ could slow road transfer to station.</li>
+            </ul>
+
+            <h3>Jiuzhaigou (Oct 27)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> 6–12°C with shower rain.</li>
+                <li><strong>Adjustments:</strong> Waterproof jacket and shoes; prioritize bus-hopping over long hikes; accept reflective water scenes (great color even in rain). Pack spare socks.</li>
+            </ul>
+
+            <h3>Huanglong (Oct 28)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> Freezing at ~3,500m; wind chill likely.</li>
+                <li><strong>Adjustments:</strong> Cable car UP mandatory; cap site time to 3–3.5h. Bring hat/gloves, neck gaiter, sunglasses (strong UV even in cold). If snow/ice forms, avoid boardwalk congestion; descend early to protect the HLJ HSR timing.</li>
+            </ul>
+
+            <h3>Western Sichuan valleys (Oct 30–31)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> Cold mornings, mild afternoons; autumn colors peaking.</li>
+                <li><strong>Adjustments:</strong> Start sightseeing slightly later to avoid frosty slickness; keep sun protection for clear midday skies.</li>
+            </ul>
+
+            <h3>Dagu Glacier (Nov 1)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> Extreme altitude (4,860m), sub‑zero possible, rapid weather change.</li>
+                <li><strong>Adjustments:</strong> Full winter kit; limit summit exposure to the clearer window; café warm‑up is part of plan. If whiteout, prioritize quick summit check then descend—don’t chase long views.</li>
+            </ul>
+
+            <h3>Leshan + Emei (Nov 2–3)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> Leshan showers; Emeishan base 12–18°C, summit much colder and often foggy.</li>
+                <li><strong>Adjustments:</strong>
+                    <ul>
+                        <li><strong>Leshan:</strong> Boat remains the efficient option in rain; bring ponchos rather than umbrellas on deck.</li>
+                        <li><strong>Emei:</strong> Your summit‑hotel strategy is optimal for weather—use arrival evening and sunrise as two viewing windows. If both fogged, descend early to avoid wasted time in wind chill.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Chengdu (buffer days)</h3>
+            <ul>
+                <li><strong>Outlook:</strong> 11–20°C cloudy—very manageable.</li>
+                <li><strong>Adjustments:</strong> Keep Panda Base at opening hour regardless of cloud; activity is temperature‑driven, not sun‑dependent.</li>
+            </ul>
+
+            <h3>Pack & ops updates</h3>
+            <ul>
+                <li>Upgrade rain kit: compact umbrella + breathable shell; quick‑dry pants; shoe waterproofing or lightweight gaiters.</li>
+                <li>Cold gear: thermal base, fleece, insulated jacket, hat, gloves, scarf/buff; chemical hand warmers for Huanglong/Dagu/Emei.</li>
+                <li>Electronics: lens/camera rain sleeves; phone dry bag; spare battery (cold drains fast).</li>
+            </ul>
+        </section>
+
+        <section>
             <h2>Quick next actions (high priority)</h2>
             <ol>
                 <li>Book the three late-trip hotel segments (Nov 1–2, Nov 2–3, Nov 3–5).</li>
@@ -342,6 +435,9 @@
             navContainer.classList.toggle('show');
         }
     </script>
+
+    <!-- Language Switcher -->
+    <script src="language-switcher.js"></script>
 </body>
 </html>
 

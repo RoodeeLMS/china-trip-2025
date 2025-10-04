@@ -7,23 +7,88 @@ const QWEATHER_CONFIG = {
     unit: 'm' // metric (Celsius), use 'i' for imperial (Fahrenheit)
 };
 
+// GeoAPI host for city lookup (official, does not require personalized subdomain)
+const QWEATHER_GEO_HOST = 'https://geoapi.qweather.com';
+
 // City location IDs (from QWeather)
 const CITY_LOCATIONS = {
     'chongqing': '101040100',
-    'wulong': '101040100', // Part of Chongqing
+    // Prefer dynamic lookup for 'wulong' (district) — fallback to central Chongqing ID
+    'wulong': '101040100',
     'fenghuang': '101251505',
-    'furongzhen': '101251101', // Near Zhangjiajie
+    // Prefer dynamic lookup for 'furongzhen' (Yongshun) — fallback to Zhangjiajie
+    'furongzhen': '101251101',
     'zhangjiajie': '101251101',
     'wulingyuan': '101251101', // Part of Zhangjiajie
     'chengdu': '101270101',
     'jiuzhaigou': '101271906',
-    'huanglong': '101271906', // Near Jiuzhaigou
-    'shuangqiaogou': '101270201', // Aba Prefecture
-    'bipenggou': '101270201', // Aba Prefecture
-    'dagu': '101270201', // Aba Prefecture/Dagu Glacier
+    // Prefer dynamic lookup for 'huanglong' (Songpan) — fallback to Jiuzhaigou
+    'huanglong': '101271906',
+    // Prefer dynamic lookup within Aba Prefecture
+    'shuangqiaogou': '101270201', // fallback: Aba Prefecture
+    'bipenggou': '101270201',    // fallback: Aba Prefecture
+    'dagu': '101270201',         // fallback: Aba Prefecture (Heishui)
     'leshan': '101271401',
     'emeishan': '101271414'
 };
+
+// Preferred precise queries for dynamic location resolution via QWeather GeoAPI
+// Note: These are more granular than generic city IDs and improve microclimate accuracy
+const CITY_LOOKUP_QUERIES = {
+    // Municipality → District
+    'wulong': { location: 'Wulong', adm: 'Chongqing' },
+    // Hunan → Xiangxi (Yongshun) → Furong Zhen (芙蓉镇)
+    'furongzhen': { location: 'Furongzhen', adm: 'Yongshun' },
+    // Sichuan → Aba → Songpan → Huanglong Scenic Area vicinity
+    'huanglong': { location: 'Songpan', adm: 'Aba' },
+    // Western Sichuan detailed sites
+    'shuangqiaogou': { location: 'Rilong', adm: 'Xiaojin' },
+    'bipenggou': { location: 'Li County', adm: 'Aba' },
+    'dagu': { location: 'Heishui', adm: 'Aba' }
+};
+
+// Cache resolved location IDs to avoid repeated GeoAPI calls per page load
+const RESOLVED_LOCATION_CACHE = {};
+
+// Coordinate overrides for microclimate-sensitive sites (lon,lat as string)
+// These are sent directly to the Weather API for more precise forecasts
+const CITY_COORDS_OVERRIDE = {
+    // Mountain/scenic summits or gates
+    'zhangjiajie': '110.489,29.057',      // Tianmen Mountain summit vicinity
+    'emeishan': '103.332,29.524',         // Emei Golden Summit (Jinding)
+    'huanglong': '103.832,32.737',        // Huanglong scenic area (Songpan)
+    'jiuzhaigou': '103.918,33.260',       // Zhangzha gate area (valley entrance)
+    'shuangqiaogou': '102.897,30.997',    // Rilong / Shuangqiao Valley gate vicinity
+    'bipenggou': '102.816,31.208',        // Bipenggou entrance area
+    'dagu': '102.851,32.263',             // Dagu Glacier scenic area (base)
+    'wulong': '107.756,29.325',           // Three Natural Bridges area
+    'furongzhen': '109.649,28.229',       // Furong Town waterfall area
+    'leshan': '103.772,29.552'            // Leshan Giant Buddha riverside
+};
+
+async function fetchLocationIdByQuery(query) {
+    const params = new URLSearchParams({
+        location: query.location,
+        key: QWEATHER_CONFIG.apiKey,
+        lang: QWEATHER_CONFIG.lang
+    });
+    if (query.adm) params.set('adm', query.adm);
+
+    const url = `${QWEATHER_GEO_HOST}/v2/city/lookup?${params.toString()}`;
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        if (data.code === '200' && Array.isArray(data.location) && data.location.length > 0) {
+            // Prefer the first match; could refine by country/latlon if needed
+            return data.location[0].id;
+        }
+        console.warn('QWeather GeoAPI lookup returned no results:', data);
+        return null;
+    } catch (err) {
+        console.error('GeoAPI lookup error:', err);
+        return null;
+    }
+}
 
 // Fetch 30-day weather forecast
 async function fetchDailyWeather(locationId, date) {
@@ -185,19 +250,41 @@ function createHourlyTimeline(hourlyData) {
 async function updateDayWeather(dayElement) {
     const city = dayElement.dataset.city;
     const date = dayElement.dataset.date;
-    const locationId = CITY_LOCATIONS[city];
+    let locationId = CITY_LOCATIONS[city];
 
-    if (!locationId || !date) {
+    if (!date) {
         console.warn('Missing city or date data for day:', dayElement.dataset.day);
         return;
     }
 
+    // Attempt dynamic lookup for more precise microclimate IDs if configured
+    if (CITY_LOOKUP_QUERIES[city]) {
+        const cacheKey = `${city}`;
+        if (RESOLVED_LOCATION_CACHE[cacheKey]) {
+            locationId = RESOLVED_LOCATION_CACHE[cacheKey];
+        } else {
+            const resolved = await fetchLocationIdByQuery(CITY_LOOKUP_QUERIES[city]);
+            if (resolved) {
+                locationId = resolved;
+                RESOLVED_LOCATION_CACHE[cacheKey] = resolved;
+            }
+        }
+    }
+
+    if (!locationId) {
+        console.warn('No locationId resolved for city:', city, '— skipping weather update.');
+        return;
+    }
+
+    // Determine API request location (ID or precise coordinates)
+    const requestLocation = CITY_COORDS_OVERRIDE[city] || locationId;
+
     // Fetch daily weather
-    const dailyWeather = await fetchDailyWeather(locationId, date);
+    const dailyWeather = await fetchDailyWeather(requestLocation, date);
     updateDailyWeather(dayElement, dailyWeather, locationId);
 
     // Fetch hourly weather
-    const hourlyWeather = await fetchHourlyWeather(locationId);
+    const hourlyWeather = await fetchHourlyWeather(requestLocation);
 
     // Insert hourly timeline after weather-box
     const weatherBox = dayElement.querySelector('.weather-box');

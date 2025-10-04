@@ -14,20 +14,24 @@
 
     <nav>
         <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
-            <a href="index.html">🏠 Home</a>
-            <a href="itinerary.html">📅 Itinerary</a>
-            <a href="planning.html" class="active">✅ Planning</a>
-            <a href="logistics.html">🚄 Logistics</a>
-            <a href="analysis.html">📊 Analysis</a>
-            <a href="gpt-comment.html">💬 GPT Review</a>
-            <a href="grok-comment.html">💬 Grok Review</a>
+            <a href="index.html">🏠 <span data-lang-en="Home" data-lang-th="หน้าแรก">Home</span></a>
+            <a href="itinerary.html">📅 <span data-lang-en="Itinerary" data-lang-th="กำหนดการ">Itinerary</span></a>
+            <a href="planning.html" class="active">✅ <span data-lang-en="Planning" data-lang-th="การวางแผน">Planning</span></a>
+            <a href="logistics.html">🚄 <span data-lang-en="Logistics" data-lang-th="ข้อมูลการเดินทาง">Logistics</span></a>
+            <a href="analysis.html">📊 <span data-lang-en="Analysis" data-lang-th="การวิเคราะห์">Analysis</span></a>
+            <a href="gpt-comment.html">💬 <span data-lang-en="GPT Review" data-lang-th="รีวิว GPT">GPT Review</span></a>
+            <a href="grok-comment.html">💬 <span data-lang-en="Grok Review" data-lang-th="รีวิว Grok">Grok Review</span></a>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇹🇭 TH</span>
+                <span class="lang-th">🇺🇸 EN</span>
+            </button>
         </div>
     </nav>
 
     <div class="container">
         <main>
 <section id="booking-checklist">
-            <h2>📋 Complete Booking Checklist</h2>
+            <h2><span data-lang-en="📋 Complete Booking Checklist" data-lang-th="📋 รายการจองทั้งหมด">📋 Complete Booking Checklist</span></h2>
 
             <h3>✈️ Flights (2 Bookings)</h3>
             <ul class="booking-list">
@@ -100,7 +104,7 @@
         </section>
 
 <section id="immediate-priorities">
-            <h2>Immediate Booking Priorities</h2>
+            <h2><span data-lang-en="Immediate Booking Priorities" data-lang-th="ลำดับความสำคัญการจองทันที">Immediate Booking Priorities</span></h2>
             <p>The following high-priority items should be booked as soon as possible:</p>
 
             <h3>Remaining Hotels (1 booking needed)</h3>
@@ -140,7 +144,7 @@
         </section>
 
 <section id="flight-details">
-            <h2>Flight Details</h2>
+            <h2><span data-lang-en="Flight Details" data-lang-th="รายละเอียดเที่ยวบิน">Flight Details</span></h2>
             <ul>
                 <li><strong>Arrival (Oct 14):</strong> Hainan Airlines (HU 424) from BKK to CKG. Lands at 16:05.</li>
                 <li><strong>Departure (Nov 5):</strong> Air China (CA471) from TFU to BKK. Departs at 14:20.</li>
@@ -155,7 +159,7 @@
         </section>
 
 <section id="booking-details">
-            <h2>Hotel Booking Details</h2>
+            <h2><span data-lang-en="Hotel Booking Details" data-lang-th="รายละเอียดการจองโรงแรม">Hotel Booking Details</span></h2>
             <ul>
                 <li><strong>Chongqing (Oct 14-17):</strong> Chongqing Jiang Dao Holiday High-view Hotel (Conf# ...69917) - <em>Manhattan Night View Double Bed Room</em></li>
                 <li><strong>Fenghuang (Oct 17-19):</strong> Floral Hotel Fengyu Chenxi (Conf# ...90337) - <em>Feng Honeymoon Round Bed Room</em></li>
@@ -226,5 +230,8 @@
             navContainer.classList.toggle('show');
         }
     </script>
+
+    <!-- Language Switcher -->
+    <script src="language-switcher.js"></script>
 </body>
 </html>

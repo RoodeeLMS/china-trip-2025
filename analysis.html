@@ -14,19 +14,23 @@
 
     <nav>
         <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
-            <a href="index.html">🏠 Home</a>
-            <a href="itinerary.html">📅 Itinerary</a>
-            <a href="planning.html">✅ Planning</a>
-            <a href="logistics.html">🚄 Logistics</a>
-            <a href="analysis.html" class="active">📊 Analysis</a>
-            <a href="gpt-comment.html">💬 GPT Review</a>
-            <a href="grok-comment.html">💬 Grok Review</a>
+            <a href="index.html">🏠 <span data-lang-en="Home" data-lang-th="หน้าแรก">Home</span></a>
+            <a href="itinerary.html">📅 <span data-lang-en="Itinerary" data-lang-th="กำหนดการ">Itinerary</span></a>
+            <a href="planning.html">✅ <span data-lang-en="Planning" data-lang-th="การวางแผน">Planning</span></a>
+            <a href="logistics.html">🚄 <span data-lang-en="Logistics" data-lang-th="ข้อมูลการเดินทาง">Logistics</span></a>
+            <a href="analysis.html" class="active">📊 <span data-lang-en="Analysis" data-lang-th="การวิเคราะห์">Analysis</span></a>
+            <a href="gpt-comment.html">💬 <span data-lang-en="GPT Review" data-lang-th="รีวิว GPT">GPT Review</span></a>
+            <a href="grok-comment.html">💬 <span data-lang-en="Grok Review" data-lang-th="รีวิว Grok">Grok Review</span></a>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇹🇭 TH</span>
+                <span class="lang-th">🇺🇸 EN</span>
+            </button>
         </div>
     </nav>
 
     <div class="container">
         <main>
-<section id="crowd-analysis"><h2>👥 Crowd Intelligence</h2>
+<section id="crowd-analysis"><h2><span data-lang-en="👥 Crowd Intelligence" data-lang-th="👥 การวิเคราะห์ผู้คน">👥 Crowd Intelligence</span></h2>
     <div class="analysis-intro">
         <p>📊 Analyze crowd levels, weather conditions, and time management for your 23-day journey. Use this intelligence to plan your strategies!</p>
     </div>
@@ -405,7 +409,7 @@
 
 
 <section id="weather-analysis">
-    <h2>🌤️ Weather Intelligence</h2>
+    <h2><span data-lang-en="🌤️ Weather Intelligence" data-lang-th="🌤️ การวิเคราะห์สภาพอากาศ">🌤️ Weather Intelligence</span></h2>
     
     <div class="analysis-intro">
         <p>🌡️ Prepare for diverse conditions from mild Chongqing fog to freezing Himalayan peaks. Smart layering is your superpower!</p>
@@ -535,7 +539,7 @@
 
 
 <section id="time-allocation">
-    <h2>⏱️ Time Management Strategy</h2>
+    <h2><span data-lang-en="⏱️ Time Management Strategy" data-lang-th="⏱️ กลยุทธ์การจัดการเวลา">⏱️ Time Management Strategy</span></h2>
     
     <div class="analysis-intro">
         <p>⚡ Smart time allocation prevents rushed days and maximizes experiences. Here's your tactical guide!</p>
@@ -678,5 +682,8 @@
             navContainer.classList.toggle('show');
         }
     </script>
+
+    <!-- Language Switcher -->
+    <script src="language-switcher.js"></script>
 </body>
 </html>

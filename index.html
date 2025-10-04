@@ -309,14 +309,17 @@
 
     <nav>
         <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
-            <a href="index.html" class="active">🏠 Home</a>
-            <a href="itinerary.html">📅 Itinerary</a>
-            <a href="planning.html">✅ Planning</a>
-            <a href="logistics.html">🚄 Logistics</a>
-            <a href="analysis.html">📊 Analysis</a>
-            <a href="gpt-comment.html">💬 GPT Review</a>
-            <a href="grok-comment.html">💬 Grok Review</a>
-            <a href="gemini-review.html">💬 Gemini Review</a>
+            <a href="index.html" class="active">🏠 <span data-lang-en="Home" data-lang-th="หน้าแรก">Home</span></a>
+            <a href="itinerary.html">📅 <span data-lang-en="Itinerary" data-lang-th="กำหนดการ">Itinerary</span></a>
+            <a href="planning.html">✅ <span data-lang-en="Planning" data-lang-th="การวางแผน">Planning</span></a>
+            <a href="logistics.html">🚄 <span data-lang-en="Logistics" data-lang-th="ข้อมูลการเดินทาง">Logistics</span></a>
+            <a href="analysis.html">📊 <span data-lang-en="Analysis" data-lang-th="การวิเคราะห์">Analysis</span></a>
+            <a href="gpt-comment.html">💬 <span data-lang-en="GPT Review" data-lang-th="รีวิว GPT">GPT Review</span></a>
+            <a href="grok-comment.html">💬 <span data-lang-en="Grok Review" data-lang-th="รีวิว Grok">Grok Review</span></a>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇹🇭 TH</span>
+                <span class="lang-th">🇺🇸 EN</span>
+            </button>
         </div>
     </nav>
 
@@ -354,7 +357,7 @@
         </div>
 
         <section class="section">
-            <h2>🎯 Trip Highlights</h2>
+            <h2><span data-lang-en="🎯 Trip Highlights" data-lang-th="🎯 ไฮไลท์ทริป">🎯 Trip Highlights</span></h2>
             <div class="highlights">
                 <div class="highlight-card">
                     <h3>🏞️ Natural Wonders</h3>
@@ -390,7 +393,7 @@
         </section>
 
         <section class="section">
-            <h2>🗺️ Your Route Through China</h2>
+            <h2><span data-lang-en="🗺️ Your Route Through China" data-lang-th="🗺️ เส้นทางท่องเที่ยวจีน">🗺️ Your Route Through China</span></h2>
             <div class="map-container">
                 <div class="map-placeholder">
                     <div>
@@ -410,7 +413,7 @@
         </section>
 
         <section class="section">
-            <h2>📸 Destination Previews</h2>
+            <h2><span data-lang-en="📸 Destination Previews" data-lang-th="📸 ภาพตัวอย่างสถานที่">📸 Destination Previews</span></h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80"
@@ -446,7 +449,7 @@
         </section>
 
         <section class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <h2 style="color: white; border-color: rgba(255,255,255,0.3);">🚀 Ready to Explore?</h2>
+            <h2 style="color: white; border-color: rgba(255,255,255,0.3);"><span data-lang-en="🚀 Ready to Explore?" data-lang-th="🚀 พร้อมสำรวจหรือยัง?">🚀 Ready to Explore?</span></h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem;">
                 Dive into the detailed day-by-day itinerary, check your booking status, and prepare for the adventure of a lifetime!
             </p>
@@ -470,5 +473,8 @@
             navContainer.classList.toggle('show');
         }
     </script>
+
+    <!-- Language Switcher -->
+    <script src="language-switcher.js"></script>
 </body>
 </html>

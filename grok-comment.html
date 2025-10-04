@@ -101,13 +101,17 @@
         <p>As of Oct 4, 2025</p>
     </header>
     <nav><button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
-            <a href="index.html">🏠 Home</a>
-            <a href="itinerary.html">📅 Itinerary</a>
-            <a href="planning.html">✅ Planning</a>
-            <a href="logistics.html">🚄 Logistics</a>
-            <a href="analysis.html">📊 Analysis</a>
-            <a href="gpt-comment.html">💬 GPT Review</a>
-            <a href="grok-comment.html" class="active">💬 Grok Review</a>
+            <a href="index.html">🏠 <span data-lang-en="Home" data-lang-th="หน้าแรก">Home</span></a>
+            <a href="itinerary.html">📅 <span data-lang-en="Itinerary" data-lang-th="กำหนดการ">Itinerary</span></a>
+            <a href="planning.html">✅ <span data-lang-en="Planning" data-lang-th="การวางแผน">Planning</span></a>
+            <a href="logistics.html">🚄 <span data-lang-en="Logistics" data-lang-th="ข้อมูลการเดินทาง">Logistics</span></a>
+            <a href="analysis.html">📊 <span data-lang-en="Analysis" data-lang-th="การวิเคราะห์">Analysis</span></a>
+            <a href="gpt-comment.html">💬 <span data-lang-en="GPT Review" data-lang-th="รีวิว GPT">GPT Review</span></a>
+            <a href="grok-comment.html" class="active">💬 <span data-lang-en="Grok Review" data-lang-th="รีวิว Grok">Grok Review</span></a>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇹🇭 TH</span>
+                <span class="lang-th">🇺🇸 EN</span>
+            </button>
         </div>
     </nav>
     <main>
@@ -116,7 +120,7 @@
         </section>
 
         <section>
-            <h2>1. Information Consistency Check</h2>
+            <h2><span data-lang-en="1. Information Consistency Check" data-lang-th="1. การตรวจสอบความสอดคล้องของข้อมูล">1. Information Consistency Check</span></h2>
             <ul>
                 <li><strong>Bookings (.md Files):</strong> 23 total—original 14 + 3 Train Docs (Wulong round-trip, Chongqing-Fenghuang HSR), 2 Activity Docs (Wulong ticket, Zhangjiajie 4-day pass + extras), and 5 Hotel Docs (Nov 1-2/3-5 Chengdu, Oct 24/28 updates). Dates/prices (~฿65k+ booked) align perfectly; flights/DeeTrip unchanged. gpt-comment flags resolved (e.g., names standardized to "CHAMNONG").</li>
                 <li><strong>New Train Docs:</strong> Efficient HSR for Day 2 (Wulong ~฿200-300) and Day 4 (~฿400-500)—saves vs. private; book remaining 6 legs soon.</li>
@@ -136,7 +140,7 @@
         </section>
 
         <section>
-            <h2>2. Plan Viability Assessment</h2>
+            <h2><span data-lang-en="2. Plan Viability Assessment" data-lang-th="2. การประเมินความเป็นไปได้ของแผน">2. Plan Viability Assessment</span></h2>
             <p>23-day itinerary (Oct 14-Nov 5) across Chongqing/Hunan/Sichuan is robust and nearly complete (9.5/10)—new bookings resolve gaps, boosting feasibility. Peak autumn scenery intact; ~10 days to finalize HSR/Emeishan.</p>
 
             <h3>Strengths</h3>
@@ -193,5 +197,8 @@
             navContainer.classList.toggle('show');
         }
     </script>
+
+    <!-- Language Switcher -->
+    <script src="language-switcher.js"></script>
 </body>
 </html>
