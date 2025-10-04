@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Document - China Trip 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="auth.js"></script>
+    <style>
+        .image-viewer {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .viewer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .image-title {
+            font-size: 1.5rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .image-container {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .booking-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .viewer-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .image-title {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🇨🇳 China Trip 2025</h1>
+        <p>Booking Document Viewer</p>
+    </header>
+
+    <div class="image-viewer">
+        <div class="viewer-header">
+            <a href="javascript:history.back()" class="back-button">
+                ← Back
+            </a>
+            <div class="image-title" id="imageTitle">Loading...</div>
+        </div>
+
+        <div class="image-container">
+            <img id="bookingImage" class="booking-image" src="" alt="Booking Document">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 China Trip Planning | <a href="index.html">Home</a></p>
+    </footer>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const imgPath = urlParams.get('img');
+        const title = urlParams.get('title') || 'Booking Document';
+
+        // Set title and image
+        document.getElementById('imageTitle').textContent = title;
+
+        if (imgPath) {
+            document.getElementById('bookingImage').src = imgPath;
+            document.getElementById('bookingImage').alt = title;
+        } else {
+            document.getElementById('imageTitle').textContent = 'No image specified';
+            document.getElementById('bookingImage').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

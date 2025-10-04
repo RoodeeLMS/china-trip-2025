@@ -13,7 +13,7 @@
     </header>
 
     <nav>
-        <div class="nav-container">
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
             <a href="index.html">🏠 Home</a>
             <a href="itinerary.html">📅 Itinerary</a>
             <a href="planning.html" class="active">✅ Planning</a>
@@ -26,20 +26,95 @@
 
     <div class="container">
         <main>
-<section id="immediate-priorities">
-            <h2>Immediate Booking Priorities (As of Sep 24)</h2>
-            <p>The following high-priority items can be booked now. Trains and park tickets must be booked closer to the date of travel (typically within 15 days).</p>
-            
-            <h3>Remaining Hotels</h3>
+<section id="booking-checklist">
+            <h2>📋 Complete Booking Checklist</h2>
+
+            <h3>✈️ Flights (2 Bookings)</h3>
             <ul class="booking-list">
-                <li><span class="status todo">To Do</span> Chengdu, Central (1 night, Nov 1-2)</li>
-                <li><span class="status todo">To Do</span> Emeishan City Base (1 night, Nov 2-3)</li>
-                <li><span class="status todo">To Do</span> Chengdu, Central (2 nights, Nov 3-5)</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Airline%20Docs/2025-10-14_BKK-CKG_HainanAirlines.png&title=Oct%2014%20BKK%20to%20CKG%20Flight">Oct 14: BKK → CKG (Hainan Airlines HU424)</a></li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Airline%20Docs/2025-11-05_TFU-BKK_AirChina.png&title=Nov%205%20TFU%20to%20BKK%20Flight">Nov 5: TFU → BKK (Air China CA471)</a></li>
             </ul>
 
-            <h3>Key Bus Journeys</h3>
+            <h3>🏨 Hotels (12 Booked + 1 To Do = 13 Total)</h3>
             <ul class="booking-list">
-                <li><span class="status todo">To Do</span> Book in Advance: Chengdu → Rilong Town (for Oct 29)</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-14_Chongqing_JiangDaoHolidayHotel.png&title=Chongqing%20Hotel%20Oct%2014-17">Chongqing (Oct 14-17, 3 nights)</a> - Jiang Dao Holiday High-view Hotel</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-17_Fenghuang_FloralHotel.png&title=Fenghuang%20Hotel%20Oct%2017-19">Fenghuang (Oct 17-19, 2 nights)</a> - Floral Hotel Fengyu Chenxi</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-19_FurongZhen_WangcunCaotangInn.png&title=Furong%20Zhen%20Hotel%20Oct%2019-20">Furong Zhen (Oct 19-20, 1 night)</a> - Wangcun Caotang Inn</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-20_Wulingyuan_ManyuanResortHotel.png&title=Wulingyuan%20Hotel%20Oct%2020-24">Wulingyuan (Oct 20-24, 4 nights)</a> - Manyuan Resort Hotel</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-24_Chengdu_CelebrityRuichengHotel.jpg&title=Chengdu%20Hotel%20Oct%2024-26">Chengdu (Oct 24-26, 2 nights)</a> - Celebrity Ruicheng Hotel</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-26_Jiuzhaigou_YusheYunshanHotel.png&title=Jiuzhaigou%20Hotel%20Oct%2026-28">Jiuzhaigou Area (Oct 26-28, 2 nights)</a> - Yushe Yunshan Designer Hot Spring Hotel</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-28_Chengdu_CelebrityRuichengHotel-2.jpg&title=Chengdu%20Hotel%20Oct%2028-29">Chengdu (Oct 28-29, 1 night)</a> - Celebrity Ruicheng Hotel</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-29_Shuangqiaogou_FromABeautifulDreamHotel.png&title=Shuangqiaogou%20Hotel%20Oct%2029-30">Shuangqiaogou Area (Oct 29-30, 1 night)</a> - From a beautiful dream Hotel</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-30_Bipenggou-Area.png&title=Bipenggou%20Hotel%20Oct%2030-31">Bipenggou Area (Oct 30-31, 1 night)</a> - Lixian Bipeng-Shiguang Hot Spring Hotel</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-10-31_Dagu-Glacier-Area_HeishuiBanshanduHotel.png&title=Dagu%20Glacier%20Hotel%20Oct%2031-Nov%201">Dagu Glacier Area (Oct 31-Nov 1, 1 night)</a> - Heishui Banshandu-Yueyin Hotel</li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-11-01_Chengdu_CelebrityRuichengHotel.jpg&title=Chengdu%20Hotel%20Nov%201-2">Chengdu, Central (Nov 1-2, 1 night)</a> - Celebrity Ruicheng Hotel</li>
+                <li><span class="status todo">To Do</span> Mount Emei Golden Summit (Nov 2-3, 1 night) - Jin Ding Hotel (3,079m altitude) - <em>Awaiting availability</em></li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Hotel%20Docs/2025-11-03_Chengdu_CelebrityRuichengHotel.jpg&title=Chengdu%20Hotel%20Nov%203-5">Chengdu, Central (Nov 3-5, 2 nights)</a> - Celebrity Ruicheng Hotel</li>
+            </ul>
+
+            <h3>🚄 High-Speed Rail (8 Legs)</h3>
+            <p><strong>Note:</strong> Book these 15-30 days in advance. Opens for booking ~30 days before travel date.</p>
+            <ul class="booking-list">
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Train%20Docs/WulongKarstOutbound.jpg&title=Wulong%20Outbound">Oct 15: Chongqing East → Wulong South</a> | <a href="view-image.html?img=Train%20Docs/WulongKarstInbound.jpg&title=Wulong%20Inbound">Return</a></li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Train%20Docs/ChongqingEast-FenghuangeGucheng.jpg&title=Chongqing%20to%20Fenghuang">Oct 17: Chongqing East → Fenghuang Gucheng</a> (1 transfer at Zhangjiajexi)</li>
+                <li><span class="status todo">To Do</span> Oct 24: Zhangjiajie West → Chongqing West</li>
+                <li><span class="status todo">To Do</span> Oct 24: Chongqing West → Chengdu East</li>
+                <li><span class="status todo">To Do</span> Oct 26: Chengdu East → Jiuzhaigou Station</li>
+                <li><span class="status todo">To Do</span> Oct 28: HuanglongJiuzhai Station → Chengdu East</li>
+                <li><span class="status todo">To Do</span> Nov 2: Chengdu → Leshan</li>
+                <li><span class="status todo">To Do</span> Nov 2: Leshan → Emeishan</li>
+                <li><span class="status todo">To Do</span> Nov 3: Emeishan → Chengdu</li>
+            </ul>
+
+            <h3>🚗 Private Drivers & Key Transfers (7 Hires)</h3>
+            <p><strong>Note:</strong> Essential for remote areas and logistically complex transfers.</p>
+            <ul class="booking-list">
+                <li><span class="status todo">To Do</span> Oct 15: Wulong Karst Day Trip (Round trip from Chongqing) - <em>Use HSR + local taxi/Didi</em></li>
+                <li><span class="status todo">To Do</span> Oct 24: Wulingyuan → Zhangjiajie West Station (Very early start) - <em>Pre-book Didi night before</em></li>
+                <li><span class="status todo">To Do</span> Oct 26: Jiuzhaigou Station → Hotel in Zhangzha - <em>Taxi/Didi on arrival</em></li>
+                <li><span class="status todo">To Do</span> Oct 28: Full Day hire: JZG hotel → Huanglong → HLJ Station (with luggage) - <em>Ask hotel to arrange</em></li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Rental%20Cars%20Docs/2025-10-30_3-Day-Driver_DeeTrip.PNG&title=Western%20Sichuan%20Driver%20Oct%2030-Nov%201">Oct 30-Nov 1: Western Sichuan Loop (3 days)</a> - DeeTrip</li>
+            </ul>
+
+            <h3>🎫 Key Attraction Tickets (9 Attractions)</h3>
+            <p><strong>Note:</strong> Book online 7-10 days in advance. Many parks have daily visitor caps.</p>
+            <ul class="booking-list">
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Activity%20Docs/2025-10-15_WulongKarst_ThreeNaturalBridges-LongshuixiaFissureGorge-1.png&title=Wulong%20Karst%20Tickets">Oct 15: Wulong Karst (Three Natural Bridges + Longshuixia Fissure Gorge)</a></li>
+                <li><span class="status booked">Booked</span> <a href="view-image.html?img=Activity%20Docs/2025-10-20_Zhangjiajie_4-Day-Ticket-3-Cables-1-Elevator.png&title=Zhangjiajie%204-Day%20Ticket">Oct 20-23: Zhangjiajie National Forest Park (4-Day Ticket)</a></li>
+                <li><span class="status todo">To Do</span> Oct 21: Tianmen Mountain (with specific time slot)</li>
+                <li><span class="status todo">To Do</span> Oct 27: Jiuzhaigou National Park (MUST book in advance!)</li>
+                <li><span class="status todo">To Do</span> Oct 28: Huanglong Park (entry + UP cable car)</li>
+                <li><span class="status todo">To Do</span> Oct 30: Shuangqiao Valley (Mount Siguniang area)</li>
+                <li><span class="status todo">To Do</span> Oct 31: Bipenggou Valley</li>
+                <li><span class="status todo">To Do</span> Nov 1: Dagu Glacier (entry + round-trip cable car)</li>
+                <li><span class="status todo">To Do</span> Nov 2: Leshan Giant Buddha (Boat tour recommended)</li>
+                <li><span class="status todo">To Do</span> Nov 3: Mount Emei (entry + bus + cable car)</li>
+                <li><span class="status todo">To Do</span> Nov 4: Chengdu Panda Base (7:30 AM slot!)</li>
+            </ul>
+
+            <h3>🚌 Key Bus Journeys (2 Items)</h3>
+            <ul class="booking-list">
+                <li><span class="status todo">To Do</span> Oct 29: Chengdu → Rilong Town (for Shuangqiaogou) - Book in advance</li>
+                <li><span class="status todo">To Do</span> Hunan Bus Legs (Huaihua→Fenghuang; Fenghuang→Furong; Furong→Wulingyuan) - Plan locally or use Didi</li>
+            </ul>
+        </section>
+
+<section id="immediate-priorities">
+            <h2>Immediate Booking Priorities</h2>
+            <p>The following high-priority items should be booked as soon as possible:</p>
+
+            <h3>Remaining Hotels (1 booking needed)</h3>
+            <ul class="booking-list">
+                <li><span class="status todo">To Do</span> Mount Emei Golden Summit - Jin Ding Hotel (1 night, Nov 2-3) - <em>Awaiting availability. Located at 3,079m altitude, 150m from Jinding Cable Car. Allows sunrise viewing and multiple weather windows.</em></li>
+            </ul>
+
+            <h3>High-Speed Rail (6 legs to book)</h3>
+            <ul class="booking-list">
+                <li><span class="status todo">High Priority</span> Oct 24: ZJJ West → Chongqing West (very tight connection)</li>
+                <li><span class="status todo">High Priority</span> Oct 24: Chongqing West → Chengdu East</li>
+                <li><span class="status todo">To Do</span> Oct 26: Chengdu East → Jiuzhaigou Station</li>
+                <li><span class="status todo">To Do</span> Oct 28: HuanglongJiuzhai Stn → Chengdu East</li>
+                <li><span class="status todo">To Do</span> Nov 2-3: Chengdu ↔ Leshan ↔ Emeishan (3 legs)</li>
             </ul>
         </section>
 
@@ -96,16 +171,28 @@
         </section>
 
 <section id="strategic-decisions">
-            <h2>Strategic Decisions & Alternatives</h2>
+            <h2>Strategic Decisions & Rationale</h2>
             <ul>
                 <li><strong>Post-Dagu Glacier Logistics (Nov 1):</strong> The current plan to return to Chengdu after visiting Dagu Glacier is the most efficient choice. Chengdu is the essential transport hub for the next day's journey to Leshan, and any other route would be significantly slower and more complex.</li>
-                <li><strong>Mitigating Weather Risk at Mount Emei (Nov 2-3):</strong> Your current itinerary is a high-risk "one-shot" attempt at the summit. To increase your chances of clear views, consider these two alternative strategies:
-                    <ol>
-                        <li><strong>The "Add a Day" Strategy:</strong> Stay two nights at Emeishan base instead of one. This gives you two mornings to attempt the summit based on the weather. **Trade-off:** This would require sacrificing your Chengdu buffer day and your visit to the Panda Base on Nov 4.</li>
-                        <li><strong>The "Stay High" Strategy:</strong> Stay overnight at a hotel high on the mountain (at Leidongping). This provides multiple viewing windows (arrival afternoon, sunrise, next morning) without adding a day. **Trade-off:** Hotels are more basic/expensive, and you must take your luggage on the 2-hour park bus up the mountain.</li>
-                    </ol>
+                <li><strong>✅ ADOPTED: Mount Emei Summit Hotel Strategy (Nov 2-3):</strong> You have chosen the <strong>"Stay High" Strategy</strong> by planning to stay at <strong>Jin Ding Hotel at the Golden Summit</strong> (3,079m altitude). This provides:
+                    <ul>
+                        <li>✅ <strong>Multiple viewing windows:</strong> Arrival evening, sunrise, and next morning</li>
+                        <li>✅ <strong>Better weather chances:</strong> Two different times to see clear views</li>
+                        <li>✅ <strong>No early morning rush:</strong> Already at the summit for sunrise</li>
+                        <li>✅ <strong>Sunrise viewing:</strong> Can watch from hotel area without crowds</li>
+                        <li>⚠️ <strong>Trade-offs:</strong> Must carry luggage on 2-hour park bus + cable car. Hotel is basic but adequate. Higher cost (~$70-100/night).</li>
+                        <li>💡 <strong>Hotel Location:</strong> 150m from Jinding Cable Car station, at the Golden Summit area</li>
+                    </ul>
                 </li>
-                <li><strong>Hotel Choice for Oct 28th:</strong> You are currently booked at the central `Celebrity Ruicheng Hotel`. On this night, you will arrive very late at Chengdu East Station. **Consider changing to a hotel directly at the station** to minimize travel time after an exhausting day. The trade-off is managing luggage between two different hotels in Chengdu.</li>
+                <li><strong>Combining Leshan + Emei Ascent (Nov 2):</strong> This is an ambitious but viable plan:
+                    <ul>
+                        <li>✅ <strong>Efficiency:</strong> Maximizes time by combining two major sights</li>
+                        <li>✅ <strong>Logistics:</strong> Leshan Station luggage storage is crucial</li>
+                        <li>⚠️ <strong>Timing:</strong> Must do <strong>boat tour</strong> at Leshan (not stairs) to save 2-3 hours</li>
+                        <li>⚠️ <strong>Arrival:</strong> Aim to reach summit before dark (~17:30-18:00)</li>
+                    </ul>
+                </li>
+                <li><strong>Oct 28 Hotel Choice:</strong> You are booked at central Celebrity Ruicheng Hotel despite late arrival at Chengdu East Station. The 30-45 min transfer is acceptable as you're already familiar with the hotel and it provides better location for the next day.</li>
             </ul>
         </section>
 
@@ -132,5 +219,12 @@
     <footer>
         <p>&copy; 2025 China Trip Planning | <a href="index.html">Home</a></p>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navContainer = document.querySelector('.nav-container');
+            navContainer.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>

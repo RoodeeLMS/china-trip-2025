@@ -13,7 +13,7 @@
     </header>
 
     <nav>
-        <div class="nav-container">
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
             <a href="index.html">🏠 Home</a>
             <a href="itinerary.html">📅 Itinerary</a>
             <a href="planning.html">✅ Planning</a>
@@ -671,5 +671,12 @@
     <footer>
         <p>&copy; 2025 China Trip Planning | <a href="index.html">Home</a></p>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navContainer = document.querySelector('.nav-container');
+            navContainer.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>

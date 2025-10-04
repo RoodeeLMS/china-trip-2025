@@ -89,8 +89,7 @@
         <h1>China Trip 2025 — Viability Review &amp; Action Items</h1>
     </header>
 
-    <nav>
-        <div class="nav-container">
+    <nav><button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
             <a href="index.html">🏠 Home</a>
             <a href="itinerary.html">📅 Itinerary</a>
             <a href="planning.html">✅ Planning</a>
@@ -342,6 +341,13 @@
     <footer style="text-align:center; padding: 1rem; margin-top: 2rem; background:#333; color:#fff;">
         <p>This review was generated from the markdown note.</p>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navContainer = document.querySelector('.nav-container');
+            navContainer.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
 

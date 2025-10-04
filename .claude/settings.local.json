@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo create:*)",
+      "Bash(gh auth:*)",
+      "Bash(git remote remove:*)",
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(python:*)",
+      "Bash(grep:*)",
+      "Read(//c/**)",
+      "Bash(claude mcp:*)",
+      "Bash(start chrome \"file:///c:/Users/Nick/Dropbox/China%20Trip%202025/itinerary.html\")",
+      "Bash(start chrome:*)",
+      "Read(//tmp/chrome-devtools-mcp-iTWL8J/**)",
+      "Bash(cat:*)",
+      "Bash(awk:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

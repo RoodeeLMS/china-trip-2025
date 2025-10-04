@@ -63,6 +63,23 @@ nav a:hover, nav a.active {
     color: white;
 }
 
+.mobile-menu-toggle {
+    display: none;
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+}
+
+.mobile-menu-toggle:active {
+    background: #5568d3;
+}
+
 .container {
     max-width: 1200px;
     margin: 2rem auto;
@@ -673,29 +690,38 @@ footer a:hover {
     }
 
     nav {
-        padding: 0.25rem 0.5rem;
+        padding: 0.5rem;
         position: sticky;
         top: 0;
     }
 
-    .nav-container {
-        gap: 0.25rem;
-        justify-content: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+    .mobile-menu-toggle {
+        display: block;
     }
 
-    .nav-container::-webkit-scrollbar {
-        display: none;
+    .nav-container {
+        max-height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        transition: max-height 0.3s ease-out;
+        margin-top: 0;
+    }
+
+    .nav-container.show {
+        max-height: 500px;
+        margin-top: 0.5rem;
     }
 
     nav a {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.85rem;
-        white-space: nowrap;
-        flex-shrink: 0;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
     }
 
     .container {

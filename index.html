@@ -308,7 +308,7 @@
     </header>
 
     <nav>
-        <div class="nav-container">
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
             <a href="index.html" class="active">🏠 Home</a>
             <a href="itinerary.html">📅 Itinerary</a>
             <a href="planning.html">✅ Planning</a>
@@ -316,6 +316,7 @@
             <a href="analysis.html">📊 Analysis</a>
             <a href="gpt-comment.html">💬 GPT Review</a>
             <a href="grok-comment.html">💬 Grok Review</a>
+            <a href="gemini-review.md">💬 Gemini Review</a>
         </div>
     </nav>
 
@@ -413,38 +414,32 @@
             <div class="gallery">
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80"
-                         alt="Chongqing Night View"
-                         onerror="this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Chongqing'">
+                         alt="Chongqing Night View">
                     <div class="gallery-caption">Chongqing - Mountain City Lights</div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1589905347897-797c6c2b4f24?w=800&q=80"
-                         alt="Zhangjiajie"
-                         onerror="this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Zhangjiajie'">
+                         alt="Zhangjiajie">
                     <div class="gallery-caption">Zhangjiajie - Avatar Mountains</div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1598946428180-1d8b6c96b70f?w=800&q=80"
-                         alt="Jiuzhaigou"
-                         onerror="this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Jiuzhaigou'">
+                         alt="Jiuzhaigou">
                     <div class="gallery-caption">Jiuzhaigou - Autumn Colors</div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1537890885377-4f97fa4e6c5c?w=800&q=80"
-                         alt="Chengdu Panda"
-                         onerror="this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Chengdu+Pandas'">
+                         alt="Chengdu Panda">
                     <div class="gallery-caption">Chengdu - Giant Pandas</div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1583306985974-3021d9ce9430?w=800&q=80"
-                         alt="Fenghuang Ancient Town"
-                         onerror="this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Fenghuang'">
+                         alt="Fenghuang Ancient Town">
                     <div class="gallery-caption">Fenghuang Ancient Town</div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80"
-                         alt="Mount Emei"
-                         onerror="this.src='https://via.placeholder.com/800x600/667eea/ffffff?text=Mount+Emei'">
+                         alt="Mount Emei">
                     <div class="gallery-caption">Mount Emei - Golden Summit</div>
                 </div>
             </div>
@@ -468,5 +463,12 @@
         <p>&copy; 2025 China Trip Planning | Generated with ❤️</p>
         <p style="margin-top: 0.5rem; opacity: 0.8;">Oct 14 - Nov 5, 2025</p>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navContainer = document.querySelector('.nav-container');
+            navContainer.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
