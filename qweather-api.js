@@ -10,17 +10,24 @@ const QWEATHER_CONFIG = {
 // City location IDs (from QWeather)
 const CITY_LOCATIONS = {
     'chongqing': '101040100',
+    'wulong': '101040100', // Part of Chongqing
     'fenghuang': '101251505',
+    'furongzhen': '101251101', // Near Zhangjiajie
     'zhangjiajie': '101251101',
+    'wulingyuan': '101251101', // Part of Zhangjiajie
     'chengdu': '101270101',
     'jiuzhaigou': '101271906',
+    'huanglong': '101271906', // Near Jiuzhaigou
+    'shuangqiaogou': '101270201', // Aba Prefecture
+    'bipenggou': '101270201', // Aba Prefecture
+    'dagu': '101270201', // Aba Prefecture/Dagu Glacier
     'leshan': '101271401',
     'emeishan': '101271414'
 };
 
 // Fetch 30-day weather forecast
 async function fetchDailyWeather(locationId, date) {
-    const baseUrl = 'https://devapi.qweather.com/v7/weather/30d';
+    const baseUrl = 'https://nv7aaqbdwy.re.qweatherapi.com/v7/weather/30d';
     const url = `${baseUrl}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
 
     try {
@@ -42,23 +49,38 @@ async function fetchDailyWeather(locationId, date) {
 
 // Fetch 24-hour hourly forecast
 async function fetchHourlyWeather(locationId) {
-    const baseUrl = 'https://devapi.qweather.com/v7/weather/24h';
-    const url = `${baseUrl}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
+    // Try multiple API endpoints (free tier sometimes has different access)
+    const endpoints = [
+        'https://nv7aaqbdwy.re.qweatherapi.com/v7/weather/24h',
+        'https://api.qweather.com/v7/weather/24h'
+    ];
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
+    for (const baseUrl of endpoints) {
+        const url = `${baseUrl}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
 
-        if (data.code === '200') {
-            return data.hourly;
-        } else {
-            console.error('QWeather Hourly API Error:', data.code, data);
-            return null;
+        try {
+            console.log(`Trying hourly forecast from: ${baseUrl}`);
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (data.code === '200') {
+                console.log('✅ Hourly forecast fetched successfully!');
+                return data.hourly;
+            } else if (data.code === '403') {
+                console.warn(`403 error from ${baseUrl} - trying next endpoint...`);
+                continue;
+            } else {
+                console.error('QWeather Hourly API Error:', data.code, data);
+                continue;
+            }
+        } catch (error) {
+            console.error(`Hourly fetch error from ${baseUrl}:`, error);
+            continue;
         }
-    } catch (error) {
-        console.error('Hourly fetch error:', error);
-        return null;
     }
+
+    console.warn('⚠️ Hourly forecast unavailable - this may require a paid plan or personalized API host');
+    return null;
 }
 
 // Get weather icon emoji
@@ -116,8 +138,8 @@ function updateDailyWeather(dayElement, weatherData, locationId) {
 function createHourlyTimeline(hourlyData) {
     if (!hourlyData || hourlyData.length === 0) return '';
 
-    // Take first 12 hours for display (every 2 hours to save space)
-    const displayHours = hourlyData.filter((_, index) => index % 2 === 0).slice(0, 6);
+    // Show 24 hours: every 2 hours = 12 time slots
+    const displayHours = hourlyData.filter((_, index) => index % 2 === 0).slice(0, 12);
 
     let timelineHTML = `
         <div class="hourly-forecast">
@@ -179,15 +201,24 @@ async function updateDayWeather(dayElement) {
 
     // Insert hourly timeline after weather-box
     const weatherBox = dayElement.querySelector('.weather-box');
-    if (weatherBox && hourlyWeather) {
-        const hourlyHTML = createHourlyTimeline(hourlyWeather);
-
+    if (weatherBox) {
         // Remove existing hourly forecast if present
         const existing = dayElement.querySelector('.hourly-forecast');
         if (existing) existing.remove();
 
-        // Insert new hourly forecast
-        weatherBox.insertAdjacentHTML('afterend', hourlyHTML);
+        if (hourlyWeather) {
+            const hourlyHTML = createHourlyTimeline(hourlyWeather);
+            weatherBox.insertAdjacentHTML('afterend', hourlyHTML);
+        } else {
+            // Show message if hourly forecast unavailable
+            const fallbackHTML = `
+                <div class="hourly-forecast-unavailable" style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; padding: 1rem; margin: 1rem 0; color: #856404;">
+                    <strong>ℹ️ 24-Hour Forecast Unavailable</strong><br>
+                    <small>Hourly forecasts may require a personalized API host. Daily forecasts are still active!</small>
+                </div>
+            `;
+            weatherBox.insertAdjacentHTML('afterend', fallbackHTML);
+        }
     }
 }
 

@@ -63,6 +63,42 @@ nav a:hover, nav a.active {
     color: white;
 }
 
+.lang-toggle {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.lang-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.lang-toggle:active {
+    transform: translateY(0);
+}
+
+.lang-th {
+    display: none;
+}
+
+body.lang-th .lang-en {
+    display: none;
+}
+
+body.lang-th .lang-th {
+    display: inline;
+}
+
 .mobile-menu-toggle {
     display: none;
     background: #667eea;
@@ -1211,13 +1247,14 @@ footer a:hover {
 
 .practical-header {
     background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+    color: #ffffff;
     padding: 1rem 1.5rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     user-select: none;
+    font-weight: 500;
 }
 
 .practical-header:hover {
@@ -1225,8 +1262,10 @@ footer a:hover {
 }
 
 .practical-header strong {
+    color: #ffffff;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
 .toggle-icon {
@@ -1332,13 +1371,19 @@ footer a:hover {
 
 .hourly-header {
     background: linear-gradient(135deg, #2196f3, #1976d2);
-    color: white;
+    color: #ffffff;
     padding: 0.875rem 1.25rem;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     user-select: none;
+    font-weight: 500;
+}
+
+.hourly-header strong {
+    color: #ffffff;
+    font-weight: 600;
 }
 
 .hourly-header:hover {

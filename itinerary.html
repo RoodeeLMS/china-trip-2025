@@ -14,13 +14,17 @@
 
     <nav>
         <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
-            <a href="index.html">🏠 Home</a>
-            <a href="itinerary.html" class="active">📅 Itinerary</a>
-            <a href="planning.html">✅ Planning</a>
-            <a href="logistics.html">🚄 Logistics</a>
-            <a href="analysis.html">📊 Analysis</a>
-            <a href="gpt-comment.html">💬 GPT Review</a>
-            <a href="grok-comment.html">💬 Grok Review</a>
+            <a href="index.html">🏠 <span data-lang-en="Home" data-lang-th="หน้าแรก">Home</span></a>
+            <a href="itinerary.html" class="active">📅 <span data-lang-en="Itinerary" data-lang-th="กำหนดการ">Itinerary</span></a>
+            <a href="planning.html">✅ <span data-lang-en="Planning" data-lang-th="การวางแผน">Planning</span></a>
+            <a href="logistics.html">🚄 <span data-lang-en="Logistics" data-lang-th="ข้อมูลการเดินทาง">Logistics</span></a>
+            <a href="analysis.html">📊 <span data-lang-en="Analysis" data-lang-th="การวิเคราะห์">Analysis</span></a>
+            <a href="gpt-comment.html">💬 <span data-lang-en="GPT Review" data-lang-th="รีวิว GPT">GPT Review</span></a>
+            <a href="grok-comment.html">💬 <span data-lang-en="Grok Review" data-lang-th="รีวิว Grok">Grok Review</span></a>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇹🇭 TH</span>
+                <span class="lang-th">🇺🇸 EN</span>
+            </button>
         </div>
     </nav>
 
@@ -39,7 +43,10 @@
 
             <div class="day" data-day="1" data-city="chongqing" data-date="2025-10-14">
                 <div class="day-header">
-                    <h3>Day 1 (Tue, Oct 14): Arrival in Chongqing</h3>
+                    <h3>
+                        <span data-lang-en="Day 1 (Tue, Oct 14): Arrival in Chongqing"
+                              data-lang-th="วันที่ 1 (อ. 14 ต.ค.): มาถึงฉงชิ่ง">Day 1 (Tue, Oct 14): Arrival in Chongqing</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -112,27 +119,6 @@
                                     <strong>Daily Total: ¥136-320 ($20-48)</strong>
                                 </div>
                             </div>
-
-                            <div class="info-item">
-                                <div class="info-title">⚠️ Important Tips</div>
-                                <div class="info-detail">
-                                    • Download <strong>Didi app</strong> (Chinese Uber) before arrival<br>
-                                    • Have <strong>WeChat Pay/Alipay</strong> set up<br>
-                                    • Airport has <strong>free WiFi</strong><br>
-                                    • SIM cards available at airport (¥50-100)<br>
-                                    • Most places <strong>don't accept credit cards</strong>
-                                </div>
-                            </div>
-
-                            <div class="info-item">
-                                <div class="info-title">🚨 Emergency Contacts</div>
-                                <div class="info-detail">
-                                    • Police: 110<br>
-                                    • Ambulance: 120<br>
-                                    • Hotel: +86-17783588528<br>
-                                    • Nearest Hospital: <strong>重医附一院</strong> (Chongqing Medical University Hospital)
-                                </div>
-                            </div>
                         </div>
 
                         <div class="bad-weather-alt">
@@ -149,9 +135,12 @@
             
                 </div>
             </div>
-             <div class="day">
+             <div class="day" data-day="2" data-city="wulong" data-date="2025-10-15">
                 <div class="day-header">
-                    <h3>Day 2 (Wed, Oct 15): Wulong Karst Day Trip</h3>
+                    <h3>
+                        <span data-lang-en="Day 2 (Wed, Oct 15): Wulong Karst Day Trip"
+                              data-lang-th="วันที่ 2 (พ. 15 ต.ค.): ทริปไปกลับอู่หลง">Day 2 (Wed, Oct 15): Wulong Karst Day Trip</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -173,14 +162,88 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Natural landscapes, moderate hiking/walking.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Chongqing Jiang Dao Holiday High-view Hotel - Night 2 of 3</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 21-28°C (70-82°F), cloudy with light rain (5mm). Bring rain gear for karst park! <a href="https://www.qweather.com/en/weather30d/chongqing-101040100.html" target="_blank">Forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚄 Transport to Wulong</div>
+                                <div class="info-detail">
+                                    <strong>Morning HSR (Recommended):</strong><br>
+                                    • Chongqing East (重庆东站) → Wulong South (武隆南站)<br>
+                                    • Train G2425: 07:21-08:00 (39 min)<br>
+                                    • Cost: ¥54.5 second class<br>
+                                    • Book tickets in advance!<br><br>
+                                    <strong>Wulong South → Park:</strong><br>
+                                    • Shuttle bus: ¥20-30 (~45 min)<br>
+                                    • Taxi: ¥60-80 (~30 min)
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🎫 Park Entrance Fees</div>
+                                <div class="info-detail">
+                                    <strong>Three Natural Bridges:</strong><br>
+                                    • Entrance: ¥135<br>
+                                    • Elevator: ¥40<br>
+                                    • Sightseeing bus: ¥40<br><br>
+                                    <strong>Longshuixia Gorge:</strong><br>
+                                    • Entrance: ¥115<br>
+                                    • Total estimate: ¥330-350/person
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Recommendations</div>
+                                <div class="info-detail">
+                                    <strong>Near Park:</strong><br>
+                                    • Local noodle shops (¥15-25)<br>
+                                    • Wulong Mutton Soup (武隆羊肉汤) - specialty!<br>
+                                    • Pack snacks/water from Chongqing<br><br>
+                                    <strong>Back in Chongqing Dinner:</strong><br>
+                                    • Liuyishou Hot Pot near hotel<br>
+                                    • Cost: ¥80-120/person
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • HSR Round Trip: ¥109<br>
+                                    • Local Transport: ¥60-120<br>
+                                    • Park Tickets: ¥330<br>
+                                    • Meals: ¥100-150<br>
+                                    <strong>Daily Total: ¥599-709 ($90-105)</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • If heavy rain: <strong>Postpone Wulong</strong> - karst formations dangerous when wet<br>
+                            • Alternative: <strong>Dazu Rock Carvings</strong> (UNESCO site, covered walkways) - 2 hrs from Chongqing<br>
+                            • Indoor option: <strong>Three Gorges Museum</strong> + hot pot lunch in Chongqing
+                        </div>
+                    </div>
+                </div>
+
                 <div class="transport-section"><strong>🚄 Transport:</strong> Pre-booked car/tour strongly recommended for efficiency. If using HSR, carefully check train times and local transfer options at Wulong station.</div>
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Scenic areas generally restrict drones. Check with park authorities before attempting to fly. Natural landmarks may be protected zones.</div>
             
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="3" data-city="chongqing" data-date="2025-10-16">
                 <div class="day-header">
-                    <h3>Day 3 (Thu, Oct 16): Chongqing City Exploration / Prep</h3>
+                    <h3>
+                        <span data-lang-en="Day 3 (Thu, Oct 16): Chongqing City Exploration / Prep"
+                              data-lang-th="วันที่ 3 (พฤ. 16 ต.ค.): สำรวจเมืองฉงชิ่ง / เตรียมตัว">Day 3 (Thu, Oct 16): Chongqing City Exploration / Prep</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -197,6 +260,76 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Urban exploration, culture, food, trip preparation.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Chongqing Jiang Dao Holiday High-view Hotel - Night 3 of 3 (Check out tomorrow)</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 22-28°C (72-82°F), overcast, no rain. Great for city sightseeing! <a href="https://www.qweather.com/en/weather30d/chongqing-101040100.html" target="_blank">Forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚇 Getting Around Chongqing</div>
+                                <div class="info-detail">
+                                    <strong>Metro (Best Option):</strong><br>
+                                    • Line 1: Ciqikou ↔ Jiefangbei<br>
+                                    • Line 2: Yangjiaping ↔ Eling Park<br>
+                                    • Day Pass: ¥10-15<br>
+                                    • Single ride: ¥2-6<br><br>
+                                    <strong>Yangtze Cableway:</strong><br>
+                                    • One-way: ¥20 | Round-trip: ¥30<br>
+                                    • Expect 30-45 min queue!
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel Address (Chinese)</div>
+                                <div class="info-detail">
+                                    <strong>重庆江岛假日高空酒店（解放碑洪崖洞店）</strong><br>
+                                    重庆市渝中区新华路222号神机财富广场1楼<br>
+                                    <em>Last night - check out tomorrow!</em>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Recommendations</div>
+                                <div class="info-detail">
+                                    <strong>Lunch at Ciqikou:</strong><br>
+                                    • Chen Mahua Twisted Dough (陈麻花) - snack<br>
+                                    • Mao Xue Wang (毛血旺) - local spicy dish<br>
+                                    • Cost: ¥40-80/person<br><br>
+                                    <strong>Dinner Hot Pot:</strong><br>
+                                    • Zhaoer Hot Pot (赵二火锅) - Hongyadong<br>
+                                    • Dezhuang Hot Pot (德庄火锅)<br>
+                                    • Cost: ¥100-150/person
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Metro/Transport: ¥20-30<br>
+                                    • Cableway: ¥30<br>
+                                    • Eling Park: Free<br>
+                                    • Meals: ¥140-230<br>
+                                    • Snacks/Shopping: ¥50-100<br>
+                                    <strong>Daily Total: ¥240-390 ($36-58)</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Chongqing China Three Gorges Museum</strong> (free, excellent exhibits, near People's Square)<br>
+                            • <strong>Shopping malls</strong>: Raffles City, Times Square Chongqing (connected to metro)<br>
+                            • <strong>Liberation Monument underground mall</strong> (extensive shopping, food court)<br>
+                            • <strong>Guanyinqiao Pedestrian Street</strong> - covered shopping area
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> NO-FLY ZONE. Chongqing city center strictly prohibits drones. All major urban areas, Hongyadong, and tourist attractions are off-limits.</div>
             
                 </div>
@@ -208,9 +341,12 @@
                 </div>
             </div>
 
-            <div class="day">
+            <div class="day" data-day="4" data-city="fenghuang" data-date="2025-10-17">
                 <div class="day-header">
-                    <h3>Day 4 (Fri, Oct 17): Travel Chongqing -> Fenghuang (FH)</h3>
+                    <h3>
+                        <span data-lang-en="Day 4 (Fri, Oct 17): Travel Chongqing -> Fenghuang (FH)"
+                              data-lang-th="วันที่ 4 (ศ. 17 ต.ค.): เดินทาง ฉงชิ่ง -> เฟิงหวง">Day 4 (Fri, Oct 17): Travel Chongqing -> Fenghuang (FH)</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -230,13 +366,87 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Efficient travel, transition to Hunan, first impressions of Fenghuang.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Floral Hotel Fengyu Chenxi (Phoenix Ancient Town Center) - Night 1 of 2</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 18-25°C (64-77°F), sunny! Perfect for ancient town photography. <a href="https://www.qweather.com/en/weather30d/fenghuang-101251505.html" target="_blank">30-day forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚄 Train Journey (Transit Day)</div>
+                                <div class="info-detail">
+                                    <strong>Leg 1:</strong> Chongqing East (重庆东站) → Zhangjiajie West (张家界西站)<br>
+                                    • Train G2427: 08:15-10:42 (2h 27m)<br>
+                                    • Cost: ~¥150<br><br>
+                                    <strong>Leg 2:</strong> Zhangjiajie West → Fenghuang Gucheng (凤凰古城站)<br>
+                                    • Train G6517: 11:31-12:36 (1h 5m)<br>
+                                    • 49 min layover - tight but doable!<br>
+                                    • Cost: ~¥50
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel Address (Chinese)</div>
+                                <div class="info-detail">
+                                    <strong>凤凰凤遇晨曦花筑酒店</strong><br>
+                                    湖南省湘西凤凰县凤桥拢里广场（虹桥东路皇帝古城转角）<br>
+                                    In Fengqiaolongli square, Hongqiao East Road<br>
+                                    Phone: +86-18974376288<br>
+                                    <em>Show this to taxi driver from station!</em>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Recommendations</div>
+                                <div class="info-detail">
+                                    <strong>Fenghuang Specialties:</strong><br>
+                                    • Ginger Candy (姜糖) - snack<br>
+                                    • Blood Duck (血粑鸭) - local dish<br>
+                                    • Rice Wine (米酒) - try at riverside<br>
+                                    • Riverside restaurants: ¥50-100/person<br><br>
+                                    <strong>Dinner:</strong><br>
+                                    • Wandering Riverside Street food stalls<br>
+                                    • Cost: ¥60-120/person
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • HSR Tickets: ¥200<br>
+                                    • Station → Hotel Taxi: ¥30-50<br>
+                                    • Lunch: ¥40-60<br>
+                                    • Dinner: ¥80-120<br>
+                                    • Snacks: ¥30-50<br>
+                                    <strong>Daily Total: ¥380-480 ($57-72)</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Covered riverside walkways</strong> - explore with umbrella, atmospheric in light rain<br>
+                            • <strong>Former Residences Museums</strong> (indoor): Shen Congwen, Xiong Xiling<br>
+                            • <strong>Tea houses along Tuo River</strong> - relax indoors with river views<br>
+                            • <strong>Shopping for handicrafts</strong> under covered market areas
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Ancient towns may restrict drones. Check with local authorities. Scenic areas generally prohibit unauthorized flights.</div>
             
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="5" data-city="fenghuang" data-date="2025-10-18">
                 <div class="day-header">
-                    <h3>Day 5 (Sat, Oct 18): Fenghuang Full Day</h3>
+                    <h3>
+                        <span data-lang-en="Day 5 (Sat, Oct 18): Fenghuang Full Day"
+                              data-lang-th="วันที่ 5 (ส. 18 ต.ค.): เฟิงหวงเต็มวัน">Day 5 (Sat, Oct 18): Fenghuang Full Day</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -253,13 +463,90 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Ancient town atmosphere, photography, leisurely exploration.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Floral Hotel Fengyu Chenxi (Phoenix Ancient Town Center) - Night 2 of 2 (Check out tomorrow)</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 16-18°C (61-64°F), light rain. Bring umbrella but creates moody photos! <a href="https://www.qweather.com/en/weather30d/fenghuang-101251505.html" target="_blank">Forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚶 Getting Around Fenghuang</div>
+                                <div class="info-detail">
+                                    <strong>Ancient Town is Walkable:</strong><br>
+                                    • Everything within 15-20 min walk<br>
+                                    • No vehicles allowed in core area<br>
+                                    • Wear comfortable shoes (cobblestones!)<br><br>
+                                    <strong>Boat Rides:</strong><br>
+                                    • Tuo River boat tour: ¥80-100<br>
+                                    • Duration: 30-40 minutes<br>
+                                    • Best at sunset or evening
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🎫 Entrance Tickets</div>
+                                <div class="info-detail">
+                                    <strong>Ancient Town Pass (Optional):</strong><br>
+                                    • ¥148 for 9 attractions<br>
+                                    • Includes: Former residences, museums, East Gate Tower<br>
+                                    • Valid 2 days<br><br>
+                                    <strong>Alternative:</strong><br>
+                                    • Free to walk around town<br>
+                                    • Individual attractions: ¥20-40 each
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food & Restaurants</div>
+                                <div class="info-detail">
+                                    <strong>Must-Try:</strong><br>
+                                    • Blood Duck (血粑鸭) - ¥48-68<br>
+                                    • Miao Sour Fish (苗家酸汤鱼) - ¥60-80<br>
+                                    • Grilled River Fish (烤河鱼) - ¥30-50<br>
+                                    • Ginger Candy - ¥10-20 as souvenir<br><br>
+                                    <strong>Recommended Areas:</strong><br>
+                                    • Riverside restaurants (best views)<br>
+                                    • Hongqiao Road (more local options)
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Breakfast: ¥20-30<br>
+                                    • Lunch: ¥50-80<br>
+                                    • Boat Ride: ¥80-100<br>
+                                    • Dinner: ¥80-120<br>
+                                    • Snacks/Souvenirs: ¥50-100<br>
+                                    <strong>Daily Total: ¥280-430 ($42-64)</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Indoor museums</strong>: Shen Congwen Former Residence (沈从文故居), Xiong Xiling Former Residence (熊希龄故居)<br>
+                            • <strong>Covered shopping streets</strong> - handicrafts, batik, silver jewelry<br>
+                            • <strong>Tea houses</strong> with river views - relax indoors<br>
+                            • <strong>Miao/Tujia cultural performances</strong> (evening shows, indoor venues)
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Fenghuang Ancient Town may have drone restrictions. Best to photograph from bridges and viewpoints instead.</div>
             
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="6" data-city="furongzhen" data-date="2025-10-19">
                 <div class="day-header">
-                    <h3>Day 6 (Sun, Oct 19): Travel FH -> Furong Zhen (FZ) & Overnight</h3>
+                    <h3>
+                        <span data-lang-en="Day 6 (Sun, Oct 19): Travel FH -> Furong Zhen (FZ) & Overnight"
+                              data-lang-th="วันที่ 6 (อา. 19 ต.ค.): เดินทาง เฟิงหวง -> ฝูหรงเจิ้น & ค้างคืน">Day 6 (Sun, Oct 19): Travel FH -> Furong Zhen (FZ) & Overnight</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -276,6 +563,78 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Scenic travel, unique waterfall town.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Wangcun Caotang Inn (Furong Town Waterfall) - 1 night</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 11-18°C (52-64°F), shower rain. Waterfall will be spectacular! Pack rain gear. <a href="https://www.qweather.com/en/weather30d/fenghuang-101251505.html" target="_blank">Forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚌 Transport to Furong Zhen</div>
+                                <div class="info-detail">
+                                    <strong>From Fenghuang:</strong><br>
+                                    • Bus from Fenghuang Bus Station (凤凰汽车站) to Furong Town (芙蓉镇)<br>
+                                    • Duration: 1.5-2 hours<br>
+                                    • Cost: ¥30-40<br>
+                                    • Frequency: Every 30-60 min<br><br>
+                                    <strong>Alternative:</strong><br>
+                                    • Private taxi/DiDi: ¥150-200<br>
+                                    • More comfortable, direct to hotel
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel Address (Chinese)</div>
+                                <div class="info-detail">
+                                    <strong>王村草堂客栈（芙蓉镇大瀑布）</strong><br>
+                                    湖南省永顺县河畔街103号<br>
+                                    No. 103 Hepan Street, Yongshun<br>
+                                    Phone: +86-13974393445<br>
+                                    <em>Near the waterfall - scenic location!</em>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food & Specialties</div>
+                                <div class="info-detail">
+                                    <strong>Must-Try:</strong><br>
+                                    • Rice Tofu (米豆腐) - local specialty! ¥10-15<br>
+                                    • Tujia Bacon (土家腊肉) - ¥35-50<br>
+                                    • Furong Zhen Rice Noodles - ¥15-20<br>
+                                    • River Fish dishes - ¥40-60<br><br>
+                                    <strong>Dining:</strong><br>
+                                    • Restaurants along waterfall street<br>
+                                    • Avg dinner: ¥60-100/person
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Bus Transport: ¥30-40<br>
+                                    • Waterfall Entry: ¥100<br>
+                                    • Lunch: ¥40-60<br>
+                                    • Dinner: ¥80-100<br>
+                                    • Snacks: ¥20-40<br>
+                                    <strong>Daily Total: ¥270-340 ($40-51)</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Waterfall is BETTER in rain!</strong> - more water flow, dramatic photos<br>
+                            • <strong>Covered walkways behind waterfall</strong> - protected viewing area<br>
+                            • <strong>Tujia Folk Customs Museum</strong> (indoor)<br>
+                            • <strong>Movie location exhibits</strong> - Famous filming site for Chinese movies
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Waterfall scenic areas typically prohibit drones for safety reasons. Enjoy the natural scenery from designated viewpoints.</div>
             
                 </div>
@@ -287,9 +646,12 @@
                 </div>
             </div>
 
-            <div class="day">
+            <div class="day" data-day="7" data-city="wulingyuan" data-date="2025-10-20">
                 <div class="day-header">
-                    <h3>Day 7 (Mon, Oct 20): Furong Zhen -> Zhangjiajie (ZJJ / Wulingyuan)</h3>
+                    <h3>
+                        <span data-lang-en="Day 7 (Mon, Oct 20): Furong Zhen -> Zhangjiajie (ZJJ / Wulingyuan)"
+                              data-lang-th="วันที่ 7 (จ. 20 ต.ค.): ฝูหรงเจิ้น -> จางเจียเจี้ย">Day 7 (Mon, Oct 20): Furong Zhen -> Zhangjiajie (ZJJ / Wulingyuan)</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -306,13 +668,68 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Short travel, settling into Zhangjiajie area.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Manyuan Resort Hotel (Wulingyuan) - Night 1 of 4</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 11-18°C (52-64°F), cloudy. Cool mountain weather, perfect for hiking! <a href="https://www.qweather.com/en/weather30d/zhangjiajie-101251101.html" target="_blank">30-day forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚌 Transport</div>
+                                <div class="info-detail">
+                                    <strong>From Furong Zhen:</strong><br>
+                                    • Bus to Wulingyuan (武陵源): ¥25-35<br>
+                                    • Duration: 1-1.5 hours<br>
+                                    • Taxi: ¥100-150 (faster, direct to hotel)
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel Address (Chinese)</div>
+                                <div class="info-detail">
+                                    <strong>满园度假酒店</strong><br>
+                                    湖南省张家界市武陵源区高云路附近（鲁家坡）<br>
+                                    Near Gaoyun Road (Lujiapo), Wulingyuan<br>
+                                    Phone: +86-744-5519888
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Recommendations</div>
+                                <div class="info-detail">
+                                    • Sanxiaguo (三下锅) - Zhangjiajie specialty hot pot, ¥50-80<br>
+                                    • Wulingyuan food street near hotel<br>
+                                    • Avg meal: ¥40-80/person
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Transport: ¥25-35<br>
+                                    • Meals: ¥120-180<br>
+                                    <strong>Daily Total: ¥145-215 ($22-32)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Relax at hotel</strong> - save energy for park days ahead<br>
+                            • <strong>Explore Wulingyuan town</strong> - covered markets, local shops
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Zhangjiajie National Forest Park STRICTLY PROHIBITS unauthorized drones. Permits required. Heavy fines for violations.</div>
-            
+
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="8" data-city="zhangjiajie" data-date="2025-10-21">
                 <div class="day-header">
-                    <h3>Day 8 (Tue, Oct 21): Zhangjiajie: Tianmen Mountain</h3>
+                    <h3>
+                        <span data-lang-en="Day 8 (Tue, Oct 21): Zhangjiajie: Tianmen Mountain"
+                              data-lang-th="วันที่ 8 (อ. 21 ต.ค.): จางเจียเจี้ย: ภูเขาเทียนเหมิน">Day 8 (Tue, Oct 21): Zhangjiajie: Tianmen Mountain</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -332,13 +749,72 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Dramatic mountain scenery, cable car experience, managing logistics between Wulingyuan and Zhangjiajie City. Start early.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Manyuan Resort Hotel (Wulingyuan) - Night 2 of 4</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 13-18°C (55-64°F), shower rain. Bring waterproof gear! Misty mountains = dramatic photos. <a href="https://www.qweather.com/en/weather30d/zhangjiajie-101251101.html" target="_blank">Forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚌 Transport & Tickets</div>
+                                <div class="info-detail">
+                                    <strong>Wulingyuan → Tianmen Mountain:</strong><br>
+                                    • Bus: ¥15-20 (~1 hour)<br>
+                                    • Taxi: ¥80-120<br><br>
+                                    <strong>Tianmen Mountain Ticket:</strong><br>
+                                    • Peak season: ¥278 (includes cable car)<br>
+                                    • Book online in advance!<br>
+                                    • Glass skywalk shoe covers: ¥5
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel (Same - Wulingyuan)</div>
+                                <div class="info-detail">
+                                    <strong>满园度假酒店</strong><br>
+                                    武陵源区高云路附近（鲁家坡）<br>
+                                    <em>Night 2 of 4</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Recommendations</div>
+                                <div class="info-detail">
+                                    • Pack snacks/water for mountain<br>
+                                    • Mountain restaurant: ¥40-60<br>
+                                    • Dinner back in Wulingyuan: Sanxiaguo (三下锅) ¥50-80
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Round-trip transport: ¥160-240<br>
+                                    • Tianmen ticket: ¥278<br>
+                                    • Meals: ¥120-180<br>
+                                    <strong>Daily Total: ¥558-698 ($83-104)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • If heavy rain/fog: <strong>Postpone to another day</strong> - visibility crucial for views<br>
+                            • Alternative: Start <strong>Wulingyuan Park early</strong> (lower elevations better in rain)<br>
+                            • <strong>Zhangjiajie Grand Canyon Glass Bridge</strong> (covered walkways)
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Tianmen Mountain is a NO-FLY zone. Drones strictly prohibited for safety (cable cars & cliffs).</div>
             
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="9" data-city="wulingyuan" data-date="2025-10-22">
                 <div class="day-header">
-                    <h3>Day 9 (Wed, Oct 22): Zhangjiajie: Wulingyuan Park (Upper Areas)</h3>
+                    <h3>
+                        <span data-lang-en="Day 9 (Wed, Oct 22): Zhangjiajie: Wulingyuan Park (Upper Areas)"
+                              data-lang-th="วันที่ 9 (พ. 22 ต.ค.): จางเจียเจี้ย: อุทยานอู่หลิงหยวน (บน)">Day 9 (Wed, Oct 22): Zhangjiajie: Wulingyuan Park (Upper Areas)</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -360,13 +836,74 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Iconic sandstone pillars, viewpoints, using park transport (elevator/cableway/bus). High Concern for crowds.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Manyuan Resort Hotel (Wulingyuan) - Night 3 of 4</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 14-19°C (57-66°F), cloudy. Good conditions for Avatar Hallelujah Mountains! <a href="https://www.qweather.com/en/weather30d/zhangjiajie-101251101.html" target="_blank">Forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🎫 Park Entry & Transport</div>
+                                <div class="info-detail">
+                                    <strong>Wulingyuan Park Ticket:</strong><br>
+                                    • 4-day pass: ¥228<br>
+                                    • Bailong Elevator: ¥72 (one-way)<br>
+                                    • Tianzi Cableway: ¥67 (one-way)<br>
+                                    • Park eco-buses: Included<br><br>
+                                    <strong>Total for park visits: ~¥370/person</strong>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel (Same)</div>
+                                <div class="info-detail">
+                                    <strong>满园度假酒店</strong><br>
+                                    武陵源区<br>
+                                    <em>Night 3 of 4 - includes breakfast!</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food in Park</div>
+                                <div class="info-detail">
+                                    <strong>Pack from hotel:</strong><br>
+                                    • Snacks, water, fruit<br><br>
+                                    <strong>Park restaurants:</strong><br>
+                                    • Lunch: ¥40-80 (expensive but convenient)<br>
+                                    • Better to bring food!
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Park tickets/transport: ¥370<br>
+                                    • Lunch in park: ¥60-80<br>
+                                    • Dinner in town: ¥60-100<br>
+                                    <strong>Daily Total: ¥490-550 ($73-82)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Misty weather = STUNNING photos!</strong> Avatar mountains look mystical in fog<br>
+                            • If heavy rain: Focus on <strong>covered viewing platforms</strong><br>
+                            • Use <strong>eco-buses more</strong>, walk less<br>
+                            • Visit <strong>indoor exhibits</strong> at visitor centers
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> STRICTLY PROHIBITED. Zhangjiajie UNESCO site bans all drones. Fines up to 50,000 yuan + confiscation.</div>
-            
+
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="10" data-city="wulingyuan" data-date="2025-10-23">
                 <div class="day-header">
-                    <h3>Day 10 (Thu, Oct 23): Zhangjiajie: Wulingyuan Park (Lower Areas)</h3>
+                    <h3>
+                        <span data-lang-en="Day 10 (Thu, Oct 23): Zhangjiajie: Wulingyuan Park (Lower Areas)"
+                              data-lang-th="วันที่ 10 (พฤ. 23 ต.ค.): จางเจียเจี้ย: อุทยานอู่หลิงหยวน (ล่าง)">Day 10 (Thu, Oct 23): Zhangjiajie: Wulingyuan Park (Lower Areas)</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -385,13 +922,73 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Valley walks, different perspectives of the peaks. Moderate crowds.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Manyuan Resort Hotel (Wulingyuan) - Night 4 of 4 (Check out tomorrow)</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 14-20°C (57-68°F), cloudy. Pleasant temperatures for valley walks! <a href="https://www.qweather.com/en/weather30d/zhangjiajie-101251101.html" target="_blank">Forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚶 Walking Routes</div>
+                                <div class="info-detail">
+                                    <strong>Golden Whip Stream:</strong><br>
+                                    • 7.5km total (walk 2-3km recommended)<br>
+                                    • Flat, easy path along stream<br><br>
+                                    <strong>Ten-Mile Gallery:</strong><br>
+                                    • Walking or monorail (¥52 round-trip)<br>
+                                    • Valley floor, easy terrain
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel (Last Night)</div>
+                                <div class="info-detail">
+                                    <strong>满园度假酒店</strong><br>
+                                    武陵源区<br>
+                                    <em>Night 4 of 4 - Check out tomorrow EARLY!</em><br>
+                                    <strong>Pack tonight for 5am departure!</strong>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Final Zhangjiajie Meals</div>
+                                <div class="info-detail">
+                                    • Last chance for Sanxiaguo (三下锅)!<br>
+                                    • Wulingyuan night market<br>
+                                    • Farewell dinner: ¥80-120/person
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Park entry: Included (4-day pass)<br>
+                                    • Monorail (optional): ¥52<br>
+                                    • Meals: ¥120-180<br>
+                                    <strong>Daily Total: ¥172-232 ($26-35)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Golden Whip Stream is beautiful in rain!</strong> - lush, green, peaceful<br>
+                            • <strong>Take monorail</strong> instead of walking Ten-Mile Gallery<br>
+                            • <strong>Early exit</strong> - relax at hotel, pack for tomorrow's early start<br>
+                            • <strong>Wulingyuan shopping</strong> - souvenirs, tea, local products
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> NO DRONES allowed in any part of Zhangjiajie National Forest Park. Period.</div>
             
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="11" data-city="chengdu" data-date="2025-10-24">
                 <div class="day-header">
-                    <h3>Day 11 (Fri, Oct 24): Travel Zhangjiajie -> Chongqing -> Chengdu (Transit - ALL TRAIN)</h3>
+                    <h3>
+                        <span data-lang-en="Day 11 (Fri, Oct 24): Travel Zhangjiajie -> Chongqing -> Chengdu (Transit - ALL TRAIN)"
+                              data-lang-th="วันที่ 11 (ศ. 24 ต.ค.): เดินทาง จางเจียเจี้ย -> ฉงชิ่ง -> เฉิงตู (รถไฟทั้งหมด)">Day 11 (Fri, Oct 24): Travel Zhangjiajie -> Chongqing -> Chengdu (Transit - ALL TRAIN)</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -412,7 +1009,66 @@
                 <div class="transport-section"><strong>🚄 Transport:</strong> MUST BOOK BOTH HSR TICKETS (ZJJ-CKG & CKG-CDU) WELL IN ADVANCE. Pre-book car Wulingyuan->ZJJ West.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Celebrity Ruicheng Hotel (Chengdu Central) - Night 1 of 2</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 11-19°C (52-66°F), cloudy. Cool Chengdu autumn arrival. <a href="https://www.qweather.com/en/weather30d/chengdu-101270101.html" target="_blank">30-day forecast →</a></div>
-            
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚄 Transit Day Logistics</div>
+                                <div class="info-detail">
+                                    <strong>Train 1:</strong> Zhangjiajie West → Chongqing West<br>
+                                    • ~4-5 hours | Cost: ~¥200<br><br>
+                                    <strong>Train 2:</strong> Chongqing West → Chengdu East<br>
+                                    • ~1.5 hours | Cost: ~¥100<br><br>
+                                    <strong>Critical:</strong> 1.5-2hr transfer buffer at Chongqing West!<br>
+                                    <em>Book both tickets IN ADVANCE!</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel Address (Chinese)</div>
+                                <div class="info-detail">
+                                    <strong>名人瑞城酒店</strong><br>
+                                    成都市青羊区人民中路二段68号<br>
+                                    68 Section 2 Middle People's Road, Qingyang District<br>
+                                    Phone: +86-28-88033333<br>
+                                    <em>Central location - great base!</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Recommendations</div>
+                                <div class="info-detail">
+                                    <strong>Lunch at Chongqing West Station:</strong><br>
+                                    • Station food court: ¥30-50<br><br>
+                                    <strong>Dinner in Chengdu:</strong><br>
+                                    • Sichuan Hot Pot near hotel<br>
+                                    • Dan Dan Noodles (担担面)<br>
+                                    • Cost: ¥60-100/person
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • HSR tickets: ¥300<br>
+                                    • Taxi to hotel: ¥40-60<br>
+                                    • Meals: ¥90-150<br>
+                                    <strong>Daily Total: ¥430-510 ($64-76)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Train day = indoor!</strong> Perfect for rainy weather<br>
+                            • If arriving early in Chengdu: <strong>Raffles City mall</strong> near hotel<br>
+                            • <strong>Rest at hotel</strong> - recover from travel, prepare for Jiuzhaigou
+                        </div>
+                    </div>
+                </div>
+
                 </div>
             </div>
             <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1537890885377-4f97fa4e6c5c?w=1200');">
@@ -422,9 +1078,12 @@
                 </div>
             </div>
 
-            <div class="day">
+            <div class="day" data-day="12" data-city="chengdu" data-date="2025-10-25">
                 <div class="day-header">
-                    <h3>Day 12 (Sat, Oct 25): Chengdu: Free Day / Prep</h3>
+                    <h3>
+                        <span data-lang-en="Day 12 (Sat, Oct 25): Chengdu: Free Day / Prep"
+                              data-lang-th="วันที่ 12 (ส. 25 ต.ค.): เฉิงตู: วันพักผ่อน / เตรียมตัว">Day 12 (Sat, Oct 25): Chengdu: Free Day / Prep</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -441,6 +1100,66 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Experiencing Chengdu, flexibility, final prep for JZG/HLG. Moderate crowds (weekend).</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Celebrity Ruicheng Hotel (Chengdu Central) - Night 2 of 2 (Check out tomorrow)</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 11-17°C (52-63°F), few clouds. Beautiful autumn day for Chengdu exploration! <a href="https://www.qweather.com/en/weather30d/chengdu-101270101.html" target="_blank">Forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚇 Chengdu Metro</div>
+                                <div class="info-detail">
+                                    <strong>Key Lines:</strong><br>
+                                    • Line 1: North-South (Jinli, Tianfu Square)<br>
+                                    • Line 3: Panda Base connection<br>
+                                    • Day Pass: ¥15 | Single: ¥2-5<br><br>
+                                    <strong>Taxi/DiDi:</strong> ¥15-30 for city center trips
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel (Same - Central)</div>
+                                <div class="info-detail">
+                                    <strong>名人瑞城酒店</strong><br>
+                                    人民中路二段68号<br>
+                                    <em>Night 2 of 2 - Check out tomorrow!</em><br>
+                                    <em>Breakfast included for 2!</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Sichuan Food Paradise</div>
+                                <div class="info-detail">
+                                    <strong>Must-Try:</strong><br>
+                                    • Hot Pot (火锅) - ¥80-150<br>
+                                    • Mapo Tofu (麻婆豆腐) - ¥25-35<br>
+                                    • Kung Pao Chicken (宫保鸡丁) - ¥30-40<br>
+                                    • Dan Dan Noodles (担担面) - ¥15-20<br>
+                                    • Jinli Street food (multiple snacks) - ¥50-80
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Metro/Transport: ¥20-30<br>
+                                    • Attractions: ¥0-50 (mostly free!)<br>
+                                    • Meals: ¥120-200<br>
+                                    • Shopping/Snacks: ¥50-100<br>
+                                    <strong>Daily Total: ¥190-380 ($28-57)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Sichuan Museum</strong> (free, excellent exhibits)<br>
+                            • <strong>Wenshu Monastery</strong> (covered corridors, indoor teahouse)<br>
+                            • <strong>IFS Mall + Chunxi Road</strong> (luxury shopping, covered walkways)<br>
+                            • <strong>Hot Pot lunch</strong> - spend 2-3 hours enjoying Sichuan cuisine indoors!
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Chengdu city center NO-FLY zone. All drones must be registered before flying anywhere in China.</div>
             
                 </div>
@@ -452,9 +1171,12 @@
                 </div>
             </div>
 
-            <div class="day">
+            <div class="day" data-day="13" data-city="jiuzhaigou" data-date="2025-10-26">
                 <div class="day-header">
-                    <h3>Day 13 (Sun, Oct 26): Chengdu Exploration (AM) -> Travel to Jiuzhaigou Area (PM) & Overnight</h3>
+                    <h3>
+                        <span data-lang-en="Day 13 (Sun, Oct 26): Chengdu Exploration (AM) -> Travel to Jiuzhaigou Area (PM) & Overnight"
+                              data-lang-th="วันที่ 13 (อา. 26 ต.ค.): สำรวจเฉิงตู (เช้า) -> เดินทางจิ่วจ้ายโก๋ว (บ่าย) & ค้างคืน">Day 13 (Sun, Oct 26): Chengdu Exploration (AM) -> Travel to Jiuzhaigou Area (PM) & Overnight</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -474,13 +1196,76 @@
                 <div class="transport-section"><strong>🚄 Transport:</strong> HSR (Chengdu->JZG Stn - Book ASAP). Pre-booked Driver (Essential for Stn->Hotel - Arrange for Day 15 too).</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Yushe Yunshan Designer Hot Spring Hotel (Jiuzhaigou) - Night 1 of 2</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 11-17°C (52-63°F), cloudy. Cooler at altitude - pack layers! <a href="https://www.qweather.com/en/weather30d/chengdu-101270101.html" target="_blank">Chengdu</a> | <a href="https://www.qweather.com/en/weather30d/jiuzhaigou-101271906.html" target="_blank">Jiuzhaigou forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚄 Transport</div>
+                                <div class="info-detail">
+                                    <strong>HSR:</strong> Chengdu East → Jiuzhaigou Station (九寨沟站)<br>
+                                    • Duration: ~1.5 hours<br>
+                                    • Cost: ~¥100-150<br><br>
+                                    <strong>Station → Hotel:</strong><br>
+                                    • Pre-booked driver ESSENTIAL<br>
+                                    • 1.5-2 hrs drive to Zhangzha Town<br>
+                                    • Cost: ¥200-300
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel Address (Chinese)</div>
+                                <div class="info-detail">
+                                    <strong>御舍云山设计师温泉酒店</strong><br>
+                                    四川省九寨沟县漳扎镇龙康新村85号<br>
+                                    No.85 Longkang New Village, Yuzha Town<br>
+                                    Phone: +86-837-8131888<br>
+                                    <em>Near park entrance - hot spring hotel!</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food</div>
+                                <div class="info-detail">
+                                    <strong>Zhangzha Town:</strong><br>
+                                    • Tibetan/Sichuan fusion<br>
+                                    • Yak meat dishes - ¥40-80<br>
+                                    • Tsampa (糌粑) - Tibetan staple<br>
+                                    • Hotel restaurant: ¥80-120/person
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • HSR ticket: ¥100-150<br>
+                                    • Driver: ¥200-300<br>
+                                    • Meals: ¥120-180<br>
+                                    <strong>Daily Total: ¥420-630 ($63-94)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Rest at hot spring hotel</strong> - enjoy facilities, acclimatize<br>
+                            • <strong>Tibetan cultural shows</strong> in Zhangzha Town (evening performances)<br>
+                            • <strong>Prepare for tomorrow</strong> - early park entry crucial!
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Jiuzhaigou National Park PROHIBITS drones. UNESCO World Heritage protection. Do not attempt to fly.</div>
             
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="14" data-city="jiuzhaigou" data-date="2025-10-27">
                 <div class="day-header">
-                    <h3>Day 14 (Mon, Oct 27): Jiuzhaigou (JZG) Full Day Sightseeing</h3>
+                    <h3>
+                        <span data-lang-en="Day 14 (Mon, Oct 27): Jiuzhaigou (JZG) Full Day Sightseeing"
+                              data-lang-th="วันที่ 14 (จ. 27 ต.ค.): จิ่วจ้ายโก๋วเต็มวัน">Day 14 (Mon, Oct 27): Jiuzhaigou (JZG) Full Day Sightseeing</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -502,13 +1287,77 @@
                 <div class="transport-section"><strong>🚄 Transport:</strong> Park Eco-Buses.</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Yushe Yunshan Designer Hot Spring Hotel (Jiuzhaigou) - Night 2 of 2 (Check out tomorrow)</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 6-12°C (43-54°F), shower rain. Cold & wet but still stunning! Waterproof gear essential! <a href="https://www.qweather.com/en/weather30d/jiuzhaigou-101271906.html" target="_blank">Jiuzhaigou forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🎫 Jiuzhaigou Tickets</div>
+                                <div class="info-detail">
+                                    <strong>Entry Ticket:</strong><br>
+                                    • Peak season: ¥169<br>
+                                    • Eco-bus: ¥90<br>
+                                    • Total: ¥259<br><br>
+                                    <strong>Book ONLINE 1-2 days advance!</strong><br>
+                                    Peak autumn foliage - very crowded!
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel (Same)</div>
+                                <div class="info-detail">
+                                    <strong>御舍云山设计师温泉酒店</strong><br>
+                                    漳扎镇龙康新村85号<br>
+                                    <em>Night 2 of 2 - check out tomorrow!</em><br>
+                                    <em>Enjoy hot spring after long park day!</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Strategy</div>
+                                <div class="info-detail">
+                                    <strong>Pack for park:</strong><br>
+                                    • Breakfast from hotel<br>
+                                    • Snacks, energy bars<br>
+                                    • Thermos with hot water<br><br>
+                                    <strong>Park restaurants:</strong><br>
+                                    • Limited options, expensive (¥60-100)<br>
+                                    • Better to pack food!
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Park entry + bus: ¥259<br>
+                                    • Pack food: ¥50-80<br>
+                                    • Dinner: ¥100-150<br>
+                                    <strong>Daily Total: ¥409-489 ($61-73)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Rain makes it MORE beautiful!</strong> - waterfalls are fuller, colors pop<br>
+                            • <strong>Stay on eco-buses more</strong> - hop on/off at key lakes<br>
+                            • <strong>Focus on covered viewpoints</strong><br>
+                            • <strong>Hot spring at hotel</strong> after cold, wet day - perfect!
+                        </div>
+                    </div>
+                </div>
+
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> ABSOLUTELY NO DRONES. Jiuzhaigou has strict enforcement. Fines & confiscation guaranteed.</div>
             
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="15" data-city="chengdu" data-date="2025-10-28">
                 <div class="day-header">
-                    <h3>Day 15 (Tue, Oct 28): JZG Hotel -> Huanglong -> HuanglongJiuzhai HSR -> Chengdu (VERY INTENSE)</h3>
+                    <h3>
+                        <span data-lang-en="Day 15 (Tue, Oct 28): JZG Hotel -> Huanglong -> HuanglongJiuzhai HSR -> Chengdu (VERY INTENSE)"
+                              data-lang-th="วันที่ 15 (อ. 28 ต.ค.): จิ่วจ้ายโก๋ว -> หวงหลง -> รถไฟเร็ว -> เฉิงตู (เข้มข้นมาก)">Day 15 (Tue, Oct 28): JZG Hotel -> Huanglong -> HuanglongJiuzhai HSR -> Chengdu (VERY INTENSE)</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -532,7 +1381,89 @@
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Celebrity Ruicheng Hotel (Chengdu Central) - 1 night</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> Jiuzhaigou AM: 6-11°C shower rain. Huanglong: FREEZING at 3,500m! Chengdu PM: 11-17°C. <a href="https://www.qweather.com/en/weather30d/jiuzhaigou-101271906.html" target="_blank">JZG</a> | <a href="https://www.qweather.com/en/weather30d/chengdu-101270101.html" target="_blank">Chengdu →</a></div>
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Huanglong National Park PROHIBITS drones. High altitude + UNESCO protection = No-fly zone.</div>
-            
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🎫 Huanglong Park</div>
+                                <div class="info-detail">
+                                    <strong>Logistics:</strong><br>
+                                    • Entry ticket: ¥170<br>
+                                    • Ropeway up: ¥80<br>
+                                    • Ropeway down: ¥60<br>
+                                    • Altitude: 3,500m - HIGH!<br>
+                                    • Walk DOWN from top (easier)<br>
+                                    • Visit time: 3-3.5 hours<br><br>
+                                    <strong>⚠️ Take it SLOW at altitude!</strong>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🚄 HSR Booking</div>
+                                <div class="info-detail">
+                                    <strong>HuanglongJiuzhai → Chengdu East:</strong><br>
+                                    • BOOK IN ADVANCE!<br>
+                                    • Limited trains from mountain station<br>
+                                    • ~2 hours journey<br>
+                                    • Station name (Chinese):<br>
+                                    黄龙九寨站 → 成都东站<br><br>
+                                    <strong>Transfer:</strong><br>
+                                    • Chengdu East to hotel: 30-45 min<br>
+                                    • Metro or taxi: ¥40-60
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Chengdu Hotel</div>
+                                <div class="info-detail">
+                                    <strong>名人瑞城酒店</strong><br>
+                                    Celebrity Ruicheng Hotel<br>
+                                    人民中路二段68号<br>
+                                    68 Section 2 Middle People's Road<br>
+                                    Phone: +86-28-88033333<br>
+                                    <em>Central location!</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Options</div>
+                                <div class="info-detail">
+                                    <strong>Quick dinner near hotel:</strong><br>
+                                    • You'll arrive late & exhausted!<br>
+                                    • Simple noodles/dumplings: ¥30-50<br>
+                                    • Hotel restaurant option<br>
+                                    • Nearby convenience stores<br><br>
+                                    <strong>Station food:</strong><br>
+                                    • Early dinner at HuanglongJiuzhai: ¥40-60
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Huanglong entry: ¥170<br>
+                                    • Ropeway: ¥140<br>
+                                    • Driver (full day): ¥400-600<br>
+                                    • HSR ticket: ¥150-200<br>
+                                    • Transfer to hotel: ¥40-60<br>
+                                    • Meals: ¥100-150<br>
+                                    <strong>Daily Total: ¥1,000-1,320 ($150-198)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>SEVERE WEATHER: Skip Huanglong entirely!</strong> Dangerous at 3,500m altitude<br>
+                            • Go directly to HSR station from JZG hotel<br>
+                            • Earlier train to Chengdu = more rest time<br>
+                            • <strong>Light rain/drizzle:</strong> Huanglong walkways OK, but slippery - bring rain gear<br>
+                            • Ropeway may close in heavy fog/wind
+                        </div>
+                    </div>
+                </div>
+
                 </div>
             </div>
             <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1568849676085-51415703900f?w=1200');">
@@ -542,9 +1473,12 @@
                 </div>
             </div>
 
-            <div class="day">
+            <div class="day" data-day="16" data-city="shuangqiaogou" data-date="2025-10-29">
                 <div class="day-header">
-                    <h3>Day 16 (Wed, Oct 29): Chengdu -> Shuangqiaogou Valley (Travel Day)</h3>
+                    <h3>
+                        <span data-lang-en="Day 16 (Wed, Oct 29): Chengdu -> Shuangqiaogou Valley (Travel Day)"
+                              data-lang-th="วันที่ 16 (พ. 29 ต.ค.): เฉิงตู -> หุบเขาซวงเฉียวโก๋ว">Day 16 (Wed, Oct 29): Chengdu -> Shuangqiaogou Valley (Travel Day)</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -563,12 +1497,95 @@
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> From A Beautiful Dream Hotel (Shuangqiaogou) - 1 night</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> Chengdu: 11-16°C cloudy. Mountains: Much colder! <a href="https://www.qweather.com/en/weather30d/chengdu-101270101.html" target="_blank">Chengdu forecast →</a></div>
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Mountain scenic areas may allow drones if registered. Check local regulations. Wind at altitude can be dangerous.</div>
-            
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚗 Private Driver</div>
+                                <div class="info-detail">
+                                    <strong>Chengdu → Shuangqiaogou:</strong><br>
+                                    • 4-5 hour scenic drive<br>
+                                    • Arrange driver in advance!<br>
+                                    • Cost: ¥600-800<br>
+                                    • Route via Dujiangyan<br>
+                                    • Mountain roads - motion sickness meds!<br><br>
+                                    <strong>Chinese address for driver:</strong><br>
+                                    小金县四姑娘山镇双桥村
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Shuangqiaogou Hotel</div>
+                                <div class="info-detail">
+                                    <strong>一个美丽的梦想酒店</strong><br>
+                                    From a beautiful dream Hotel<br>
+                                    四川省小金县四姑娘山镇双桥村3组27号<br>
+                                    No. 27, Group 3, Shuangqiao Village<br>
+                                    Phone: +86-19308375718<br>
+                                    <em>Fireplace & heating - cozy!</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🎫 Shuangqiaogou Valley</div>
+                                <div class="info-detail">
+                                    <strong>Visit next morning (Day 17):</strong><br>
+                                    • Entry ticket: ¥80<br>
+                                    • Eco-bus: ¥70<br>
+                                    • Altitude: ~3,000m<br>
+                                    • Visit time: 3-4 hours<br>
+                                    • Stunning mountain views!<br>
+                                    • Part of Mount Siguniang area
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Options</div>
+                                <div class="info-detail">
+                                    <strong>Rilong Town:</strong><br>
+                                    • Lunch stop on arrival<br>
+                                    • Tibetan/Qiang cuisine<br>
+                                    • Yak meat dishes: ¥50-80<br>
+                                    • Butter tea (酥油茶): ¥10-15<br><br>
+                                    <strong>Dinner:</strong><br>
+                                    • Hotel restaurant likely<br>
+                                    • Limited options in area: ¥60-100
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Private driver: ¥600-800<br>
+                                    • Lunch: ¥60-80<br>
+                                    • Dinner: ¥80-120<br>
+                                    • Snacks/water: ¥30-50<br>
+                                    <strong>Daily Total: ¥770-1,050 ($115-157)</strong><br>
+                                    <em>(Shuangqiaogou entry paid tomorrow)</em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Travel day - mostly in car!</strong> Weather less critical<br>
+                            • <strong>Heavy snow:</strong> Road may close - monitor weather forecast<br>
+                            • Driver will know conditions - trust their judgment<br>
+                            • <strong>Arrive safely = priority</strong> - Shuangqiaogou visit is tomorrow<br>
+                            • Hotel has covered walkways if exploring area
+                        </div>
+                    </div>
+                </div>
+
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="17" data-city="bipenggou" data-date="2025-10-30">
                 <div class="day-header">
-                    <h3>Day 17 (Thu, Oct 30): Shuangqiao Valley -> Taoping Qiang Village -> Bipenggou Area</h3>
+                    <h3>
+                        <span data-lang-en="Day 17 (Thu, Oct 30): Shuangqiao Valley -> Taoping Qiang Village -> Bipenggou Area"
+                              data-lang-th="วันที่ 17 (พฤ. 30 ต.ค.): หุบเขาซวงเฉียว -> หมู่บ้านเทาผิง -> พื้นที่ปี่เป็งโก๋ว">Day 17 (Thu, Oct 30): Shuangqiao Valley -> Taoping Qiang Village -> Bipenggou Area</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -588,12 +1605,95 @@
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Lixian Bipeng-Shiguang Hot Spring Hotel (Bipenggou Area) - 1 night</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> Mountain weather - cold mornings, pleasant afternoons. Check local conditions!</div>
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Shuangqiao Valley may restrict drones. Taoping Village OK if respectful of locals. Always ask permission first.</div>
-            
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🎫 Shuangqiaogou Valley</div>
+                                <div class="info-detail">
+                                    <strong>Logistics:</strong><br>
+                                    • Entry ticket: ¥80<br>
+                                    • Eco-bus (required): ¥70<br>
+                                    • Visit time: 3-4 hours<br>
+                                    • Altitude: ~3,000m<br>
+                                    • Multiple scenic stops on bus route<br>
+                                    • Photography paradise!<br><br>
+                                    <strong>Best spots:</strong> Redwood Forest, Potala Peak
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏛️ Taoping Qiang Village</div>
+                                <div class="info-detail">
+                                    <strong>Ancient Fortress Village:</strong><br>
+                                    • Entry: ¥60<br>
+                                    • Visit time: 1-1.5 hours<br>
+                                    • 2,000+ year old architecture<br>
+                                    • Unique stone fortress towers<br>
+                                    • Qiang minority culture<br>
+                                    • Great photo spot!<br><br>
+                                    <strong>Chinese name:</strong> 桃坪羌寨
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Bipenggou Hotel</div>
+                                <div class="info-detail">
+                                    <strong>理县毕棚时光温泉酒店</strong><br>
+                                    Lixian Bipeng-Shiguang Hotel<br>
+                                    四川省理县庄房村1组<br>
+                                    Group 1, Zhuangfang Village, Li County<br>
+                                    Phone: +86-13778471069<br>
+                                    <em>Hot spring + mountain view!</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Highlights</div>
+                                <div class="info-detail">
+                                    <strong>Qiang Minority Cuisine:</strong><br>
+                                    • Yak meat (牦牛肉): ¥60-80<br>
+                                    • Qiang bacon (腊肉): ¥40-60<br>
+                                    • Butter tea (酥油茶): ¥10-15<br>
+                                    • Roasted potato (烤土豆): ¥15-20<br>
+                                    • Corn wine (包谷酒): ¥20-30<br><br>
+                                    <strong>Try local specialties!</strong>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Shuangqiaogou entry+bus: ¥150<br>
+                                    • Taoping Village: ¥60<br>
+                                    • Driver (continue from yesterday): ¥400-500<br>
+                                    • Lunch: ¥60-80<br>
+                                    • Dinner: ¥80-100<br>
+                                    <strong>Daily Total: ¥750-890 ($112-133)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Shuangqiaogou in rain:</strong> Still beautiful but less photography<br>
+                            • <strong>Taoping Village = PERFECT!</strong> Covered walkways, indoor fortress structures<br>
+                            • Skip Shuangqiaogou in heavy fog (no visibility)<br>
+                            • <strong>Extra time at Taoping:</strong> Traditional crafts, tea houses, local culture<br>
+                            • Early arrival at Bipenggou hotel = hot spring time!
+                        </div>
+                    </div>
+                </div>
+
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="18" data-city="dagu" data-date="2025-10-31">
                 <div class="day-header">
-                    <h3>Day 18 (Fri, Oct 31): Bipenggou Valley -> Dagu Glacier Area</h3>
+                    <h3>
+                        <span data-lang-en="Day 18 (Fri, Oct 31): Bipenggou Valley -> Dagu Glacier Area"
+                              data-lang-th="วันที่ 18 (ศ. 31 ต.ค.): หุบเขาปี่เป็งโก๋ว -> ธารน้ำแข็งต้ากู่">Day 18 (Fri, Oct 31): Bipenggou Valley -> Dagu Glacier Area</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -612,12 +1712,95 @@
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Heishui Banshandu-Yueyin Hotel (Dagu Glacier Area) - 1 night</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> High mountain cold - pack all warm gear! No reliable forecast for remote areas.</div>
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Bipenggou Valley may restrict drones - check with park entrance. Naigu Stone Forest OK if following safety rules.</div>
-            
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🎫 Bipenggou Valley</div>
+                                <div class="info-detail">
+                                    <strong>Logistics:</strong><br>
+                                    • Entry ticket: ¥80<br>
+                                    • Eco-bus: ¥70<br>
+                                    • Ropeway up: ¥60<br>
+                                    • Ropeway down: ¥60<br>
+                                    • Visit time: 4-4.5 hours<br>
+                                    • Altitude: 2,500-3,600m<br><br>
+                                    <strong>Highlights:</strong> Autumn colors, waterfalls, glacier views
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🚗 Scenic Drive</div>
+                                <div class="info-detail">
+                                    <strong>Bipenggou → Dagu Glacier:</strong><br>
+                                    • 3 hour drive through mountains<br>
+                                    • Driver arranged (continue same driver)<br>
+                                    • Cost: ¥400-500<br><br>
+                                    <strong>Photo stops:</strong><br>
+                                    • Valley of Colourful Forests<br>
+                                    • Naigu Stone Forest (那姑石林)<br>
+                                    • Allow 30-45 min for stops
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Dagu Glacier Hotel</div>
+                                <div class="info-detail">
+                                    <strong>黑水半山度月隐酒店</strong><br>
+                                    Heishui Banshandu-Yueyin Hotel<br>
+                                    四川省黑水县芦花镇古路村1组10号<br>
+                                    No. 10, Group 1, Guru Village, Luhua Town<br>
+                                    Phone: +86-18828080844<br>
+                                    <em>Near Dagu Glacier Park entrance</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Options</div>
+                                <div class="info-detail">
+                                    <strong>Limited dining:</strong><br>
+                                    • Hotel restaurant likely only option<br>
+                                    • Tibetan/Sichuan fusion: ¥80-120<br>
+                                    • Lunch at Bipenggou entrance: ¥50-80<br><br>
+                                    <strong>Remote mountain area!</strong><br>
+                                    • Stock up on snacks/water<br>
+                                    • Altitude affects appetite
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Bipenggou entry+bus: ¥150<br>
+                                    • Ropeway (up+down): ¥120<br>
+                                    • Driver: ¥400-500<br>
+                                    • Lunch: ¥60-80<br>
+                                    • Dinner: ¥80-120<br>
+                                    <strong>Daily Total: ¥810-970 ($121-145)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Heavy rain/snow:</strong> Ropeway may close - eco-bus still runs to lower valley<br>
+                            • <strong>Fog:</strong> Limited visibility but valley still accessible<br>
+                            • <strong>If Bipenggou closed:</strong> Head directly to Dagu area, rest at hotel<br>
+                            • <strong>Photo stops flexible</strong> - skip if weather poor<br>
+                            • Early check-in = more rest before tomorrow's high altitude visit
+                        </div>
+                    </div>
+                </div>
+
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="19" data-city="chengdu" data-date="2025-11-01">
                 <div class="day-header">
-                    <h3>Day 19 (Sat, Nov 1): Dagu Glacier -> Diexi Lake -> Chengdu</h3>
+                    <h3>
+                        <span data-lang-en="Day 19 (Sat, Nov 1): Dagu Glacier -> Diexi Lake -> Chengdu"
+                              data-lang-th="วันที่ 19 (ส. 1 พ.ย.): ธารน้ำแข็งต้ากู่ -> ทะเลสาบเตี๋ยซี -> เฉิงตู">Day 19 (Sat, Nov 1): Dagu Glacier -> Diexi Lake -> Chengdu</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -640,7 +1823,93 @@
                 <div class="weather-box"><strong>🌤️ Weather:</strong> Dagu 4,860m: FREEZING! Chengdu: 10-20°C few clouds. <a href="https://www.qweather.com/en/weather30d/chengdu-101270101.html" target="_blank">Chengdu forecast →</a></div>
                 <div class="warning-box"><strong>⚠️ ALTITUDE WARNING:</strong> Dagu summit is 4,860m - take it VERY slow, avoid running, carry oxygen if needed. Symptoms of altitude sickness: headache, nausea, dizziness.</div>
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Dagu Glacier National Park STRICTLY PROHIBITS drones due to altitude, weather conditions, and protected area status.</div>
-            
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">❄️ Dagu Glacier Park</div>
+                                <div class="info-detail">
+                                    <strong>HIGHEST POINT OF TRIP!</strong><br>
+                                    • Entry ticket: ¥120<br>
+                                    • Eco-bus: ¥70<br>
+                                    • Cable car round trip: ¥180<br>
+                                    • Summit altitude: 4,860m!<br>
+                                    • Visit time: 3-4 hours<br><br>
+                                    <strong>⚠️ EXTREME ALTITUDE:</strong><br>
+                                    • Move VERY slowly<br>
+                                    • No running/jumping<br>
+                                    • Oxygen available at summit
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏞️ Diexi Lake</div>
+                                <div class="info-detail">
+                                    <strong>Earthquake-formed Lake:</strong><br>
+                                    • FREE entry<br>
+                                    • Photo stop: 30-45 min<br>
+                                    • 1933 earthquake created lake<br>
+                                    • Beautiful turquoise water<br>
+                                    • Good rest break on long drive<br><br>
+                                    <strong>Chinese name:</strong> 叠溪海子
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Return to Chengdu</div>
+                                <div class="info-detail">
+                                    <strong>名人瑞城酒店</strong><br>
+                                    Celebrity Ruicheng Hotel<br>
+                                    人民中路二段68号<br>
+                                    Phone: +86-28-88033333<br><br>
+                                    <strong>Late arrival (9-10 PM)!</strong><br>
+                                    • 6+ hours total driving today<br>
+                                    • Exhausted from altitude<br>
+                                    • Simple dinner near hotel
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food Today</div>
+                                <div class="info-detail">
+                                    <strong>Morning:</strong><br>
+                                    • Early breakfast at hotel: included<br><br>
+                                    <strong>Lunch:</strong><br>
+                                    • Near Dagu entrance: ¥50-80<br>
+                                    • Simple food, limited options<br><br>
+                                    <strong>Dinner in Chengdu:</strong><br>
+                                    • Late arrival - quick meal<br>
+                                    • Noodles/dumplings: ¥40-60<br>
+                                    • Or hotel restaurant
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Dagu entry: ¥120<br>
+                                    • Eco-bus: ¥70<br>
+                                    • Cable car: ¥180<br>
+                                    • Driver (Dagu→Chengdu): ¥600-800<br>
+                                    • Lunch: ¥60-80<br>
+                                    • Dinner: ¥50-80<br>
+                                    <strong>Daily Total: ¥1,080-1,330 ($162-199)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Cable car CLOSED:</strong> Skip Dagu entirely if cable car not running<br>
+                            • <strong>Heavy fog:</strong> No glacier views - not worth ¥370 admission<br>
+                            • <strong>Skip to Diexi Lake:</strong> Focus on earthquake lake + early return to Chengdu<br>
+                            • <strong>More time in Chengdu:</strong> Arrive earlier, explore city before dark<br>
+                            • <strong>Safety first!</strong> 4,860m is dangerous in severe weather
+                        </div>
+                    </div>
+                </div>
+
                 </div>
             </div>
             <div class="destination-header" style="background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1200');">
@@ -650,9 +1919,12 @@
                 </div>
             </div>
 
-            <div class="day">
+            <div class="day" data-day="20" data-city="emeishan" data-date="2025-11-02">
                 <div class="day-header">
-                    <h3>Day 20 (Sun, Nov 2): Chengdu -> Leshan Giant Buddha -> Mount Emei Golden Summit</h3>
+                    <h3>
+                        <span data-lang-en="Day 20 (Sun, Nov 2): Chengdu -> Leshan Giant Buddha -> Mount Emei Golden Summit"
+                              data-lang-th="วันที่ 20 (อา. 2 พ.ย.): เฉิงตู -> พระใหญ่เล่อซาน -> ยอดทองภูเขาเอ๋อเหมย">Day 20 (Sun, Nov 2): Chengdu -> Leshan Giant Buddha -> Mount Emei Golden Summit</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -680,11 +1952,101 @@
                 <div class="tip-box"><strong>💡 Advantage:</strong> Staying at summit allows for sunrise viewing, multiple viewing windows, and no early morning rush.</div>
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Leshan Giant Buddha and Mount Emei are UNESCO World Heritage sites - drones STRICTLY PROHIBITED at both locations.</div>
 
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🚄 HSR Bookings</div>
+                                <div class="info-detail">
+                                    <strong>BOOK IN ADVANCE!</strong><br>
+                                    • Chengdu East → Leshan: ¥50-65 (~1 hr)<br>
+                                    • Leshan → Emeishan: ¥15-20 (~20 min)<br><br>
+                                    <strong>Chinese station names:</strong><br>
+                                    成都东站 → 乐山站 → 峨眉山站<br><br>
+                                    <strong>Luggage storage:</strong><br>
+                                    • Leshan Station: ¥10-20/piece<br>
+                                    • CONFIRM storage available!
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🗿 Leshan Giant Buddha</div>
+                                <div class="info-detail">
+                                    <strong>World's largest stone Buddha:</strong><br>
+                                    • Entry ticket: ¥80<br>
+                                    • Bus to mountain: ¥10<br>
+                                    • Visit time: 2.5 hours<br>
+                                    • Height: 71 meters!<br><br>
+                                    <strong>⚠️ Sunday = VERY CROWDED!</strong><br>
+                                    • Boat tour recommended: ¥70<br>
+                                    • Faster + better views<br>
+                                    • Skip long walking stairs
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏔️ Mount Emei Transport</div>
+                                <div class="info-detail">
+                                    <strong>From Emeishan Station:</strong><br>
+                                    • Tourist Center bus pickup<br>
+                                    • Bus to Leidongping: ¥90 (2 hrs)<br>
+                                    • Walk to cable car: 30 min<br>
+                                    • Cable car to summit: ¥65 up<br><br>
+                                    <strong>Total to summit: 3-3.5 hours</strong><br>
+                                    • Altitude: 3,079m
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Summit Hotel</div>
+                                <div class="info-detail">
+                                    <strong>Jin Ding Hotel (Golden Summit):</strong><br>
+                                    • Located AT the summit (3,079m)<br>
+                                    • Basic amenities, mountain lodge<br>
+                                    • BOOK IN ADVANCE!<br>
+                                    • Heating available but limited<br>
+                                    • Shared facilities possible<br><br>
+                                    <strong>⚠️ COLD NIGHT!</strong> Bring layers
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food & Costs</div>
+                                <div class="info-detail">
+                                    <strong>Meals today:</strong><br>
+                                    • Breakfast in Chengdu: ¥20-30<br>
+                                    • Lunch at Leshan: ¥40-60<br>
+                                    • Dinner at summit: ¥60-100<br>
+                                    • Limited vegetarian options<br><br>
+                                    <strong>Total costs:</strong><br>
+                                    • HSR: ¥65-85<br>
+                                    • Leshan entry+bus: ¥90-150<br>
+                                    • Emei bus+cable: ¥155<br>
+                                    • Meals: ¥120-190<br>
+                                    <strong>Daily Total: ¥430-580 ($64-87)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Rain at Leshan:</strong> Boat tour BETTER option (covered, quick, efficient)<br>
+                            • <strong>Cable car closed:</strong> CANNOT reach Golden Summit - stay at lower temple<br>
+                            • <strong>Heavy fog:</strong> Continue to summit anyway - sunrise chance tomorrow<br>
+                            • <strong>If cable car closed:</strong> Book lower mountain hotel instead<br>
+                            • Summit hotel = two sunrise chances (tonight+tomorrow AM)
+                        </div>
+                    </div>
+                </div>
+
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="21" data-city="chengdu" data-date="2025-11-03">
                 <div class="day-header">
-                    <h3>Day 21 (Mon, Nov 3): Mount Emei Sunrise & Return to Chengdu</h3>
+                    <h3>
+                        <span data-lang-en="Day 21 (Mon, Nov 3): Mount Emei Sunrise & Return to Chengdu"
+                              data-lang-th="วันที่ 21 (จ. 3 พ.ย.): พระอาทิตย์ขึ้นเอ๋อเหมย & กลับเฉิงตู">Day 21 (Mon, Nov 3): Mount Emei Sunrise & Return to Chengdu</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -710,11 +2072,106 @@
                 <div class="tip-box"><strong>💡 Advantage:</strong> More relaxed schedule, better weather chances with two viewing windows (evening + sunrise).</div>
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Mount Emei is a UNESCO World Heritage site - drones STRICTLY PROHIBITED throughout the mountain.</div>
 
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🌅 Sunrise Viewing</div>
+                                <div class="info-detail">
+                                    <strong>Weather dependent!</strong><br>
+                                    • Sunrise time: 5:30-6:30 AM<br>
+                                    • Check conditions night before<br>
+                                    • Cloud sea phenomenon (if lucky!)<br>
+                                    • Golden Buddha statue at summit<br>
+                                    • Bring headlamp/flashlight<br><br>
+                                    <strong>If cloudy:</strong><br>
+                                    • Sleep in, enjoy later breakfast<br>
+                                    • Explore temples at leisure
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">⛰️ Descent Logistics</div>
+                                <div class="info-detail">
+                                    <strong>Summit → Baoguo Temple:</strong><br>
+                                    • Cable car down: ¥55 (30 min)<br>
+                                    • Walk to bus: 30 min<br>
+                                    • Park bus down: ¥90 (2 hrs)<br>
+                                    • Total: ~3 hours to base<br><br>
+                                    <strong>Timing:</strong><br>
+                                    • Check out by 11 AM<br>
+                                    • Arrive Baoguo ~2 PM<br>
+                                    • Lunch before HSR
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🚄 Return to Chengdu</div>
+                                <div class="info-detail">
+                                    <strong>HSR Journey:</strong><br>
+                                    • Emeishan Station → Chengdu East<br>
+                                    • Duration: ~1 hour<br>
+                                    • Ticket: ¥55-65<br>
+                                    • BOOK IN ADVANCE!<br><br>
+                                    <strong>Transfer to hotel:</strong><br>
+                                    • Chengdu East → hotel: 30-45 min<br>
+                                    • Metro or taxi: ¥40-60<br>
+                                    • Arrive hotel by 5-6 PM
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Chengdu Hotel (Final)</div>
+                                <div class="info-detail">
+                                    <strong>名人瑞城酒店</strong><br>
+                                    Celebrity Ruicheng Hotel<br>
+                                    人民中路二段68号<br>
+                                    Phone: +86-28-88033333<br><br>
+                                    <strong>Final 2 nights in China!</strong><br>
+                                    • Check-in Nov 3<br>
+                                    • Check-out Nov 5<br>
+                                    • Breakfast included both days
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Food & Costs</div>
+                                <div class="info-detail">
+                                    <strong>Meals today:</strong><br>
+                                    • Breakfast at summit: ¥30-50<br>
+                                    • Lunch at Baoguo: ¥40-60<br>
+                                    • Dinner in Chengdu: ¥80-120<br>
+                                    • Celebrate with hot pot!<br><br>
+                                    <strong>Total costs:</strong><br>
+                                    • Cable car: ¥55<br>
+                                    • Park bus: ¥90<br>
+                                    • HSR: ¥55-65<br>
+                                    • Transfer: ¥40-60<br>
+                                    • Meals: ¥150-230<br>
+                                    <strong>Daily Total: ¥390-500 ($58-75)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>No sunrise:</strong> Sleep in, relaxed morning at temples<br>
+                            • <strong>Rain during descent:</strong> Cable car + bus still operate (bring rain gear)<br>
+                            • <strong>Heavy fog:</strong> Slow descent, be careful on walkways<br>
+                            • <strong>Early descent option:</strong> Skip sunrise, leave earlier, more Chengdu time<br>
+                            • <strong>Flexible HSR:</strong> Earlier or later train depending on conditions
+                        </div>
+                    </div>
+                </div>
+
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="22" data-city="chengdu" data-date="2025-11-04">
                 <div class="day-header">
-                    <h3>Day 22 (Tue, Nov 4): Chengdu: Panda Base (AM) / Buffer Day / Prep</h3>
+                    <h3>
+                        <span data-lang-en="Day 22 (Tue, Nov 4): Chengdu: Panda Base (AM) / Buffer Day / Prep"
+                              data-lang-th="วันที่ 22 (อ. 4 พ.ย.): เฉิงตู: ศูนย์แพนด้า (เช้า) / วันสำรอง / เตรียมตัว">Day 22 (Tue, Nov 4): Chengdu: Panda Base (AM) / Buffer Day / Prep</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -740,14 +2197,83 @@
                 <div class="focus-section"><strong>🎯 Focus:</strong> Pandas! Flexibility, buffer for delays, relaxation, final tasks. High Crowd Concern (Pandas AM), Moderate (Chengdu PM).</div>
                 <div class="hotel-section"><strong>🏨 Hotel:</strong> Celebrity Ruicheng Hotel (Chengdu Central) - Night 2 of 2 (Check out tomorrow)</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> 11-20°C, cloudy. Cool morning = active pandas! <a href="https://www.qweather.com/en/weather30d/chengdu-101270101.html" target="_blank">Chengdu forecast →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">🐼 Panda Base Visit</div>
+                                <div class="info-detail">
+                                    <strong>Transport:</strong><br>
+                                    • Metro Line 3 to Panda Avenue<br>
+                                    • Taxi from hotel: ¥40-60 (~30 min)<br><br>
+                                    <strong>Entry:</strong><br>
+                                    • Ticket: ¥55<br>
+                                    • Opens 7:30 AM - GO EARLY!<br>
+                                    • Feeding time 8-10 AM (most active)<br>
+                                    • Allow 2.5-3 hours
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel (Last 2 Nights)</div>
+                                <div class="info-detail">
+                                    <strong>名人瑞城酒店</strong><br>
+                                    人民中路二段68号<br>
+                                    Phone: +86-28-88033333<br>
+                                    <em>Includes breakfast + dinner coupon!</em><br>
+                                    <em>Check out Nov 5</em>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Final Sichuan Meals</div>
+                                <div class="info-detail">
+                                    <strong>Last chances for:</strong><br>
+                                    • Hot Pot dinner - ¥100-150<br>
+                                    • Dan Dan Noodles - ¥15-20<br>
+                                    • Kung Pao Chicken - ¥30-40<br>
+                                    • Sweet Water Noodles (甜水面) - ¥12-18<br>
+                                    • Mapo Tofu - ¥25-35
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Transport to/from Panda Base: ¥80-120<br>
+                                    • Panda Base entry: ¥55<br>
+                                    • Lunch: ¥40-60<br>
+                                    • Dinner: ¥100-150<br>
+                                    • Souvenirs: ¥50-150<br>
+                                    <strong>Daily Total: ¥325-535 ($48-80)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Pandas are ACTIVE in rain!</strong> - they love cooler weather<br>
+                            • <strong>Covered viewing areas</strong> at Panda Base<br>
+                            • <strong>Sichuan Science and Technology Museum</strong> (free, interactive)<br>
+                            • <strong>Shopping: Chunxi Road, IFS, Taikoo Li</strong> (luxury malls, covered)<br>
+                            • <strong>Relaxing hot pot lunch</strong> - perfect rainy day activity!
+                        </div>
+                    </div>
+                </div>
+
                 <div class="tip-box"><strong>💡 Important:</strong> This is your buffer day for any delays from previous days. If running on schedule, enjoy a relaxed Chengdu exploration!</div>
                 <div class="drone-section"><strong>🚁 Drone Policy:</strong> Panda Base prohibits drones (disturbs animals). Urban Chengdu areas may allow drones but check local regulations and respect privacy/security zones.</div>
             
                 </div>
             </div>
-            <div class="day">
+            <div class="day" data-day="23" data-city="chengdu" data-date="2025-11-05">
                 <div class="day-header">
-                    <h3>Day 23 (Wed, Nov 5): Chengdu Departure</h3>
+                    <h3>
+                        <span data-lang-en="Day 23 (Wed, Nov 5): Chengdu Departure"
+                              data-lang-th="วันที่ 23 (พ. 5 พ.ย.): ออกเดินทางจากเฉิงตู">Day 23 (Wed, Nov 5): Chengdu Departure</span>
+                    </h3>
                     <span class="day-toggle">▼</span>
                 </div>
                 <div class="day-content">
@@ -763,6 +2289,71 @@
                 </ul></div>
                 <div class="focus-section"><strong>🎯 Focus:</strong> Smooth check-out, timely airport transfer (TFU is FAR from city - Metro Line 18 takes 40-60 mins + transfers), departure on time.</div>
                 <div class="weather-box"><strong>🌤️ Weather:</strong> Nov 5 forecast unavailable (beyond 30 days). Expect 11-19°C, cloudy typical Chengdu. <a href="https://www.qweather.com/en/weather30d/chengdu-101270101.html" target="_blank">Check closer to date →</a></div>
+
+                <!-- Practical Information Section -->
+                <div class="practical-info">
+                    <div class="practical-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <strong>📍 PRACTICAL INFO</strong>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="practical-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-title">✈️ Airport Transport</div>
+                                <div class="info-detail">
+                                    <strong>Chengdu Tianfu Int'l (TFU):</strong><br>
+                                    • 50km from city center<br><br>
+                                    <strong>Metro Line 18 (Cheapest):</strong><br>
+                                    • 40-60 min + transfers<br>
+                                    • Cost: ¥10-15<br><br>
+                                    <strong>Taxi/DiDi (Recommended):</strong><br>
+                                    • 50-70 min direct<br>
+                                    • Cost: ¥120-180<br>
+                                    <strong>LEAVE HOTEL BY 10:00 AM!</strong>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🏨 Hotel Check-out</div>
+                                <div class="info-detail">
+                                    <strong>名人瑞城酒店</strong><br>
+                                    人民中路二段68号<br>
+                                    <em>Check-out before 12:00 PM</em><br><br>
+                                    <strong>Early check-out at 9:00 AM</strong><br>
+                                    <strong>Final luggage check!</strong>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">🍜 Final Breakfast</div>
+                                <div class="info-detail">
+                                    <strong>Hotel breakfast included!</strong><br>
+                                    • Last Sichuan breakfast<br>
+                                    • Jianbing (煎饼) - savory crepe<br>
+                                    • Soy milk & youtiao<br><br>
+                                    <strong>Airport dining:</strong><br>
+                                    • Food courts available<br>
+                                    • Cost: ¥40-80
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-title">💰 Estimated Costs</div>
+                                <div class="info-detail">
+                                    • Breakfast: Free (included)<br>
+                                    • Airport transfer: ¥120-180<br>
+                                    • Airport meals/snacks: ¥40-80<br>
+                                    • Last-minute items: ¥50-100<br>
+                                    <strong>Daily Total: ¥210-360 ($31-54)</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bad-weather-alt">
+                            <strong>☔ Bad Weather Alternatives:</strong><br>
+                            • <strong>Early departure recommended!</strong> - Rain can slow traffic to airport<br>
+                            • <strong>Use taxi/DiDi instead of metro</strong> - avoid walking between stations in rain<br>
+                            • <strong>Arrive airport earlier</strong> - more time for shopping, relaxing before flight
+                        </div>
+                    </div>
+                </div>
+
                 <div class="warning-box"><strong>⚠️ IMPORTANT:</strong> Chengdu Tianfu International Airport (TFU) is ~50km from city center. Metro Line 18 takes 40-60 minutes + station transfers. Budget 1-1.5 hours for airport transfer. Arrive 3 hours before international flight (11:20 AM latest).</div>
             
                 </div>
@@ -817,6 +2408,9 @@
             }
         });
     </script>
+
+    <!-- Language Switcher -->
+    <script src="language-switcher.js"></script>
 
     <!-- QWeather API Integration -->
     <script src="qweather-api.js"></script>
