@@ -275,6 +275,15 @@ h3 {
     color: #856404;
 }
 
+.weather-box {
+    background: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    color: #0d47a1;
+}
+
 .plan-section {
     background: linear-gradient(135deg, #667eea15, #764ba215);
     border-left: 4px solid #667eea;
