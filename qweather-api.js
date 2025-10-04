@@ -1,5 +1,5 @@
-// QWeather API Integration
-// Replace 'YOUR_API_KEY_HERE' with your actual API key from https://console.qweather.com
+// QWeather API Integration - Daily + Hourly Forecasts
+// API Documentation: https://dev.qweather.com/en/docs/api/
 
 const QWEATHER_CONFIG = {
     apiKey: 'e575336e2b114523acfd1f3c8c2f362a', // ✅ Your QWeather API Key
@@ -18,8 +18,8 @@ const CITY_LOCATIONS = {
     'emeishan': '101271414'
 };
 
-// Fetch weather data from QWeather API
-async function fetchQWeather(locationId, date) {
+// Fetch 30-day weather forecast
+async function fetchDailyWeather(locationId, date) {
     const baseUrl = 'https://devapi.qweather.com/v7/weather/30d';
     const url = `${baseUrl}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
 
@@ -28,21 +28,67 @@ async function fetchQWeather(locationId, date) {
         const data = await response.json();
 
         if (data.code === '200') {
-            // Find forecast for specific date
             const forecast = data.daily.find(day => day.fxDate === date);
             return forecast;
         } else {
-            console.error('QWeather API Error:', data.code, data);
+            console.error('QWeather Daily API Error:', data.code, data);
             return null;
         }
     } catch (error) {
-        console.error('Fetch error:', error);
+        console.error('Daily fetch error:', error);
         return null;
     }
 }
 
-// Update weather display on page
-function updateWeatherDisplay(dayElement, weatherData) {
+// Fetch 24-hour hourly forecast
+async function fetchHourlyWeather(locationId) {
+    const baseUrl = 'https://devapi.qweather.com/v7/weather/24h';
+    const url = `${baseUrl}?location=${locationId}&key=${QWEATHER_CONFIG.apiKey}&lang=${QWEATHER_CONFIG.lang}&unit=${QWEATHER_CONFIG.unit}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.code === '200') {
+            return data.hourly;
+        } else {
+            console.error('QWeather Hourly API Error:', data.code, data);
+            return null;
+        }
+    } catch (error) {
+        console.error('Hourly fetch error:', error);
+        return null;
+    }
+}
+
+// Get weather icon emoji
+function getWeatherIcon(condition) {
+    const iconMap = {
+        'sunny': '☀️',
+        'clear': '🌙',
+        'partly cloudy': '⛅',
+        'cloudy': '☁️',
+        'overcast': '☁️',
+        'shower': '🌧️',
+        'rain': '🌧️',
+        'thunderstorm': '⛈️',
+        'snow': '❄️',
+        'fog': '🌫️',
+        'haze': '😶‍🌫️'
+    };
+
+    const key = Object.keys(iconMap).find(k => condition.toLowerCase().includes(k));
+    return iconMap[key] || '🌤️';
+}
+
+// Format time from "2025-10-14T14:00+08:00" to "2:00 PM"
+function formatHourTime(fxTime) {
+    const date = new Date(fxTime);
+    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+}
+
+// Update daily weather display
+function updateDailyWeather(dayElement, weatherData, locationId) {
     if (!weatherData) return;
 
     const weatherBox = dayElement.querySelector('.weather-box');
@@ -54,43 +100,120 @@ function updateWeatherDisplay(dayElement, weatherData) {
     const humidity = weatherData.humidity;
     const precip = weatherData.precip;
 
-    // Update weather text
     const weatherText = `
         <strong>🌤️ Weather:</strong>
         ${tempMin}-${tempMax}°C (${Math.round(tempMin*1.8+32)}-${Math.round(tempMax*1.8+32)}°F),
         ${condition.toLowerCase()}${precip > 0 ? `, ${precip}mm rain` : ''}.
         Humidity: ${humidity}%.
-        <a href="https://www.qweather.com/en/weather30d/location-${weatherData.location}.html" target="_blank">30-day forecast →</a>
+        <a href="https://www.qweather.com/en/weather30d/${dayElement.dataset.city}-${locationId}.html" target="_blank">30-day forecast →</a>
         <span class="update-time">Updated: ${new Date().toLocaleString()}</span>
     `;
 
     weatherBox.innerHTML = weatherText;
 }
 
+// Create hourly forecast timeline
+function createHourlyTimeline(hourlyData) {
+    if (!hourlyData || hourlyData.length === 0) return '';
+
+    // Take first 12 hours for display (every 2 hours to save space)
+    const displayHours = hourlyData.filter((_, index) => index % 2 === 0).slice(0, 6);
+
+    let timelineHTML = `
+        <div class="hourly-forecast">
+            <div class="hourly-header" onclick="this.parentElement.classList.toggle('expanded')">
+                <strong>📊 24-Hour Forecast</strong>
+                <span class="hourly-toggle">▼</span>
+            </div>
+            <div class="hourly-content">
+                <div class="hourly-timeline">
+    `;
+
+    displayHours.forEach(hour => {
+        const icon = getWeatherIcon(hour.text);
+        const time = formatHourTime(hour.fxTime);
+        const temp = hour.temp;
+        const precipProb = hour.pop; // Precipitation probability
+        const wind = hour.windSpeed;
+
+        timelineHTML += `
+            <div class="hour-item">
+                <div class="hour-time">${time}</div>
+                <div class="hour-icon">${icon}</div>
+                <div class="hour-temp">${temp}°C</div>
+                <div class="hour-precip">${precipProb}% 💧</div>
+                <div class="hour-wind">${wind}km/h</div>
+            </div>
+        `;
+    });
+
+    timelineHTML += `
+                </div>
+                <div class="hourly-note">
+                    <em>Showing every 2 hours. Precipitation probability and wind speed included.</em>
+                </div>
+            </div>
+        </div>
+    `;
+
+    return timelineHTML;
+}
+
+// Update both daily and hourly weather for a day
+async function updateDayWeather(dayElement) {
+    const city = dayElement.dataset.city;
+    const date = dayElement.dataset.date;
+    const locationId = CITY_LOCATIONS[city];
+
+    if (!locationId || !date) {
+        console.warn('Missing city or date data for day:', dayElement.dataset.day);
+        return;
+    }
+
+    // Fetch daily weather
+    const dailyWeather = await fetchDailyWeather(locationId, date);
+    updateDailyWeather(dayElement, dailyWeather, locationId);
+
+    // Fetch hourly weather
+    const hourlyWeather = await fetchHourlyWeather(locationId);
+
+    // Insert hourly timeline after weather-box
+    const weatherBox = dayElement.querySelector('.weather-box');
+    if (weatherBox && hourlyWeather) {
+        const hourlyHTML = createHourlyTimeline(hourlyWeather);
+
+        // Remove existing hourly forecast if present
+        const existing = dayElement.querySelector('.hourly-forecast');
+        if (existing) existing.remove();
+
+        // Insert new hourly forecast
+        weatherBox.insertAdjacentHTML('afterend', hourlyHTML);
+    }
+}
+
 // Initialize weather updates for all days
 async function initializeWeatherUpdates() {
-    // Day 1-3: Chongqing (Oct 14-16)
-    const day1 = document.querySelector('[data-day="1"]');
-    if (day1) {
-        const weather = await fetchQWeather(CITY_LOCATIONS.chongqing, '2025-10-14');
-        updateWeatherDisplay(day1, weather);
+    console.log('Initializing QWeather API (Daily + Hourly)...');
+
+    // Find all days with data attributes
+    const days = document.querySelectorAll('.day[data-day][data-city][data-date]');
+
+    if (days.length === 0) {
+        console.warn('No days found with proper data attributes (data-day, data-city, data-date)');
+        return;
     }
 
-    // Day 4-5: Fenghuang (Oct 17-18)
-    const day4 = document.querySelector('[data-day="4"]');
-    if (day4) {
-        const weather = await fetchQWeather(CITY_LOCATIONS.fenghuang, '2025-10-17');
-        updateWeatherDisplay(day4, weather);
+    // Update each day
+    for (const day of days) {
+        await updateDayWeather(day);
+        console.log(`✅ Weather updated for Day ${day.dataset.day}`);
     }
 
-    // Add more days as needed...
-    // You can add all 23 days following this pattern
+    console.log('✅ All weather updates complete!');
 }
 
 // Auto-run when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Initializing QWeather API...');
-
     // Check if API key is set
     if (QWEATHER_CONFIG.apiKey === 'YOUR_API_KEY_HERE') {
         console.warn('⚠️ QWeather API key not set! Please update QWEATHER_CONFIG.apiKey');
@@ -102,6 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Export for manual updates
 window.QWeatherAPI = {
-    update: initializeWeatherUpdates,
-    fetch: fetchQWeather
+    updateAll: initializeWeatherUpdates,
+    updateDay: updateDayWeather,
+    fetchDaily: fetchDailyWeather,
+    fetchHourly: fetchHourlyWeather
 };
