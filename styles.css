@@ -1199,3 +1199,124 @@ footer a:hover {
     line-height: 1.6;
     font-size: 0.95rem;
 }
+
+/* Practical Info Section */
+.practical-info {
+    background: #f8f9fa;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+}
+
+.practical-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.practical-header:hover {
+    background: linear-gradient(135deg, #5568d3, #6a3f8f);
+}
+
+.practical-header strong {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.practical-info.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.practical-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 1.5rem;
+}
+
+.practical-info.expanded .practical-content {
+    max-height: 3000px;
+    padding: 1.5rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-left: 4px solid #667eea;
+}
+
+.info-title {
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-detail {
+    color: #333;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.info-detail strong {
+    color: #667eea;
+    display: inline;
+}
+
+.info-detail em {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.bad-weather-alt {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border-left: 4px solid #ffc107;
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.bad-weather-alt strong {
+    color: #856404;
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .practical-header {
+        padding: 0.875rem 1rem;
+    }
+
+    .practical-info.expanded .practical-content {
+        padding: 1rem;
+    }
+}
