@@ -181,38 +181,122 @@ function updateDailyWeather(dayElement, weatherData, locationId) {
     const weatherBox = dayElement.querySelector('.weather-box');
     if (!weatherBox) return;
 
+    // Extract all weather data
     const tempMax = weatherData.tempMax;
     const tempMin = weatherData.tempMin;
-    const condition = weatherData.textDay;
+    const conditionDay = weatherData.textDay;
+    const conditionNight = weatherData.textNight;
     const humidity = weatherData.humidity;
     const precip = weatherData.precip;
+    const uvIndex = weatherData.uvIndex;
+    const sunrise = weatherData.sunrise;
+    const sunset = weatherData.sunset;
+    const moonrise = weatherData.moonrise;
+    const moonset = weatherData.moonset;
+    const moonPhase = weatherData.moonPhase;
+    const windDirDay = weatherData.windDirDay;
+    const windSpeedDay = weatherData.windSpeedDay;
+    const windDirNight = weatherData.windDirNight;
+    const windSpeedNight = weatherData.windSpeedNight;
+    const visibility = weatherData.vis;
+    const pressure = weatherData.pressure;
+    const cloudCover = weatherData.cloud;
+
+    // Get UV level description
+    const getUVLevel = (index) => {
+        if (index <= 2) return 'Low';
+        if (index <= 5) return 'Moderate';
+        if (index <= 7) return 'High';
+        if (index <= 10) return 'Very High';
+        return 'Extreme';
+    };
 
     const weatherText = `
-        <strong>🌤️ Weather:</strong>
-        ${tempMin}-${tempMax}°C (${Math.round(tempMin*1.8+32)}-${Math.round(tempMax*1.8+32)}°F),
-        ${condition.toLowerCase()}${precip > 0 ? `, ${precip}mm rain` : ''}.
-        Humidity: ${humidity}%.
-        <a href="https://www.qweather.com/en/weather30d/${dayElement.dataset.city}-${locationId}.html" target="_blank">30-day forecast →</a>
-        <span class="update-time">Updated: ${new Date().toLocaleString()}</span>
+        <div class="weather-summary">
+            <strong>🌤️ Weather Overview:</strong>
+            <div class="temp-range">${tempMin}-${tempMax}°C</div>
+            <div class="conditions">
+                <span>☀️ Day: ${conditionDay}</span> |
+                <span>🌙 Night: ${conditionNight}</span>
+            </div>
+            <div class="weather-quick-info">
+                <span>💧 ${precip}mm ${precip > 0 ? '🌧️' : ''}</span>
+                <span>☁️ ${cloudCover}% cloud</span>
+                <span>☀️ UV ${uvIndex} (${getUVLevel(uvIndex)})</span>
+            </div>
+        </div>
+
+        <div class="weather-details-collapsible">
+            <div class="weather-details-header" onclick="this.parentElement.classList.toggle('expanded')">
+                <strong>📊 Detailed Info</strong>
+                <span class="toggle-arrow">▼</span>
+            </div>
+            <div class="weather-details-content">
+                <div class="weather-details-grid">
+                    <div class="weather-detail-item">
+                        <div class="detail-icon">💨</div>
+                        <div class="detail-content">
+                            <div class="detail-label">Wind</div>
+                            <div class="detail-value">☀️ ${windDirDay} ${windSpeedDay}km/h<br>🌙 ${windDirNight} ${windSpeedNight}km/h</div>
+                        </div>
+                    </div>
+
+                    <div class="weather-detail-item">
+                        <div class="detail-icon">👁️</div>
+                        <div class="detail-content">
+                            <div class="detail-label">Visibility</div>
+                            <div class="detail-value">${visibility}km</div>
+                        </div>
+                    </div>
+
+                    <div class="weather-detail-item">
+                        <div class="detail-icon">🌙</div>
+                        <div class="detail-content">
+                            <div class="detail-label">Moon Phase</div>
+                            <div class="detail-value">${moonPhase}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sun-moon-times">
+                    <div class="time-group">
+                        <strong>🌅 Sun:</strong> ↑ ${sunrise} / ↓ ${sunset}
+                    </div>
+                    <div class="time-group">
+                        <strong>🌙 Moon:</strong> ↑ ${moonrise} / ↓ ${moonset}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weather-footer">
+            <a href="https://www.qweather.com/en/weather30d/${dayElement.dataset.city}-${locationId}.html" target="_blank">30-day forecast →</a>
+            <span class="update-time">Updated: ${new Date().toLocaleString()}</span>
+        </div>
     `;
 
     weatherBox.innerHTML = weatherText;
 }
 
 // Create hourly forecast timeline
-function createHourlyTimeline(hourlyData) {
+function createHourlyTimeline(hourlyData, dayDate) {
     if (!hourlyData || hourlyData.length === 0) return '';
 
-    // Show 24 hours: every 2 hours = 12 time slots
-    const displayHours = hourlyData.filter((_, index) => index % 2 === 0).slice(0, 12);
+    // Show all 24 hours
+    const displayHours = hourlyData.slice(0, 24);
+
+    // Check if this is current conditions (today) or future date
+    const today = new Date().toISOString().split('T')[0];
+    const isCurrentConditions = dayDate !== today;
 
     let timelineHTML = `
         <div class="hourly-forecast">
             <div class="hourly-header" onclick="this.parentElement.classList.toggle('expanded')">
-                <strong>📊 24-Hour Forecast</strong>
+                <strong>📊 24-Hour Forecast${isCurrentConditions ? ' (Current Conditions)' : ''}</strong>
                 <span class="hourly-toggle">▼</span>
             </div>
             <div class="hourly-content">
+                ${isCurrentConditions ? '<div class="hourly-warning" style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 0.75rem; margin-bottom: 1rem; color: #856404;"><strong>⚠️ Note:</strong> Hourly data shows current weather conditions (next 24 hours from now), not the forecast for this specific date. Daily forecast above is accurate for this date.</div>' : ''}
                 <div class="hourly-timeline">
     `;
 
@@ -237,7 +321,7 @@ function createHourlyTimeline(hourlyData) {
     timelineHTML += `
                 </div>
                 <div class="hourly-note">
-                    <em>Showing every 2 hours. Precipitation probability and wind speed included.</em>
+                    <em>Showing hourly forecast. Precipitation probability and wind speed included.</em>
                 </div>
             </div>
         </div>
@@ -294,7 +378,7 @@ async function updateDayWeather(dayElement) {
         if (existing) existing.remove();
 
         if (hourlyWeather) {
-            const hourlyHTML = createHourlyTimeline(hourlyWeather);
+            const hourlyHTML = createHourlyTimeline(hourlyWeather, date);
             weatherBox.insertAdjacentHTML('afterend', hourlyHTML);
         } else {
             // Show message if hourly forecast unavailable
@@ -341,10 +425,16 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeWeatherUpdates();
 });
 
-// Export for manual updates
+// Export for manual updates and external use
 window.QWeatherAPI = {
     updateAll: initializeWeatherUpdates,
     updateDay: updateDayWeather,
     fetchDaily: fetchDailyWeather,
     fetchHourly: fetchHourlyWeather
 };
+
+// Export helper functions and config for external use
+window.fetchDailyWeather = fetchDailyWeather;
+window.getWeatherIcon = getWeatherIcon;
+window.CITY_LOCATIONS = CITY_LOCATIONS;
+window.CITY_COORDS_OVERRIDE = CITY_COORDS_OVERRIDE;

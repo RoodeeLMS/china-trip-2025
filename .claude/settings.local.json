@@ -15,7 +15,14 @@
       "Bash(start chrome:*)",
       "Read(//tmp/chrome-devtools-mcp-iTWL8J/**)",
       "Bash(cat:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "Bash(powershell:*)",
+      "Read(//tmp/chrome-devtools-mcp-b3l50N/**)",
+      "Read(//tmp/chrome-devtools-mcp-llGWV1/**)",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__chrome-devtools__take_screenshot",
+      "Read(//tmp/chrome-devtools-mcp-d5KGpF/**)"
     ],
     "deny": [],
     "ask": []
