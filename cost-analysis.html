@@ -5,7 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cost Analysis - China Trip 2025</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            margin-bottom: 1rem;
+        }
+
+        .unbooked-section {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .unbooked-section h3 {
+            color: #92400e;
+            margin-bottom: 1rem;
+        }
+
+        .status-booked-no-price {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
         .cost-summary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -254,6 +290,10 @@
                     <span><strong><span data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></strong> - <span data-lang-en="Booking completed with exact price" data-lang-th="จองเสร็จแล้วพร้อมราคาที่แน่นอน">Booking completed with exact price</span></span>
                 </div>
                 <div class="legend-item">
+                    <div class="legend-color" style="background: #818cf8;"></div>
+                    <span><strong><span data-lang-en="Booked (Price TBD)" data-lang-th="จองแล้ว (ราคารอยืนยัน)">Booked (Price TBD)</span></strong> - <span data-lang-en="Booking confirmed but price not finalized" data-lang-th="จองแล้วแต่ยังไม่มีราคาที่แน่นอน">Booking confirmed but price not finalized</span></span>
+                </div>
+                <div class="legend-item">
                     <div class="legend-color" style="background: #f59e0b;"></div>
                     <span><strong><span data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></strong> - <span data-lang-en="Research-based estimate" data-lang-th="ประมาณการจากการวิจัย">Research-based estimate</span></span>
                 </div>
@@ -261,6 +301,56 @@
                     <div class="legend-color" style="background: #ef4444;"></div>
                     <span><strong><span data-lang-en="Unknown" data-lang-th="ไม่ทราบ">Unknown</span></strong> - <span data-lang-en="Variable or pending" data-lang-th="ผันแปร หรือรอดำเนินการ">Variable or pending</span></span>
                 </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <section class="chart-container">
+                <h2 style="text-align: center; margin-bottom: 1.5rem;"><span data-lang-en="📊 Budget Distribution by Category" data-lang-th="📊 การกระจายงบประมาณตามหมวดหมู่">📊 Budget Distribution by Category</span></h2>
+                <div class="chart-wrapper">
+                    <canvas id="costPieChart"></canvas>
+                </div>
+                <p style="text-align: center; color: #666; font-size: 0.9rem;" data-lang-en="Total estimated budget: ฿81,544 (2 persons)" data-lang-th="งบประมาณโดยประมาณทั้งหมด: ฿81,544 (2 คน)">Total estimated budget: ฿81,544 (2 persons)</p>
+            </section>
+
+            <!-- Unbooked Items Alert -->
+            <div class="unbooked-section">
+                <h3>⚠️ <span data-lang-en="Items Still Need Booking" data-lang-th="รายการที่ยังต้องจอง">Items Still Need Booking</span></h3>
+                <div class="cost-grid">
+                    <div class="cost-card" style="border-left: 4px solid #dc2626;">
+                        <h4 style="color: #dc2626;">🏨 <span data-lang-en="Hotels" data-lang-th="โรงแรม">Hotels</span></h4>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li data-lang-en="Bipenggou area hotel (Oct 30-31)" data-lang-th="โรงแรมพื้นที่บิเผิงกู (30-31 ต.ค.)">Bipenggou area hotel (Oct 30-31)</li>
+                            <li data-lang-en="Mount Emei base hotel (Nov 2-3)" data-lang-th="โรงแรมเชิงเขาเอ๋อเหมย (2-3 พ.ย.)">Mount Emei base hotel (Nov 2-3)</li>
+                        </ul>
+                    </div>
+                    <div class="cost-card" style="border-left: 4px solid #dc2626;">
+                        <h4 style="color: #dc2626;">🎫 <span data-lang-en="Attractions" data-lang-th="สถานที่ท่องเที่ยว">Attractions</span></h4>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li data-lang-en="Wulong HSR tickets (Oct 15 - day trip)" data-lang-th="ตั๋วรถไฟอู่หลง (15 ต.ค. - เที่ยวเช้าเย็น)">Wulong HSR tickets (Oct 15 - day trip)</li>
+                            <li data-lang-en="Jiuzhaigou Valley tickets (Oct 26-27)" data-lang-th="ตั๋วจิ่วจ้ายโกว (26-27 ต.ค.)">Jiuzhaigou Valley tickets (Oct 26-27)</li>
+                            <li data-lang-en="Huanglong Scenic Area (Oct 28)" data-lang-th="หวงหลง (28 ต.ค.)">Huanglong Scenic Area (Oct 28)</li>
+                            <li data-lang-en="Dagu Glacier (Nov 1)" data-lang-th="ธารน้ำแข็งต๋ากู (1 พ.ย.)">Dagu Glacier (Nov 1)</li>
+                            <li data-lang-en="Dujiangyan UNESCO Site (Nov 1 evening)" data-lang-th="ตู๋เจียงเหยิน (เย็นวันที่ 1 พ.ย.)">Dujiangyan UNESCO Site (Nov 1 evening)</li>
+                            <li data-lang-en="Leshan Giant Buddha (Nov 2)" data-lang-th="พระใหญ่เล่อซาน (2 พ.ย.)">Leshan Giant Buddha (Nov 2)</li>
+                            <li data-lang-en="Mount Emei + Cable car (Nov 3)" data-lang-th="เขาเอ๋อเหมย + เคเบิ้ล (3 พ.ย.)">Mount Emei + Cable car (Nov 3)</li>
+                            <li data-lang-en="Chengdu Panda Base (Oct 25)" data-lang-th="ฐานแพนด้าเฉิงตู (25 ต.ค.)">Chengdu Panda Base (Oct 25)</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; padding: 1rem; background: white; border-radius: 4px;"><strong data-lang-en="⏰ Booking Timeline:" data-lang-th="⏰ กำหนดการจอง:">⏰ Booking Timeline:</strong><br>
+                <span data-lang-en="• Hotels: Book ASAP (best availability)" data-lang-th="• โรงแรม: จองเร็วที่สุด (ห้องว่างมากที่สุด)">• Hotels: Book ASAP (best availability)</span><br>
+                <span data-lang-en="• Jiuzhaigou/Dagu/Huanglong: Book 7-10 days before (peak season)" data-lang-th="• จิ่วจ้ายโกว/ต๋ากู/หวงหลง: จอง 7-10 วันล่วงหน้า (ฤดูท่องเที่ยว)">• Jiuzhaigou/Dagu/Huanglong: Book 7-10 days before (peak season)</span><br>
+                <span data-lang-en="• Panda Base/Leshan/Emei: Can book 2-3 days before" data-lang-th="• ฐานแพนด้า/เล่อซาน/เอ๋อเหมย: จอง 2-3 วันล่วงหน้า">• Panda Base/Leshan/Emei: Can book 2-3 days before</span></p>
+            </div>
+
+            <!-- Booked but Price Unknown -->
+            <div class="info-box" style="background: #e0e7ff; border-color: #6366f1;">
+                <h4 style="color: #3730a3;">📋 <span data-lang-en="Booked Items (Price To Be Determined)" data-lang-th="รายการที่จองแล้ว (ราคารอยืนยัน)">Booked Items (Price To Be Determined)</span></h4>
+                <p data-lang-en="The following items are already booked/confirmed, but we don't have exact price information yet:" data-lang-th="รายการต่อไปนี้ได้จองหรือยืนยันแล้ว แต่ยังไม่มีข้อมูลราคาที่แน่นอน:">The following items are already booked/confirmed, but we don't have exact price information yet:</p>
+                <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                    <li data-lang-en="Local buses/transfers between cities (included in some packages)" data-lang-th="รถบัสท้องถิ่น/รถรับส่งระหว่างเมือง (รวมในบางแพ็กเกจ)">Local buses/transfers between cities (included in some packages)</li>
+                    <li data-lang-en="Some hotel-included breakfasts (value varies)" data-lang-th="อาหารเช้าที่รวมในโรงแรมบางแห่ง (มูลค่าแตกต่างกัน)">Some hotel-included breakfasts (value varies)</li>
+                </ul>
             </div>
 
             <div class="alert-box">
@@ -888,6 +978,78 @@
             const navContainer = document.querySelector('.nav-container');
             navContainer.classList.toggle('show');
         }
+
+        // Pie Chart for Budget Distribution
+        const ctx = document.getElementById('costPieChart').getContext('2d');
+        const costPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [
+                    'Accommodation (24.7%)',
+                    'Private Driver (20.2%)',
+                    'Activities (15.7%)',
+                    'Food & Dining (14.1%)',
+                    'Flights (13.8%)',
+                    'Miscellaneous (8.6%)',
+                    'High-Speed Rail (2.7%)'
+                ],
+                datasets: [{
+                    data: [20200, 16500, 12838, 11500, 11290, 7000, 2216],
+                    backgroundColor: [
+                        '#8b5cf6', // Purple - Accommodation
+                        '#f59e0b', // Orange - Private Driver
+                        '#10b981', // Green - Activities
+                        '#ef4444', // Red - Food
+                        '#3b82f6', // Blue - Flights
+                        '#6b7280', // Gray - Miscellaneous
+                        '#ec4899'  // Pink - HSR
+                    ],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12
+                            },
+                            generateLabels: function(chart) {
+                                const data = chart.data;
+                                if (data.labels.length && data.datasets.length) {
+                                    return data.labels.map((label, i) => {
+                                        const value = data.datasets[0].data[i];
+                                        return {
+                                            text: `${label}: ฿${value.toLocaleString()}`,
+                                            fillStyle: data.datasets[0].backgroundColor[i],
+                                            hidden: false,
+                                            index: i
+                                        };
+                                    });
+                                }
+                                return [];
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const label = context.label || '';
+                                const value = context.parsed;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return `${label.split('(')[0]}: ฿${value.toLocaleString()} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
     </script>
 
     <!-- Language Switcher -->
