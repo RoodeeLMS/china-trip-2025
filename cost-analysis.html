@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Analysis - China Trip 2025</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cost-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .cost-summary h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cost-summary p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cost-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .cost-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cost-item:last-child {
+            border-bottom: none;
+        }
+
+        .cost-label {
+            color: #555;
+            flex: 1;
+        }
+
+        .cost-value {
+            font-weight: 600;
+            color: #333;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+
+        .cost-value.confirmed {
+            color: #10b981;
+        }
+
+        .cost-value.estimated {
+            color: #f59e0b;
+        }
+
+        .cost-value.unknown {
+            color: #ef4444;
+        }
+
+        .cost-subtotal {
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+            border-top: 2px solid #667eea;
+        }
+
+        .cost-table {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .cost-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cost-table th {
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .cost-table td {
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cost-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cost-table tr:hover {
+            background: #f9fafb;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-confirmed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-estimated {
+            background: #fed7aa;
+            color: #92400e;
+        }
+
+        .status-unknown {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .legend {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .alert-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .alert-box h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert-box ul {
+            margin-left: 1.5rem;
+            color: #78350f;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .info-box h4 {
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-table {
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .cost-table {
+                overflow-x: auto;
+            }
+
+            .cost-summary h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🇨🇳 China Trip 2025</h1>
+        <p>Cost Analysis & Budget Breakdown</p>
+    </header>
+
+    <nav>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</button><div class="nav-container">
+            <a href="index.html">🏠 <span data-lang-en="Home" data-lang-th="หน้าแรก">Home</span></a>
+            <a href="itinerary.html">📅 <span data-lang-en="Itinerary" data-lang-th="กำหนดการ">Itinerary</span></a>
+            <a href="planning.html">✅ <span data-lang-en="Planning" data-lang-th="การวางแผน">Planning</span></a>
+            <a href="logistics.html">🚄 <span data-lang-en="Logistics" data-lang-th="ข้อมูลการเดินทาง">Logistics</span></a>
+            <a href="analysis.html">📊 <span data-lang-en="Analysis" data-lang-th="การวิเคราะห์">Analysis</span></a>
+            <a href="cost-analysis.html" class="active">💰 <span data-lang-en="Costs" data-lang-th="ค่าใช้จ่าย">Costs</span></a>
+            <a href="gpt-comment.html">💬 <span data-lang-en="GPT Review" data-lang-th="รีวิว GPT">GPT Review</span></a>
+            <a href="grok-comment.html">💬 <span data-lang-en="Grok Review" data-lang-th="รีวิว Grok">Grok Review</span></a>
+            <a href="gemini-review.html">✨ <span data-lang-en="Gemini Review" data-lang-th="รีวิว Gemini">Gemini Review</span></a>
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-en">🇹🇭 TH</span>
+                <span class="lang-th">🇺🇸 EN</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main>
+            <div class="cost-summary">
+                <h2>฿ 55,000 - 65,000</h2>
+                <p><span data-lang-en="Estimated Total Cost (2 persons)" data-lang-th="ค่าใช้จ่ายโดยประมาณทั้งหมด (2 คน)">Estimated Total Cost (2 persons)</span></p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><span data-lang-en="~$1,550-1,850 USD | ~¥11,000-13,000 CNY" data-lang-th="~$1,550-1,850 USD | ~¥11,000-13,000 CNY">~$1,550-1,850 USD | ~¥11,000-13,000 CNY</span></p>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #10b981;"></div>
+                    <span><strong><span data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></strong> - <span data-lang-en="Booking completed with exact price" data-lang-th="จองเสร็จแล้วพร้อมราคาที่แน่นอน">Booking completed with exact price</span></span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f59e0b;"></div>
+                    <span><strong><span data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></strong> - <span data-lang-en="Research-based estimate" data-lang-th="ประมาณการจากการวิจัย">Research-based estimate</span></span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ef4444;"></div>
+                    <span><strong><span data-lang-en="Unknown" data-lang-th="ไม่ทราบ">Unknown</span></strong> - <span data-lang-en="Variable or pending" data-lang-th="ผันแปร หรือรอดำเนินการ">Variable or pending</span></span>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <h4>⚠️ <span data-lang-en="Important Notes" data-lang-th="หมายเหตุสำคัญ">Important Notes</span></h4>
+                <ul>
+                    <li data-lang-en="All prices are in Thai Baht (THB) unless otherwise specified" data-lang-th="ราคาทั้งหมดเป็นบาทไทย (THB) ยกเว้นระบุไว้เป็นอย่างอื่น">All prices are in Thai Baht (THB) unless otherwise specified</li>
+                    <li data-lang-en="Conversion rates: 1 THB ≈ $0.028 USD ≈ ¥0.20 CNY (approximate)" data-lang-th="อัตราแลกเปลี่ยน: 1 บาท ≈ $0.028 USD ≈ ¥0.20 CNY (โดยประมาณ)">Conversion rates: 1 THB ≈ $0.028 USD ≈ ¥0.20 CNY (approximate)</li>
+                    <li data-lang-en="Food and miscellaneous costs are daily estimates and may vary" data-lang-th="ค่าอาหารและค่าใช้จ่ายเบ็ดเตล็ดเป็นการประมาณรายวัน อาจแตกต่างจากความเป็นจริง">Food and miscellaneous costs are daily estimates and may vary</li>
+                    <li data-lang-en="Unbooked items marked as 'Estimated' require confirmation" data-lang-th="รายการที่ยังไม่จองที่ระบุว่า 'ประมาณการ' ต้องการการยืนยัน">Unbooked items marked as 'Estimated' require confirmation</li>
+                </ul>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="cost-grid">
+                <div class="cost-card">
+                    <h3>✈️ <span data-lang-en="Flights" data-lang-th="ตั๋วเครื่องบิน">Flights</span></h3>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="BKK → CKG (Oct 14)" data-lang-th="BKK → CKG (14 ต.ค.)">BKK → CKG (Oct 14)</span>
+                        <span class="cost-value confirmed">฿ 3,685</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="TFU → BKK (Nov 5)" data-lang-th="TFU → BKK (5 พ.ย.)">TFU → BKK (Nov 5)</span>
+                        <span class="cost-value confirmed">฿ 7,605</span>
+                    </div>
+                    <div class="cost-item cost-subtotal">
+                        <span class="cost-label"><strong data-lang-en="Subtotal" data-lang-th="รวมย่อย">Subtotal</strong></span>
+                        <span class="cost-value confirmed">฿ 11,290</span>
+                    </div>
+                </div>
+
+                <div class="cost-card">
+                    <h3>🚄 <span data-lang-en="High-Speed Rail" data-lang-th="รถไฟความเร็วสูง">High-Speed Rail</span></h3>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Wulong round-trip (Day 2)" data-lang-th="อู่หลง ไป-กลับ (วันที่ 2)">Wulong round-trip (Day 2)</span>
+                        <span class="cost-value estimated">฿ 200</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Chongqing → Fenghuang (Day 4)" data-lang-th="ฉงชิ่ง → ฟ่งหวง (วันที่ 4)">Chongqing → Fenghuang (Day 4)</span>
+                        <span class="cost-value confirmed">฿ 1,200</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Zhangjiajie → Chengdu (Day 11)" data-lang-th="จางเจียเจี้ย → เฉิงตู (วันที่ 11)">Zhangjiajie → Chengdu (Day 11)</span>
+                        <span class="cost-value confirmed">฿ 816</span>
+                    </div>
+                    <div class="cost-item cost-subtotal">
+                        <span class="cost-label"><strong data-lang-en="Subtotal" data-lang-th="รวมย่อย">Subtotal</strong></span>
+                        <span class="cost-value">฿ 2,216</span>
+                    </div>
+                </div>
+
+                <div class="cost-card">
+                    <h3>🏨 <span data-lang-en="Accommodation" data-lang-th="ที่พัก">Accommodation</span></h3>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="22 nights (12 hotels)" data-lang-th="22 คืน (12 โรงแรม)">22 nights (12 hotels)</span>
+                        <span class="cost-value confirmed">฿ 18,500</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Bipenggou area (1 night)" data-lang-th="บิเผิงกู (1 คืน)">Bipenggou area (1 night)</span>
+                        <span class="cost-value estimated">฿ 800</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Mount Emei (1 night)" data-lang-th="เขาเอ๋อเหมย (1 คืน)">Mount Emei (1 night)</span>
+                        <span class="cost-value estimated">฿ 900</span>
+                    </div>
+                    <div class="cost-item cost-subtotal">
+                        <span class="cost-label"><strong data-lang-en="Subtotal" data-lang-th="รวมย่อย">Subtotal</strong></span>
+                        <span class="cost-value">฿ 20,200</span>
+                    </div>
+                </div>
+
+                <div class="cost-card">
+                    <h3>🎫 <span data-lang-en="Attractions & Activities" data-lang-th="สถานที่ท่องเที่ยวและกิจกรรม">Attractions & Activities</span></h3>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Wulong Karst Package (Day 2)" data-lang-th="อู่หลง (วันที่ 2)">Wulong Karst Package (Day 2)</span>
+                        <span class="cost-value confirmed">฿ 2,206</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Zhangjiajie 4-Day Pass (Days 8-10)" data-lang-th="จางเจียเจี้ย 4 วัน (วันที่ 8-10)">Zhangjiajie 4-Day Pass (Days 8-10)</span>
+                        <span class="cost-value confirmed">฿ 1,500</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Tianmen Mountain (Day 9)" data-lang-th="เขาเทียนเหมิน (วันที่ 9)">Tianmen Mountain (Day 9)</span>
+                        <span class="cost-value confirmed">฿ 1,200</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Bipenggou Valley (Day 18)" data-lang-th="บิเผิงกู (วันที่ 18)">Bipenggou Valley (Day 18)</span>
+                        <span class="cost-value confirmed">฿ 1,832</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Jiuzhaigou (Days 13-14)" data-lang-th="จิ่วจ้ายโกว (วันที่ 13-14)">Jiuzhaigou (Days 13-14)</span>
+                        <span class="cost-value estimated">฿ 2,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Huanglong (Day 15)" data-lang-th="หวงหลง (วันที่ 15)">Huanglong (Day 15)</span>
+                        <span class="cost-value estimated">฿ 800</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Dagu Glacier (Day 19)" data-lang-th="ธารน้ำแข็งต๋ากู (วันที่ 19)">Dagu Glacier (Day 19)</span>
+                        <span class="cost-value estimated">฿ 1,200</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Dujiangyan (Day 19)" data-lang-th="ตู๋เจียงเหยิน (วันที่ 19)">Dujiangyan (Day 19)</span>
+                        <span class="cost-value estimated">฿ 400</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Leshan Buddha (Day 20)" data-lang-th="พระใหญ่เล่อซาน (วันที่ 20)">Leshan Buddha (Day 20)</span>
+                        <span class="cost-value estimated">฿ 400</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Mount Emei + Cable (Day 21)" data-lang-th="เขาเอ๋อเหมย + เคเบิ้ล (วันที่ 21)">Mount Emei + Cable (Day 21)</span>
+                        <span class="cost-value estimated">฿ 1,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="Chengdu Panda Base (Day 12)" data-lang-th="ฐานแพนด้าเฉิงตู (วันที่ 12)">Chengdu Panda Base (Day 12)</span>
+                        <span class="cost-value estimated">฿ 300</span>
+                    </div>
+                    <div class="cost-item cost-subtotal">
+                        <span class="cost-label"><strong data-lang-en="Subtotal" data-lang-th="รวมย่อย">Subtotal</strong></span>
+                        <span class="cost-value">฿ 12,838</span>
+                    </div>
+                </div>
+
+                <div class="cost-card">
+                    <h3>🚗 <span data-lang-en="Private Driver" data-lang-th="คนขับส่วนตัว">Private Driver</span></h3>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="3-Day Western Sichuan Loop" data-lang-th="เส้นทางซีฉวนตะวันตก 3 วัน">3-Day Western Sichuan Loop</span>
+                        <span class="cost-value confirmed">฿ 16,500</span>
+                    </div>
+                    <div class="cost-item cost-subtotal">
+                        <span class="cost-label"><strong data-lang-en="Subtotal" data-lang-th="รวมย่อย">Subtotal</strong></span>
+                        <span class="cost-value confirmed">฿ 16,500</span>
+                    </div>
+                </div>
+
+                <div class="cost-card">
+                    <h3>🍜 <span data-lang-en="Food & Dining" data-lang-th="อาหารและเครื่องดื่ม">Food & Dining</span></h3>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="23 days × ฿250/day/person" data-lang-th="23 วัน × ฿250/วัน/คน">23 days × ฿250/day/person</span>
+                        <span class="cost-value estimated">฿ 5,750</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label" data-lang-en="2 persons" data-lang-th="2 คน">2 persons</span>
+                        <span class="cost-value estimated">฿ 11,500</span>
+                    </div>
+                    <div class="cost-item cost-subtotal">
+                        <span class="cost-label"><strong data-lang-en="Subtotal" data-lang-th="รวมย่อย">Subtotal</strong></span>
+                        <span class="cost-value estimated">฿ 11,500</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Breakdown Table -->
+            <section class="section">
+                <h2><span data-lang-en="📊 Complete Cost Breakdown" data-lang-th="📊 รายละเอียดค่าใช้จ่ายทั้งหมด">📊 Complete Cost Breakdown</span></h2>
+
+                <div class="cost-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-lang-en="Category" data-lang-th="หมวดหมู่">Category</th>
+                                <th data-lang-en="Item" data-lang-th="รายการ">Item</th>
+                                <th data-lang-en="Status" data-lang-th="สถานะ">Status</th>
+                                <th data-lang-en="Cost (THB)" data-lang-th="ค่าใช้จ่าย (บาท)">Cost (THB)</th>
+                                <th data-lang-en="Notes" data-lang-th="หมายเหตุ">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Flights -->
+                            <tr>
+                                <td rowspan="2"><strong data-lang-en="Flights" data-lang-th="เครื่องบิน">Flights</strong></td>
+                                <td data-lang-en="BKK → CKG (HU424)" data-lang-th="BKK → CKG (HU424)">BKK → CKG (HU424)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 3,685</td>
+                                <td data-lang-en="Booking: 2JUSMS" data-lang-th="จอง: 2JUSMS">Booking: 2JUSMS</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="TFU → BKK (CA471, 2 pax)" data-lang-th="TFU → BKK (CA471, 2 คน)">TFU → BKK (CA471, 2 pax)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 7,605</td>
+                                <td data-lang-en="Booking: 1622919204673989" data-lang-th="จอง: 1622919204673989">Booking: 1622919204673989</td>
+                            </tr>
+
+                            <!-- High-Speed Rail -->
+                            <tr>
+                                <td rowspan="3"><strong data-lang-en="HSR Tickets" data-lang-th="รถไฟความเร็วสูง">HSR Tickets</strong></td>
+                                <td data-lang-en="Wulong round-trip (2 pax)" data-lang-th="อู่หลง ไป-กลับ (2 คน)">Wulong round-trip (2 pax)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 200</td>
+                                <td data-lang-en="~¥50/person" data-lang-th="~¥50/คน">~¥50/person</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Chongqing → Fenghuang (G2311)" data-lang-th="ฉงชิ่ง → ฟ่งหวง (G2311)">Chongqing → Fenghuang (G2311)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 1,200</td>
+                                <td data-lang-en="14:46-18:05" data-lang-th="14:46-18:05">14:46-18:05</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Zhangjiajie → Chengdu (G2450)" data-lang-th="จางเจียเจี้ย → เฉิงตู (G2450)">Zhangjiajie → Chengdu (G2450)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 816</td>
+                                <td data-lang-en="Order: E974737688" data-lang-th="คำสั่ง: E974737688">Order: E974737688</td>
+                            </tr>
+
+                            <!-- Hotels -->
+                            <tr>
+                                <td rowspan="14"><strong data-lang-en="Hotels" data-lang-th="โรงแรม">Hotels</strong></td>
+                                <td data-lang-en="Chongqing Jiang Dao (3 nights)" data-lang-th="ฉงชิ่ง เจียงเต่า (3 คืน)">Chongqing Jiang Dao (3 nights)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 1,800</td>
+                                <td>Oct 14-17</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Fenghuang Floral Hotel (2 nights)" data-lang-th="ฟ่งหวง โฮเทล (2 คืน)">Fenghuang Floral Hotel (2 nights)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 1,200</td>
+                                <td>Oct 17-19</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Furong Wangcun Inn (1 night)" data-lang-th="ฟูหยง หวังชุน (1 คืน)">Furong Wangcun Inn (1 night)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 600</td>
+                                <td>Oct 19-20</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Wulingyuan Manyuan Resort (4 nights)" data-lang-th="หวู่หลิงหยวน (4 คืน)">Wulingyuan Manyuan Resort (4 nights)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 2,400</td>
+                                <td>Oct 20-24</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Summer Island Apt (2 nights)" data-lang-th="ซัมเมอร์ไอส์แลนด์ (2 คืน)">Summer Island Apt (2 nights)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 3,682</td>
+                                <td>Oct 24-26 (Chengdu)</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Jiuzhaigou Yushe Yunshan (2 nights)" data-lang-th="จิ่วจ้ายโกว (2 คืน)">Jiuzhaigou Yushe Yunshan (2 nights)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 1,600</td>
+                                <td>Oct 26-28</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Summer Island Apt (2 nights)" data-lang-th="ซัมเมอร์ไอส์แลนด์ (2 คืน)">Summer Island Apt (2 nights)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 3,682</td>
+                                <td>Oct 28-30 (Chengdu)</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="From a Beautiful Dream (1 night)" data-lang-th="ฟร็อม อะ บิวตี้ฟูล ดรีม (1 คืน)">From a Beautiful Dream (1 night)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 800</td>
+                                <td>Oct 29-30 (Shuangqiaogou)</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Bipenggou area hotel (1 night)" data-lang-th="โรงแรมแถวบิเผิงกู (1 คืน)">Bipenggou area hotel (1 night)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 800</td>
+                                <td data-lang-en="Oct 30-31 - To be booked" data-lang-th="30-31 ต.ค. - ยังไม่ได้จอง">Oct 30-31 - To be booked</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Heishui Guanshan Villa (1 night)" data-lang-th="เฮยซุย กวนซาน (1 คืน)">Heishui Guanshan Villa (1 night)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 900</td>
+                                <td>Oct 31-Nov 1</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Summer Island Apt (2 nights)" data-lang-th="ซัมเมอร์ไอส์แลนด์ (2 คืน)">Summer Island Apt (2 nights)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 3,682</td>
+                                <td>Nov 1-3 (Chengdu)</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Mount Emei base hotel (1 night)" data-lang-th="โรงแรมเชิงเขาเอ๋อเหมย (1 คืน)">Mount Emei base hotel (1 night)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 900</td>
+                                <td data-lang-en="Nov 2-3 - To be booked" data-lang-th="2-3 พ.ย. - ยังไม่ได้จอง">Nov 2-3 - To be booked</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Summer Island Apt (2 nights)" data-lang-th="ซัมเมอร์ไอส์แลนด์ (2 คืน)">Summer Island Apt (2 nights)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 3,682</td>
+                                <td>Nov 3-5 (Chengdu)</td>
+                            </tr>
+                            <tr style="background: #f3f4f6; font-weight: 600;">
+                                <td colspan="3" data-lang-en="Hotels Subtotal" data-lang-th="รวมโรงแรม">Hotels Subtotal</td>
+                                <td>฿ 20,200</td>
+                                <td data-lang-en="22 nights total" data-lang-th="รวม 22 คืน">22 nights total</td>
+                            </tr>
+
+                            <!-- Activities -->
+                            <tr>
+                                <td rowspan="12"><strong data-lang-en="Activities" data-lang-th="กิจกรรม">Activities</strong></td>
+                                <td data-lang-en="Wulong Karst Package (2 pax)" data-lang-th="อู่หลง คาร์สท์ (2 คน)">Wulong Karst Package (2 pax)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 2,206</td>
+                                <td data-lang-en="Three Bridges + Fissure" data-lang-th="สะพานสาม + หุบเหว">Three Bridges + Fissure</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Zhangjiajie 4-Day Pass (2 pax)" data-lang-th="จางเจียเจี้ย 4 วัน (2 คน)">Zhangjiajie 4-Day Pass (2 pax)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 1,500</td>
+                                <td data-lang-en="+ 3 cables + elevator" data-lang-th="+ เคเบิ้ล 3 + ลิฟต์">+ 3 cables + elevator</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Tianmen Mountain Line A (2 pax)" data-lang-th="เขาเทียนเหมิน สาย A (2 คน)">Tianmen Mountain Line A (2 pax)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 1,200</td>
+                                <td data-lang-en="08:00-09:00 slot" data-lang-th="ช่วง 08:00-09:00">08:00-09:00 slot</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Bipenggou Admission+Bus (2 pax)" data-lang-th="บิเผิงกู ตั๋ว+รถ (2 คน)">Bipenggou Admission+Bus (2 pax)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 1,282</td>
+                                <td data-lang-en="Booking: 1622922711182737" data-lang-th="จอง: 1622922711182737">Booking: 1622922711182737</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Bipenggou Electric Cart (2 pax)" data-lang-th="บิเผิงกู รถกอล์ฟ (2 คน)">Bipenggou Electric Cart (2 pax)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 550</td>
+                                <td data-lang-en="Booking: 1622922711182835" data-lang-th="จอง: 1622922711182835">Booking: 1622922711182835</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Jiuzhaigou Valley (2 pax, 2 days)" data-lang-th="จิ่วจ้ายโกว (2 คน, 2 วัน)">Jiuzhaigou Valley (2 pax, 2 days)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 2,000</td>
+                                <td data-lang-en="Peak season pricing" data-lang-th="ราคาฤดูท่องเที่ยว">Peak season pricing</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Huanglong Scenic Area (2 pax)" data-lang-th="หวงหลง (2 คน)">Huanglong Scenic Area (2 pax)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 800</td>
+                                <td data-lang-en="Cable car included" data-lang-th="รวมกระเช้า">Cable car included</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Dagu Glacier (2 pax)" data-lang-th="ธารน้ำแข็งต๋ากู (2 คน)">Dagu Glacier (2 pax)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 1,200</td>
+                                <td data-lang-en="4,860m altitude" data-lang-th="ความสูง 4,860 ม.">4,860m altitude</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Dujiangyan UNESCO Site (2 pax)" data-lang-th="ตู๋เจียงเหยิน (2 คน)">Dujiangyan UNESCO Site (2 pax)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 400</td>
+                                <td data-lang-en="Evening night lights" data-lang-th="ไฟตอนเย็น">Evening night lights</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Leshan Giant Buddha (2 pax)" data-lang-th="พระใหญ่เล่อซาน (2 คน)">Leshan Giant Buddha (2 pax)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 400</td>
+                                <td data-lang-en="UNESCO World Heritage" data-lang-th="มรดกโลก">UNESCO World Heritage</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Mount Emei + Cable (2 pax)" data-lang-th="เขาเอ๋อเหมย + กระเช้า (2 คน)">Mount Emei + Cable (2 pax)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 1,000</td>
+                                <td data-lang-en="Golden Summit" data-lang-th="ยอดทอง">Golden Summit</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Chengdu Panda Base (2 pax)" data-lang-th="ฐานแพนด้าเฉิงตู (2 คน)">Chengdu Panda Base (2 pax)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 300</td>
+                                <td data-lang-en="Research center visit" data-lang-th="ศูนย์วิจัย">Research center visit</td>
+                            </tr>
+                            <tr style="background: #f3f4f6; font-weight: 600;">
+                                <td colspan="3" data-lang-en="Activities Subtotal" data-lang-th="รวมกิจกรรม">Activities Subtotal</td>
+                                <td>฿ 12,838</td>
+                                <td data-lang-en="11 major attractions" data-lang-th="11 สถานที่หลัก">11 major attractions</td>
+                            </tr>
+
+                            <!-- Private Driver -->
+                            <tr>
+                                <td><strong data-lang-en="Transport" data-lang-th="พาหนะ">Transport</strong></td>
+                                <td data-lang-en="3-Day Private Driver (Western Sichuan)" data-lang-th="คนขับ 3 วัน (ซีฉวนตะวันตก)">3-Day Private Driver (Western Sichuan)</td>
+                                <td><span class="status-badge status-confirmed" data-lang-en="Confirmed" data-lang-th="ยืนยันแล้ว">Confirmed</span></td>
+                                <td>฿ 16,500</td>
+                                <td data-lang-en="DeeTrip Booking" data-lang-th="จองผ่าน DeeTrip">DeeTrip Booking</td>
+                            </tr>
+
+                            <!-- Food -->
+                            <tr>
+                                <td><strong data-lang-en="Food" data-lang-th="อาหาร">Food</strong></td>
+                                <td data-lang-en="Daily meals (23 days, 2 pax)" data-lang-th="อาหารรายวัน (23 วัน, 2 คน)">Daily meals (23 days, 2 pax)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 11,500</td>
+                                <td data-lang-en="฿250/day/person avg" data-lang-th="เฉลี่ย ฿250/วัน/คน">฿250/day/person avg</td>
+                            </tr>
+
+                            <!-- Miscellaneous -->
+                            <tr>
+                                <td rowspan="5"><strong data-lang-en="Misc." data-lang-th="เบ็ดเตล็ด">Misc.</strong></td>
+                                <td data-lang-en="Local transport (taxis, metro)" data-lang-th="พาหนะท้องถิ่น (แท็กซี่, รถไฟใต้ดิน)">Local transport (taxis, metro)</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 2,000</td>
+                                <td data-lang-en="Didi, metro, buses" data-lang-th="Didi, รถไฟใต้ดิน, รถบัส">Didi, metro, buses</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Shopping & souvenirs" data-lang-th="ช้อปปิ้งและของฝาก">Shopping & souvenirs</td>
+                                <td><span class="status-badge status-unknown" data-lang-en="Unknown" data-lang-th="ไม่ทราบ">Unknown</span></td>
+                                <td>฿ 1,000-3,000</td>
+                                <td data-lang-en="Variable" data-lang-th="ขึ้นอยู่กับการใช้จ่าย">Variable</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Tips & service charges" data-lang-th="ทิปและค่าบริการ">Tips & service charges</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 500</td>
+                                <td data-lang-en="Driver, guides" data-lang-th="คนขับ, ไกด์">Driver, guides</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Snacks, drinks, coffee" data-lang-th="ขนม เครื่องดื่ม กาแฟ">Snacks, drinks, coffee</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 1,500</td>
+                                <td data-lang-en="23 days @ ฿65/day" data-lang-th="23 วัน @ ฿65/วัน">23 days @ ฿65/day</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Emergency buffer" data-lang-th="เงินสำรอง">Emergency buffer</td>
+                                <td><span class="status-badge status-estimated" data-lang-en="Estimated" data-lang-th="ประมาณการ">Estimated</span></td>
+                                <td>฿ 2,000-5,000</td>
+                                <td data-lang-en="Contingency fund" data-lang-th="กองทุนฉุกเฉิน">Contingency fund</td>
+                            </tr>
+                            <tr style="background: #f3f4f6; font-weight: 600;">
+                                <td colspan="3" data-lang-en="Miscellaneous Subtotal" data-lang-th="รวมเบ็ดเตล็ด">Miscellaneous Subtotal</td>
+                                <td>฿ 7,000-12,000</td>
+                                <td data-lang-en="Variable expenses" data-lang-th="ค่าใช้จ่ายผันแปร">Variable expenses</td>
+                            </tr>
+
+                            <!-- TOTAL -->
+                            <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 1.2rem;">
+                                <td colspan="3"><strong data-lang-en="TOTAL ESTIMATED COST" data-lang-th="ค่าใช้จ่ายรวมโดยประมาณ">TOTAL ESTIMATED COST</strong></td>
+                                <td><strong>฿ 81,544 - 91,544</strong></td>
+                                <td data-lang-en="For 2 persons" data-lang-th="สำหรับ 2 คน">For 2 persons</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Unknown/Variable Costs -->
+            <section class="section">
+                <h2><span data-lang-en="❓ Unknown & Variable Costs" data-lang-th="❓ ค่าใช้จ่ายที่ไม่ทราบและผันแปร">❓ Unknown & Variable Costs</span></h2>
+
+                <div class="info-box">
+                    <h4 data-lang-en="These costs depend on personal preferences and will vary:" data-lang-th="ค่าใช้จ่ายเหล่านี้ขึ้นอยู่กับความชอบส่วนตัวและจะแตกต่างกัน:">These costs depend on personal preferences and will vary:</h4>
+                </div>
+
+                <div class="cost-grid">
+                    <div class="cost-card">
+                        <h3>🛍️ <span data-lang-en="Shopping" data-lang-th="ช้อปปิ้ง">Shopping</span></h3>
+                        <div class="cost-item">
+                            <span class="cost-label" data-lang-en="Souvenirs" data-lang-th="ของฝาก">Souvenirs</span>
+                            <span class="cost-value unknown" data-lang-en="Variable" data-lang-th="ผันแปร">Variable</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label" data-lang-en="Local products (tea, spices)" data-lang-th="ผลิตภัณฑ์ท้องถิ่น (ชา, เครื่องเทศ)">Local products (tea, spices)</span>
+                            <span class="cost-value unknown" data-lang-en="Variable" data-lang-th="ผันแปร">Variable</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label" data-lang-en="Clothing/gear" data-lang-th="เสื้อผ้า/อุปกรณ์">Clothing/gear</span>
+                            <span class="cost-value unknown" data-lang-en="Variable" data-lang-th="ผันแปร">Variable</span>
+                        </div>
+                        <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;" data-lang-en="Estimated range: ฿1,000 - ฿3,000+" data-lang-th="ประมาณการ: ฿1,000 - ฿3,000+">Estimated range: ฿1,000 - ฿3,000+</p>
+                    </div>
+
+                    <div class="cost-card">
+                        <h3>☕ <span data-lang-en="Daily Extras" data-lang-th="ค่าใช้จ่ายรายวันเพิ่มเติม">Daily Extras</span></h3>
+                        <div class="cost-item">
+                            <span class="cost-label" data-lang-en="Bottled water" data-lang-th="น้ำดื่ม">Bottled water</span>
+                            <span class="cost-value estimated">฿ 30/day</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label" data-lang-en="Snacks" data-lang-th="ขนม">Snacks</span>
+                            <span class="cost-value estimated">฿ 50/day</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label" data-lang-en="Coffee/drinks" data-lang-th="กาแฟ/เครื่องดื่ม">Coffee/drinks</span>
+                            <span class="cost-value estimated">฿ 80/day</span>
+                        </div>
+                        <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;" data-lang-en="Total: ~฿1,500 for 23 days" data-lang-th="รวม: ~฿1,500 สำหรับ 23 วัน">Total: ~฿1,500 for 23 days</p>
+                    </div>
+
+                    <div class="cost-card">
+                        <h3>🚨 <span data-lang-en="Emergency Buffer" data-lang-th="เงินสำรองฉุกเฉิน">Emergency Buffer</span></h3>
+                        <div class="cost-item">
+                            <span class="cost-label" data-lang-en="Medical expenses" data-lang-th="ค่ารักษาพยาบาล">Medical expenses</span>
+                            <span class="cost-value unknown" data-lang-en="As needed" data-lang-th="ตามต้องการ">As needed</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label" data-lang-en="Altitude sickness medication" data-lang-th="ยาแพ้ความสูง">Altitude sickness medication</span>
+                            <span class="cost-value estimated">฿ 200</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label" data-lang-en="Weather contingencies" data-lang-th="กรณีสภาพอากาศไม่ดี">Weather contingencies</span>
+                            <span class="cost-value unknown" data-lang-en="Variable" data-lang-th="ผันแปร">Variable</span>
+                        </div>
+                        <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;" data-lang-en="Recommend: ฿2,000 - ฿5,000 buffer" data-lang-th="แนะนำ: สำรอง ฿2,000 - ฿5,000">Recommend: ฿2,000 - ฿5,000 buffer</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cost-Saving Tips -->
+            <section class="section">
+                <h2><span data-lang-en="💡 Cost-Saving Tips" data-lang-th="💡 เทคนิคประหยัดค่าใช้จ่าย">💡 Cost-Saving Tips</span></h2>
+
+                <div class="cost-grid">
+                    <div class="cost-card" style="border-left: 4px solid #10b981;">
+                        <h4 style="color: #10b981; margin-bottom: 1rem;">🏨 <span data-lang-en="Accommodation" data-lang-th="ที่พัก">Accommodation</span></h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><span data-lang-en="✓ Book early for better rates" data-lang-th="✓ จองล่วงหน้าเพื่อราคาดีกว่า">✓ Book early for better rates</span></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><span data-lang-en="✓ Summer Island: Apartment-style = saves dining costs" data-lang-th="✓ Summer Island: แบบอพาร์ทเมนท์ = ประหยัดค่าอาหาร">✓ Summer Island: Apartment-style = saves dining costs</span></li>
+                            <li style="padding: 0.5rem 0;"><span data-lang-en="✓ Stay near HSR stations to save taxi costs" data-lang-th="✓ พักใกล้สถานีรถไฟเพื่อประหยัดค่าแท็กซี่">✓ Stay near HSR stations to save taxi costs</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cost-card" style="border-left: 4px solid #f59e0b;">
+                        <h4 style="color: #f59e0b; margin-bottom: 1rem;">🎫 <span data-lang-en="Attractions" data-lang-th="สถานที่ท่องเที่ยว">Attractions</span></h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><span data-lang-en="✓ Combo packages save 10-15%" data-lang-th="✓ แพ็กเกจคอมโบประหยัด 10-15%">✓ Combo packages save 10-15%</span></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><span data-lang-en="✓ Book tickets 7-10 days ahead" data-lang-th="✓ จองตั๋วล่วงหน้า 7-10 วัน">✓ Book tickets 7-10 days ahead</span></li>
+                            <li style="padding: 0.5rem 0;"><span data-lang-en="✓ Use Trip.com/Klook for discounts" data-lang-th="✓ ใช้ Trip.com/Klook เพื่อส่วนลด">✓ Use Trip.com/Klook for discounts</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cost-card" style="border-left: 4px solid #3b82f6;">
+                        <h4 style="color: #3b82f6; margin-bottom: 1rem;">🍜 <span data-lang-en="Food" data-lang-th="อาหาร">Food</span></h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><span data-lang-en="✓ Mix high-end with local eateries" data-lang-th="✓ ผสมร้านหรูกับร้านท้องถิ่น">✓ Mix high-end with local eateries</span></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><span data-lang-en="✓ Street food = authentic + cheap" data-lang-th="✓ อาหารริมทาง = ของแท้ + ถูก">✓ Street food = authentic + cheap</span></li>
+                            <li style="padding: 0.5rem 0;"><span data-lang-en="✓ Buy snacks at supermarkets vs tourist spots" data-lang-th="✓ ซื้อขนมที่ซูเปอร์มาร์เก็ตแทนสถานที่ท่องเที่ยว">✓ Buy snacks at supermarkets vs tourist spots</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cost-card" style="border-left: 4px solid #8b5cf6;">
+                        <h4 style="color: #8b5cf6; margin-bottom: 1rem;">🚄 <span data-lang-en="Transport" data-lang-th="พาหนะ">Transport</span></h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><span data-lang-en="✓ Metro > Taxi when possible" data-lang-th="✓ รถไฟใต้ดิน > แท็กซี่ เมื่อเป็นไปได้">✓ Metro > Taxi when possible</span></li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;"><span data-lang-en="✓ Didi (ride-share) cheaper than taxis" data-lang-th="✓ Didi (แชร์รถ) ถูกกว่าแท็กซี่">✓ Didi (ride-share) cheaper than taxis</span></li>
+                            <li style="padding: 0.5rem 0;"><span data-lang-en="✓ Private driver amortized across 3 days = value" data-lang-th="✓ คนขับส่วนตัวแบ่ง 3 วัน = คุ้มค่า">✓ Private driver amortized across 3 days = value</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Per Person Breakdown -->
+            <section class="section">
+                <h2><span data-lang-en="👤 Per Person Cost Breakdown" data-lang-th="👤 ค่าใช้จ่ายต่อคน">👤 Per Person Cost Breakdown</span></h2>
+
+                <div class="cost-table comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-lang-en="Category" data-lang-th="หมวดหมู่">Category</th>
+                                <th data-lang-en="Total (2 pax)" data-lang-th="รวม (2 คน)">Total (2 pax)</th>
+                                <th data-lang-en="Per Person" data-lang-th="ต่อคน">Per Person</th>
+                                <th data-lang-en="% of Budget" data-lang-th="% ของงบประมาณ">% of Budget</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-lang-en="Flights" data-lang-th="เครื่องบิน">Flights</td>
+                                <td>฿ 11,290</td>
+                                <td>฿ 5,645</td>
+                                <td>13.8%</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="High-Speed Rail" data-lang-th="รถไฟความเร็วสูง">High-Speed Rail</td>
+                                <td>฿ 2,216</td>
+                                <td>฿ 1,108</td>
+                                <td>2.7%</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Accommodation (22 nights)" data-lang-th="ที่พัก (22 คืน)">Accommodation (22 nights)</td>
+                                <td>฿ 20,200</td>
+                                <td>฿ 10,100</td>
+                                <td>24.7%</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Activities & Attractions" data-lang-th="กิจกรรมและสถานที่">Activities & Attractions</td>
+                                <td>฿ 12,838</td>
+                                <td>฿ 6,419</td>
+                                <td>15.7%</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Private Driver (3 days)" data-lang-th="คนขับ (3 วัน)">Private Driver (3 days)</td>
+                                <td>฿ 16,500</td>
+                                <td>฿ 8,250</td>
+                                <td>20.2%</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Food & Dining (23 days)" data-lang-th="อาหาร (23 วัน)">Food & Dining (23 days)</td>
+                                <td>฿ 11,500</td>
+                                <td>฿ 5,750</td>
+                                <td>14.1%</td>
+                            </tr>
+                            <tr>
+                                <td data-lang-en="Miscellaneous" data-lang-th="เบ็ดเตล็ด">Miscellaneous</td>
+                                <td>฿ 7,000</td>
+                                <td>฿ 3,500</td>
+                                <td>8.6%</td>
+                            </tr>
+                            <tr style="background: #667eea; color: white; font-weight: 700; font-size: 1.1rem;">
+                                <td data-lang-en="TOTAL" data-lang-th="รวมทั้งหมด">TOTAL</td>
+                                <td>฿ 81,544</td>
+                                <td>฿ 40,772</td>
+                                <td>100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box" style="margin-top: 2rem;">
+                    <h4 data-lang-en="💰 Budget Summary" data-lang-th="💰 สรุปงบประมาณ">💰 Budget Summary</h4>
+                    <p data-lang-en="At ฿40,772 per person for 23 days, this works out to approximately ฿1,773 per day per person - an excellent value for a comprehensive China adventure including flights, quality accommodations, major attractions, private driver, and all meals." data-lang-th="ที่ ฿40,772 ต่อคนสำหรับ 23 วัน คิดเป็นประมาณ ฿1,773 ต่อวันต่อคน - คุ้มค่ามากสำหรับการผจญภัยในจีนแบบครบถ้วน รวมเที่ยวบิน ที่พักคุณภาพ สถานที่สำคัญ คนขับส่วนตัว และอาหารทุกมื้อ">At ฿40,772 per person for 23 days, this works out to approximately ฿1,773 per day per person - an excellent value for a comprehensive China adventure including flights, quality accommodations, major attractions, private driver, and all meals.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 China Trip Planning | Generated with ❤️</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;"><span data-lang-en="Oct 14 - Nov 5, 2025" data-lang-th="14 ต.ค. - 5 พ.ย. 2025">Oct 14 - Nov 5, 2025</span></p>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navContainer = document.querySelector('.nav-container');
+            navContainer.classList.toggle('show');
+        }
+    </script>
+
+    <!-- Language Switcher -->
+    <script src="language-switcher.js"></script>
+</body>
+</html>
