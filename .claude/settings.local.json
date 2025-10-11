@@ -22,7 +22,8 @@
       "mcp__chrome-devtools__navigate_page",
       "mcp__chrome-devtools__evaluate_script",
       "mcp__chrome-devtools__take_screenshot",
-      "Read(//tmp/chrome-devtools-mcp-d5KGpF/**)"
+      "Read(//tmp/chrome-devtools-mcp-d5KGpF/**)",
+      "Bash(mv:*)"
     ],
     "deny": [],
     "ask": []
